@@ -48,7 +48,7 @@ const items = [
         size: 'XXL'
     },
     {
-        id: 'p6',
+        id: 'p7',
         heading: "TSHIRT",
         line: "The Boy Tshirt",
         price: "$" + 799,
