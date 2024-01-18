@@ -47,6 +47,14 @@ const items = [
         image: '/images/image06.webp',
         size: 'XXL'
     },
+    {
+        id: 'p6',
+        heading: "TSHIRT",
+        line: "The Boy Tshirt",
+        price: "$" + 799,
+        image: '/images/image06.webp',
+        size: 'XXL'
+    },
 
 ];
 
