@@ -1,0 +1,59 @@
+import { useState } from 'react';
+import './App.css';
+import { InputForm } from './components/InputForm';
+import { StudentsDatas } from './components/StudentsDatas';
+import data from './components/data';
+import { DisplayData } from './components/DisplayData';
+
+function App() {
+
+  const stdData = data;
+
+
+  const [name, setName] = useState("");
+  const [display, setDisplay] = useState([]);
+  const [card, setCard] = useState(false);
+
+  const getData = (val) => {
+    setName(val)
+  }
+
+
+  const filteredItems = stdData.filter(item =>
+    item["name"].toLowerCase().includes(name.toLowerCase()) || item["id"] == name || item["enrolment"] == name
+  );
+
+  const displayData = (data) => {
+    // console.log(data);?
+    setDisplay(data);
+    setCard(true);
+  }
+
+  const closeCardHandler = () => {
+    setCard(false);
+  }
+
+
+
+  return (
+    <div className="App px-5">
+      <InputForm onGetInput={getData} />
+      <div className='grid grid-cols-3 gap-x-5 mt-5'>
+        {filteredItems.map((item) => {
+          return (
+            <StudentsDatas
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              enrolment={item.enrolment}
+              onGetData={displayData}
+            />
+          )
+        })}
+      </div>
+      {card && <DisplayData onSendData={display} onClick={closeCardHandler} />}
+    </div>
+  );
+}
+
+export default App;
