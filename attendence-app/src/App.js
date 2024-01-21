@@ -16,7 +16,7 @@ function App() {
   const stdData = data;
 
   const getData = (val) => {
-    setName(val)
+    setName(val);
   }
 
 
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App px-5">
       <InputForm onGetInput={getData} />
-      <div className='grid grid-cols-3 gap-x-5 mt-5'>
+      <div className='grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-x-5 mt-5'>
         {filteredItems.map((item) => {
           return (
             <StudentsDatas

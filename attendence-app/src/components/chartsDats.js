@@ -16,7 +16,18 @@ const chartsDats = [
         year: 2018,
         userGain: 9800,
         userLost: 2000
-    }
+    }, {
+        id: 4,
+        year: 2019,
+        userGain: 5000,
+        userLost: 2000
+    },
+    {
+        id: 5,
+        year: 2020,
+        userGain: 2800,
+        userLost: 2000
+    },
 
 ]
 

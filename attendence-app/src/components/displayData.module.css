@@ -1,4 +1,4 @@
-.card{
+/* .card{
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -7,4 +7,14 @@
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
 }
+ */
 
+ #card{
+    left: 25%;
+ }
+
+ @media (max-width: 640px) {
+    #card {
+      left: calc(50% - 10rem);
+    }
+  }

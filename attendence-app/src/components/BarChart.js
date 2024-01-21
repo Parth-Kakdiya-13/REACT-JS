@@ -1,13 +1,26 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 
 export const BarChart = (props) => {
-
+    const options = {
+        options: {
+            responsive: true,
+            // plugins: {
+            //     legend: {
+            //         position: 'top',
+            //     },
+            //     title: {
+            //         display: true,
+            //         text: 'Chart.js Bar Chart'
+            //     }
+            // }
+        },
+    }
 
     return (
-        <div style={{ "width": "600px" }}>
-            <Bar data={props.data} />
+        <div className='w-auto'>
+            <Line data={props.data} config={options} />
         </div>
     )
 }
