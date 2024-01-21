@@ -5,14 +5,15 @@ import { StudentsDatas } from './components/StudentsDatas';
 import data from './components/data';
 import { DisplayData } from './components/DisplayData';
 
-function App() {
 
-  const stdData = data;
+function App() {
 
 
   const [name, setName] = useState("");
   const [display, setDisplay] = useState([]);
   const [card, setCard] = useState(false);
+
+  const stdData = data;
 
   const getData = (val) => {
     setName(val)
@@ -35,6 +36,7 @@ function App() {
 
 
 
+
   return (
     <div className="App px-5">
       <InputForm onGetInput={getData} />
@@ -45,6 +47,7 @@ function App() {
               key={item.id}
               id={item.id}
               name={item.name}
+              image={item.image}
               enrolment={item.enrolment}
               onGetData={displayData}
             />
