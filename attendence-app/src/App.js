@@ -49,6 +49,7 @@ function App() {
               name={item.name}
               image={item.image}
               enrolment={item.enrolment}
+              gitlink={item.gitlink}
               onGetData={displayData}
             />
           )

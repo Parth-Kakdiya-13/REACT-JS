@@ -1,5 +1,4 @@
 import React from 'react';
-import user from '../happy-young-cute-illustration-face-profile-png.webp';
 
 export const StudentsDatas = (props) => {
 

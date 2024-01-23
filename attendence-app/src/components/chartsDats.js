@@ -1,31 +1,31 @@
 const chartsDats = [
     {
         id: 1,
-        year: 2016,
-        userGain: 7800,
+        prestnts: 31,
+        months: "jan",
         userLost: 5000
     },
     {
         id: 2,
-        year: 2017,
-        userGain: 8800,
+        prestnts: 20,
+        months: "feb",
         userLost: 4000
     },
     {
         id: 3,
-        year: 2018,
-        userGain: 9800,
+        prestnts: 18,
+        months: "march",
         userLost: 2000
     }, {
         id: 4,
-        year: 2019,
-        userGain: 5000,
+        prestnts: 10,
+        months: "april",
         userLost: 2000
     },
     {
         id: 5,
-        year: 2020,
-        userGain: 2800,
+        prestnts: 28,
+        months: "may",
         userLost: 2000
     },
 

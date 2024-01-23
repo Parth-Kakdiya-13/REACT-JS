@@ -2,19 +2,34 @@ import React, { useState } from 'react';
 import classes from './displayData.module.css';
 import { BarChart } from './BarChart';
 import chartsDats from './chartsDats';
+import { Button } from './Button';
+import { Achievements } from './Achievements';
 
 export const DisplayData = (props) => {
 
-
+    const [display, setDisplay] = useState(true);
+    const [displayAchieve, setDisplayAchieve] = useState(false);
     const [chartData, setChartData] = useState({
-        labels: chartsDats.map((datas) => datas.year),
+        labels: chartsDats.map((datas) => datas.months),
         datasets: [{
-            label: "User Gained",
-            data: chartsDats.map((datas) => datas.userGain),
+            label: "Attendence Chart",
+            data: chartsDats.map((datas) => datas.prestnts),
         }]
     })
 
-    console.log(props.onSendData);
+    const displayAchivement = () => {
+        setDisplay(false);
+        setDisplayAchieve(true);
+    }
+
+    const displayAtendence = () => {
+        setDisplay(true);
+        setDisplayAchieve(false);
+    }
+
+    // console.log(props.onSendData);
+    const links = props.onSendData.gitlink
+    console.log(links);
     return (
         <>
             <div className='w-screen h-screen bg-gray-500 opacity-50 fixed top-0 left-0 z-40' onClick={props.onClick}></div>
@@ -30,8 +45,17 @@ export const DisplayData = (props) => {
                     </div>
                 </div>
                 <hr />
+                <div className='my-5'>
+                    <Button className='px-5 py-1 gf1 bg-black text-white rounded-lg cursor-pointer' onclick={(e) => {
+                        e.preventDefault();
+                        window.location.href = links;
+                    }}>GitHub</Button>
+                    <Button className='px-5 py-1 gf1 bg-blue-500 text-white rounded-lg cursor-pointer mx-5' onclick={displayAtendence}>Attendence</Button>
+                    <Button className='px-5 py-1 gf1 bg-orange-600 text-white rounded-lg cursor-pointer' onclick={displayAchivement}>Achievement</Button>
+                </div>
                 <div>
-                    <BarChart data={chartData} />
+                    {display && <BarChart data={chartData} />}
+                    {displayAchieve && <Achievements />}
                 </div>
             </div>
         </>
