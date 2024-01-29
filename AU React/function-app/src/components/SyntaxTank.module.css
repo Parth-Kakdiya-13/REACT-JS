@@ -1,0 +1,16 @@
+.water{
+    background-color: cyan;
+    transition: 0.3s all linear;
+}
+
+#sintex::before{
+    content: "Sintex";
+    position: absolute;
+    bottom: 100px;
+    left: 35%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    transform:rotate(180deg)
+}
+
