@@ -3,7 +3,7 @@ import classes from './SyntaxTank.module.css';
 
 
 export const SyntaxTank = ({ onSend }) => {
-    const [persons, setPersons] = useState(0)
+    const [persons, setPersons] = useState(0);
 
     //If water dimemcity in Meter
 
@@ -28,7 +28,7 @@ export const SyntaxTank = ({ onSend }) => {
 
     const totalWater = Math.floor(pi * r ** r * wH * _1Mcube);
 
-    let capacity = 100 * totalWater / quantityOfWater;
+    let capacity = 100 * totalWater / quantityOfWater + "%";
     // capacity = Number.parseInt(capacity) + "%";
 
 
@@ -36,15 +36,19 @@ export const SyntaxTank = ({ onSend }) => {
         setPersons(val);
     }
 
-    let perpersonswater;
-    if (totalWater < 0) {
-        perpersonswater = 0
-    } else {
-        perpersonswater = totalWater / persons
-    }
+    let perpersonswater = 0;
+    perpersonswater = totalWater / persons
+
+
+
+
 
     return (
-        <div className='my-12'>
+        <div className='my-12 p-5 rounded-xl bg-gray-100 flex flex-col items-center justify-center'>
+            {/* <div className='relative'>
+                <img src="null.png" className='w-1/5' alt="" />
+                <img src="balenciaga-claudiamate.gif" className='h-20' alt="" />
+            </div> */}
             <div className=' relative border-2 border-black rounded-b-full overflow-hidden' id={classes.sintex} style={{ width: tankw, height: tankh, transform: 'rotate(180deg)' }}>
 
                 <div className={classes.water} style={{ height: capacity }}></div>
@@ -53,15 +57,15 @@ export const SyntaxTank = ({ onSend }) => {
 
             <div className='mt-5'>
                 <div className='flex flex-col items-start'>
-                    <span className='  text-xl text-center'><span className='text-2xl font-semibold'>Capacity : </span>{quantityOfWater} Ltrs</span>
-                    <span className=' top-20 left-20 text-xl  text-center'><span className='text-2xl font-semibold'>Volune of water : </span>{totalWater} Ltrs</span>
+                    <span className='  text-xl text-center'><span className='text-2xl font-semibold'>Capacity : </span>{quantityOfWater > 0 ? quantityOfWater : 0} Ltrs</span>
+                    <span className=' top-20 left-20 text-xl  text-center'><span className='text-2xl font-semibold'>Volune of water : </span>{totalWater > 0 ? totalWater : 0} Ltrs</span>
                 </div>
                 <div className='flex items-start py-5'>
-                    <span className='text-xl'><span className='text-xl font-bold'>{perpersonswater}</span> liters per Person</span>
+                    <span className='text-xl'><span className='text-xl font-bold'>{perpersonswater > 0 ? perpersonswater : 0}</span> liters per Person</span>
                 </div>
                 <form className='flex flex-col items-start mt-5'>
                     <label className='text-3xl'>Enter no. of persons in PG</label>
-                    <input type='text' className='border-2 mt-2' onChange={(e) => getPersons(e.target.value)} />
+                    <input type='text' className='border border-black w-full p-1 rounded-lg block mt-2' onChange={(e) => getPersons(e.target.value)} />
                 </form>
             </div>
         </div >
