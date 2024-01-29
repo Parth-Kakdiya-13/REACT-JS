@@ -23,13 +23,13 @@ export const SyntaxTank = ({ onSend }) => {
     //we know that 1mcube(3) = 1000 liters
     //so quantity of water = volume_of_tank * 1000
 
-    const volume_of_tank = pi * r ** r * h; // mcube(3)
+    const volume_of_tank = pi * r ** 2 * h; //  we get ans. in cubic meter 1mcube(3) = 1000 liters
+    console.log(volume_of_tank);
     let quantityOfWater = Math.floor(volume_of_tank * _1Mcube)
 
     const totalWater = Math.floor(pi * r ** r * wH * _1Mcube);
 
     let capacity = 100 * totalWater / quantityOfWater + "%";
-    // capacity = Number.parseInt(capacity) + "%";
 
 
     const getPersons = (val) => {
