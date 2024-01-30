@@ -45,7 +45,7 @@ export const Login = (props) => {
         event.preventDefault();
         // props.onLogin(enteredEmail, enteredPass);
         firebase.signUpwithEmailaAndPassword(enteredEmail, enteredPass);
-        firebase.putData("user/", { enteredEmail, enteredPass })
+        firebase.putData("user/","user", { enteredEmail, enteredPass })
     }
 
 
