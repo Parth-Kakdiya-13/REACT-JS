@@ -1,16 +1,15 @@
 import './App.css'; // Your custom styles
+import { Demo } from './components/Demo';
 import { Login } from './components/Login';
-import { ContextProvider } from './components/context/userContext';
 
 const LoginPage = () => {
 
 
   return (
-    <ContextProvider>
-      <div>
-        <Login />
-      </div>
-    </ContextProvider>
+    <div>
+      {/* <Login /> */}
+      <Demo />
+    </div>
   );
 };
 
