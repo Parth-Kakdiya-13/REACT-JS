@@ -3,6 +3,7 @@ import { CurricularActivities } from './components/Pages/CurricularActivities';
 import { DisplayData } from './components/Pages/DisplayData';
 import { StudentObjective } from './components/Pages/StudentObjective';
 import { StudetnDetails } from './components/Pages/StudetnDetails';
+import { SemesterWiserecord } from './components/Pages/SemesterWiserecord';
 
 const App = () => {
 
@@ -15,10 +16,11 @@ const App = () => {
 
   return (
     <div>
-      <StudetnDetails/>
+      <StudetnDetails />
       <CurricularActivities />
       <StudentObjective />
       {/* <DisplayData onSendData={send} /> */}
+      <SemesterWiserecord />
     </div>
   );
 };

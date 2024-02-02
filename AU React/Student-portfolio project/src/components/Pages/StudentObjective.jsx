@@ -66,8 +66,8 @@ export const StudentObjective = () => {
         content = adddetails.map((items, index) => {
             return (
                 <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td className='w-40'>{items.title}</td>
+                    <td className='w-10 text-md font-bold'>{index + 1}</td>
+                    <td className='w-40 text-md font-bold'>{items.title}</td>
                     <td><textarea value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
                     <td><textarea value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
                     <td><textarea value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
@@ -79,8 +79,8 @@ export const StudentObjective = () => {
         content = adddetails.map((items, index) => {
             return (
                 <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td className='w-40'>{items.title}</td>
+                    <td className='w-10 font-bold text-md'>{index + 1}</td>
+                    <td className='w-40 text-md font-bold'>{items.title}</td>
                     <td><p>{items.firstYear}</p></td>
                     <td><p>{items.secondYear}</p></td>
                     <td><p>{items.thirdYear}</p></td>

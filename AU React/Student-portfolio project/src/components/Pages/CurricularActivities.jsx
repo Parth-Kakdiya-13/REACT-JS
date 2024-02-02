@@ -53,7 +53,7 @@ export function CurricularActivities() {
         content = <tbody>
             {inputFields.map((inputField, index) => (
                 <tr key={index}>
-                    <td>
+                    <td className='text-md font-bold'>
                         {index + 1}
                     </td>
                     <td className='w-16'>
@@ -91,7 +91,7 @@ export function CurricularActivities() {
         content = <tbody>
             {inputFields.map((inputField, index) => (
                 <tr key={index}>
-                    <td>
+                    <td className='text-md font-bold'>
                         {index + 1}
                     </td>
                     <td className='w-16'>
