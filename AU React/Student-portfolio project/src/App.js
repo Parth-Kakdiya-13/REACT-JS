@@ -1,16 +1,24 @@
-import './App.css'; // Your custom styles
-import { Demo } from './components/Demo';
-import { Login } from './components/Login';
+import { useState } from 'react';
+import { CurricularActivities } from './components/Pages/CurricularActivities';
+import { DisplayData } from './components/Pages/DisplayData';
+import { StudentObjective } from './components/Pages/StudentObjective';
 
-const LoginPage = () => {
+const App = () => {
 
+  // const [send, setSend] = useState([]);
+
+  // const getData = (val) => {
+  //   // console.log(val);
+  //   setSend(val);
+  // }
 
   return (
     <div>
-      {/* <Login /> */}
-      <Demo />
+      <CurricularActivities />
+      <StudentObjective />
+      {/* <DisplayData onSendData={send} /> */}
     </div>
   );
 };
 
-export default LoginPage;
+export default App;
