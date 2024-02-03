@@ -54,7 +54,7 @@ export const StudentObjective = () => {
         setAddDetails(values)
     }
 
-    console.log(adddetails);
+    // console.log(adddetails);
 
     let content;
 
@@ -68,10 +68,10 @@ export const StudentObjective = () => {
                 <tr key={index}>
                     <td>{index + 1}</td>
                     <td className='w-40'>{items.title}</td>
-                    <td><textarea value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" /></td>
-                    <td><textarea value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" /></td>
-                    <td><textarea value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" /></td>
-                    <td><textarea value={items.fourthYear} name='fourthYear' onChange={(e) => changeHandler(e, index)} rows="4" /></td>
+                    <td><textarea value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea value={items.fourthYear} name='fourthYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
                 </tr>
             )
         })
@@ -106,50 +106,8 @@ export const StudentObjective = () => {
                     {content}
                 </tbody>
             </table>
-            <button type='button' className='px-3 py-1 bg-orange-500 rounded-xl mx-1 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            <button type='button' className='px-5 py-1 bg-orange-500 mt-2 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
         </div >
     )
 }
 
-{/* <table>
-                <tr>
-                    <th>Sr. no</th>
-                    <th>Parameter</th>
-                    <th>First Year</th>
-                    <th>Second Year</th>
-                    <th>Third Year</th>
-                    <th>Fourth Year</th>
-                </tr>
-                <tr>
-                    <td>1.</td>
-                    <td>Student's Career Objectives</td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>If interested in job - Type of Domain Area and Job profile he/she is interested to work</td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                </tr>
-                <tr>
-                    <td>3.</td>
-                    <td>Challenges preceived in achieving Career Objectives</td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                </tr>
-                <tr>
-                    <td>4.</td>
-                    <td>Planning and efforts towards achieving Objectives</td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                    <td><input name='' value="" onChange={(e) => changeHandler(e)} /></td>
-                </tr>
-            </table> */}

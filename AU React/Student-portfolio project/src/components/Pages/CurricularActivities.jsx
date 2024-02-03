@@ -81,8 +81,8 @@ export function CurricularActivities() {
                         </select>
                     </td>
                     <td>
-                        <button type='button' className='w-16 py-1 bg-orange-500 rounded-xl mx-1 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
-                        <button type='button' className='w-16 py-1 bg-orange-500 rounded-xl mx-1 text-white' >Delete</button>
+                        <button type='button' className='w-16 py-1 bg-orange-500  mx-1 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+                        <button type='button' className='w-16 py-1 bg-orange-500  mx-1 text-white' >Delete</button>
                     </td>
                 </tr>
             ))}
@@ -110,8 +110,8 @@ export function CurricularActivities() {
                         <p className='uppercase'>{inputField.value4}</p>
                     </td>
                     <td>
-                        <button type='button' className='w-16 py-1 bg-orange-500 rounded-xl mx-1 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
-                        <button type='button' className='w-16 py-1 bg-orange-500 rounded-xl mx-1 text-white' >Delete</button>
+                        <button type='button' className='w-16 py-1 bg-orange-500 mx-1 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+                        <button type='button' className='w-16 py-1 bg-orange-500 mx-1 text-white' >Delete</button>
                     </td>
                 </tr>
             ))}
@@ -139,7 +139,7 @@ export function CurricularActivities() {
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>Co-Curricular/ Extra Curricular Activities Records</h1>
             <form>
-                <table>
+                <table className="table-auto">
                     <thead>
                         <tr>
                             <th>Sr no.</th>
@@ -153,10 +153,10 @@ export function CurricularActivities() {
                     </thead>
                     {content}
                 </table>
-                <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 rounded-xl' onClick={handleAddFields}>
+                <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 mr-2' onClick={handleAddFields}>
                     + Add
                 </button>
-                <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 rounded-xl'>
+                <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1'>
                     Submit
                 </button>
             </form>
