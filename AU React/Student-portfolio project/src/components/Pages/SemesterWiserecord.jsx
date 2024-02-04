@@ -7,96 +7,96 @@ export const SemesterWiserecord = () => {
     const initialTitles = [
         {
             title: "Fees Paid",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Attendence",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         }, {
             title: "CIA-1",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "CIA-2",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "SPI",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "CPI",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Backlog (In nos.)",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Backlog Cleared in Summer / Winter AY. No.of courses cleared",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         }
     ];
 
 
     const [addData, setAddData] = useState(initialTitles);
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(true);
 
     const changeHandler = (event, index) => {
         let values = [...addData];
@@ -132,14 +132,14 @@ export const SemesterWiserecord = () => {
             return <tr key={index}>
                 {/* <td>{index + 1}</td> */}
                 <td className='w-40 text-md font-bold'>{data.title}</td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem1' rows='3' cols='4' value={data.sem_1} onChange={(e) => changeHandler(e, index)}>{data.sem_1}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem2' rows='3' cols='4' value={data.sem_2} onChange={(e) => changeHandler(e, index)}>{data.sem_2}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem3' rows='3' cols='4' value={data.sem_3} onChange={(e) => changeHandler(e, index)}>{data.sem_3}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem4' rows='3' cols='4' value={data.sem_4} onChange={(e) => changeHandler(e, index)}>{data.sem_4}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem5' rows='3' cols='4' value={data.sem_5} onChange={(e) => changeHandler(e, index)}>{data.sem_5}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem6' rows='3' cols='4' value={data.sem_6} onChange={(e) => changeHandler(e, index)}>{data.sem_6}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem7' rows='3' cols='4' value={data.sem_7} onChange={(e) => changeHandler(e, index)}>{data.sem_7}</textarea></td>
-                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem8' rows='3' cols='4' value={data.sem_8} onChange={(e) => changeHandler(e, index)}>{data.sem_8}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem1' rows='3' cols='4' value={data.sem_1} onChange={(e) => changeHandler(e, index)}>{data.sem_1}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem2' rows='3' cols='4' value={data.sem_2} onChange={(e) => changeHandler(e, index)}>{data.sem_2}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem3' rows='3' cols='4' value={data.sem_3} onChange={(e) => changeHandler(e, index)}>{data.sem_3}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem4' rows='3' cols='4' value={data.sem_4} onChange={(e) => changeHandler(e, index)}>{data.sem_4}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem5' rows='3' cols='4' value={data.sem_5} onChange={(e) => changeHandler(e, index)}>{data.sem_5}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem6' rows='3' cols='4' value={data.sem_6} onChange={(e) => changeHandler(e, index)}>{data.sem_6}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem7' rows='3' cols='4' value={data.sem_7} onChange={(e) => changeHandler(e, index)}>{data.sem_7}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem8' rows='3' cols='4' value={data.sem_8} onChange={(e) => changeHandler(e, index)}>{data.sem_8}</textarea></td>
             </tr>
         })
     } else {
@@ -162,10 +162,10 @@ export const SemesterWiserecord = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>Semester Wise Acadmic Records</h1>
-            <div className='bg-slate-300 p-10'>
+            <div className='bg-slate-200 p-10'>
                 <table>
                     <tbody>
-                        <tr className='bg-slate-200'>
+                        <tr className='bg-slate-100'>
                             <th></th>
                             <th>Sem-1</th>
                             <th>Sem-2</th>

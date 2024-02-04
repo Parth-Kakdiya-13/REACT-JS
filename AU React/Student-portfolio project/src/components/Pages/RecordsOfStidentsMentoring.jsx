@@ -14,7 +14,7 @@ export function RecordsOfStidentsMentoring() {
         value5: ''
     }
     const [inputFields, setInputFields] = useState([initialValues]);
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(true);
 
     const handleChange = (index, event) => {
         const { name, value } = event.target;
@@ -55,22 +55,22 @@ export function RecordsOfStidentsMentoring() {
                         {index + 1}
                     </td>
                     <td className='w-16'>
-                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value0" value={inputField.value0} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value0" value={inputField.value0} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/4'>
-                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value1" value={inputField.value1} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value1" value={inputField.value1} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value2" value={inputField.value2} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value2" value={inputField.value2} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value3" value={inputField.value3} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value3" value={inputField.value3} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value4" value={inputField.value4} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value4" value={inputField.value4} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <input className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value5" value={inputField.value5} onChange={(event) => handleChange(index, event)} />
+                        <input className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value5" value={inputField.value5} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='flex flex-col items-center justify-center gap-2'>
                         <button type='button' className={`w-16 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
@@ -134,10 +134,10 @@ export function RecordsOfStidentsMentoring() {
     return (
         <div className='max-w-7xl mx-auto '>
             <h1 className='text-center font-serif text-3xl py-5'>Records Of Students Mentoring</h1>
-            <form className='p-10 bg-slate-300'>
+            <form className='p-10 bg-slate-200'>
                 <table className="table-auto">
                     <tbody className='bg-white'>
-                        <tr className='bg-slate-200'>
+                        <tr className='bg-slate-100'>
                             <th>Sr no.</th>
                             <th>Date Of Meeting</th>
                             <th>Agenda / Topic Of Discussion</th>

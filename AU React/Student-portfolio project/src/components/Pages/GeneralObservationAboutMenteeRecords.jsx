@@ -5,87 +5,87 @@ export const GeneralObservationAboutMenteeRecords = () => {
     let general_observation = [
         {
             title: "Communication Skill",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Discipline/Behaviour/Student-teacher interaction",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Professional attitude",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Quality of Interest and involvement in studies",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Physical Health/General Fitness",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Protected against Addiction(smoking/gaming etc)",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         },
         {
             title: "Harmony in Personal and Family Life",
-            sem_1: "Enter value...",
-            sem_2: "Enter value...",
-            sem_3: "Enter value...",
-            sem_4: "Enter value...",
-            sem_5: "Enter value...",
-            sem_6: "Enter value...",
-            sem_7: "Enter value...",
-            sem_8: "Enter value..."
+            sem_1: "",
+            sem_2: "",
+            sem_3: "",
+            sem_4: "",
+            sem_5: "",
+            sem_6: "",
+            sem_7: "",
+            sem_8: ""
         }
     ];
 
 
     const [data, setData] = useState(general_observation);
 
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(true);
 
     const editingHandler = () => {
         setIsEditing((editing) => !editing)
@@ -123,14 +123,14 @@ export const GeneralObservationAboutMenteeRecords = () => {
             return <tr key={index}>
                 <td className=' text-md font-bold'>{index + 1}</td>
                 <td className='w-40 text-md font-bold'>{items.title}</td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_1' value={items.sem_1} onChange={(e) => changeHandler(e, index)}>{items.sem_1}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_2' value={items.sem_2} onChange={(e) => changeHandler(e, index)}>{items.sem_2}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_3' value={items.sem_3} onChange={(e) => changeHandler(e, index)}>{items.sem_3}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_4' value={items.sem_4} onChange={(e) => changeHandler(e, index)}>{items.sem_4}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_5' value={items.sem_5} onChange={(e) => changeHandler(e, index)}>{items.sem_5}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_6' value={items.sem_6} onChange={(e) => changeHandler(e, index)}>{items.sem_6}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_7' value={items.sem_7} onChange={(e) => changeHandler(e, index)}>{items.sem_7}</textarea></td>
-                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_8' value={items.sem_8} onChange={(e) => changeHandler(e, index)}>{items.sem_8}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_1' value={items.sem_1} onChange={(e) => changeHandler(e, index)}>{items.sem_1}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_2' value={items.sem_2} onChange={(e) => changeHandler(e, index)}>{items.sem_2}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_3' value={items.sem_3} onChange={(e) => changeHandler(e, index)}>{items.sem_3}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_4' value={items.sem_4} onChange={(e) => changeHandler(e, index)}>{items.sem_4}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_5' value={items.sem_5} onChange={(e) => changeHandler(e, index)}>{items.sem_5}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_6' value={items.sem_6} onChange={(e) => changeHandler(e, index)}>{items.sem_6}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_7' value={items.sem_7} onChange={(e) => changeHandler(e, index)}>{items.sem_7}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_8' value={items.sem_8} onChange={(e) => changeHandler(e, index)}>{items.sem_8}</textarea></td>
             </tr>
         })
     } else {
@@ -154,10 +154,10 @@ export const GeneralObservationAboutMenteeRecords = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>General Observation And Mantee Records(Confidential)</h1>
-            <div className='bg-slate-300 p-10'>
+            <div className='bg-slate-200 p-10'>
                 <table>
                     <tbody>
-                        <tr className='bg-slate-200'>
+                        <tr className='bg-slate-100'>
                             <th rowSpan="2">Sr no.</th>
                             <th rowSpan="2">Details</th>
                             <th className='text-center' colSpan="8">Marking from 1 to 5</th>

@@ -7,36 +7,36 @@ export const StudentObjective = () => {
     const activities = [
         {
             title: "Student's Career Objectives",
-            firstYear: "13",
-            secondYear: "23",
-            thirdYear: "33",
-            fourthYear: "44",
+            firstYear: "",
+            secondYear: "",
+            thirdYear: "",
+            fourthYear: "",
         },
         {
             title: "If interested in job - Type of Domain Area and Job profile he/she is interested to work",
-            firstYear: "55",
-            secondYear: "22",
-            thirdYear: "33",
-            fourthYear: "21",
+            firstYear: "",
+            secondYear: "",
+            thirdYear: "",
+            fourthYear: "",
         },
         {
             title: "Challenges preceived in achieving Career Objectives",
-            firstYear: "11",
-            secondYear: "12",
-            thirdYear: "13",
-            fourthYear: "14",
+            firstYear: "",
+            secondYear: "",
+            thirdYear: "",
+            fourthYear: "",
         },
         {
             title: "Planning and efforts towards achieving Objectives",
-            firstYear: "22",
-            secondYear: "23",
-            thirdYear: "24",
-            fourthYear: "25",
+            firstYear: "",
+            secondYear: "",
+            thirdYear: "",
+            fourthYear: "",
         },
     ]
 
 
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(true);
     const [adddetails, setAddDetails] = useState(activities)
 
     const changeHandler = (event, index) => {
@@ -68,10 +68,10 @@ export const StudentObjective = () => {
                 <tr key={index}>
                     <td className='w-10 text-md font-bold'>{index + 1}</td>
                     <td className='w-40 text-md font-bold'>{items.title}</td>
-                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
-                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
-                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
-                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.fourthYear} name='fourthYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100  text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.fourthYear} name='fourthYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
                 </tr>
             )
         })
@@ -93,10 +93,10 @@ export const StudentObjective = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>Student's Career Objective & Planning Record</h1>
-            <div className='bg-slate-300 p-10'>
+            <div className='bg-slate-200 p-10'>
                 <table>
                     <tbody>
-                        <tr className='bg-slate-200'>
+                        <tr className='bg-slate-100'>
                             <th>Sr. no</th>
                             <th>Parameter</th>
                             <th>First Year</th>
