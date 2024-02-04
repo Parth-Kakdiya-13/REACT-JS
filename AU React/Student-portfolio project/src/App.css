@@ -1,5 +1,11 @@
 /* body{
     background-image: url('../public/vecteezy_flat-lay-top-view-office-table-workspace-with-blank_5107588.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw 100%;
+    background-attachment: fixed;
 } */
+
+*{
+    margin: 0;
+    padding: 0;
+}

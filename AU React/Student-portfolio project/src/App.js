@@ -1,31 +1,34 @@
 import { CurricularActivities } from './components/Pages/CurricularActivities';
-// import { DisplayData } from './components/Pages/DisplayData';
 import { StudentObjective } from './components/Pages/StudentObjective';
 import { StudetnDetails } from './components/Pages/StudetnDetails';
 import { SemesterWiserecord } from './components/Pages/SemesterWiserecord';
 import { SemesterWiseAcadmicRecordsOfUniversityLevel } from './components/Pages/SemesterWiseAcadmicRecordsOfUniversityLevel';
 import { GeneralObservationAboutMenteeRecords } from './components/Pages/GeneralObservationAboutMenteeRecords';
 import { RecordsOfStidentsMentoring } from './components/Pages/RecordsOfStidentsMentoring';
+import { Login } from './components/Pages/Login';
+import './App.css'
+import { useState } from 'react';
 
 const App = () => {
 
-  // const [send, setSend] = useState([]);
+  const [login, setLogin] = useState(false);
 
-  // const getData = (val) => {
-  //   // console.log(val);
-  //   setSend(val);
-  // }
+  const loginHandler = () => {
+    setLogin(true);
+  }
+
 
   return (
     <div>
-      <StudetnDetails />
-      <CurricularActivities />
-      <StudentObjective />
-      {/* <DisplayData onSendData={send} /> */}
-      <SemesterWiserecord />
-      <SemesterWiseAcadmicRecordsOfUniversityLevel />
-      <GeneralObservationAboutMenteeRecords />
-      <RecordsOfStidentsMentoring />
+      {login ? '' : <Login onLogin={loginHandler} />}
+      {login && <><StudetnDetails />
+        <CurricularActivities />
+        <StudentObjective />
+        <SemesterWiserecord />
+        <SemesterWiseAcadmicRecordsOfUniversityLevel />
+        <GeneralObservationAboutMenteeRecords />
+        <RecordsOfStidentsMentoring />
+      </>}
     </div>
   );
 };
