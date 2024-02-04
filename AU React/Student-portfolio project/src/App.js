@@ -5,6 +5,7 @@ import { StudetnDetails } from './components/Pages/StudetnDetails';
 import { SemesterWiserecord } from './components/Pages/SemesterWiserecord';
 import { SemesterWiseAcadmicRecordsOfUniversityLevel } from './components/Pages/SemesterWiseAcadmicRecordsOfUniversityLevel';
 import { GeneralObservationAboutMenteeRecords } from './components/Pages/GeneralObservationAboutMenteeRecords';
+import { RecordsOfStidentsMentoring } from './components/Pages/RecordsOfStidentsMentoring';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
       <SemesterWiserecord />
       <SemesterWiseAcadmicRecordsOfUniversityLevel />
       <GeneralObservationAboutMenteeRecords />
+      <RecordsOfStidentsMentoring />
     </div>
   );
 };

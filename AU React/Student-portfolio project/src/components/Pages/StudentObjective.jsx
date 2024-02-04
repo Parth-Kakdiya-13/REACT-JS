@@ -68,10 +68,10 @@ export const StudentObjective = () => {
                 <tr key={index}>
                     <td className='w-10 text-md font-bold'>{index + 1}</td>
                     <td className='w-40 text-md font-bold'>{items.title}</td>
-                    <td><textarea value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
-                    <td><textarea value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
-                    <td><textarea value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
-                    <td><textarea value={items.fourthYear} name='fourthYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.firstYear} name='firstYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.secondYear} name='secondYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.thirdYear} name='thirdYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
+                    <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' value={items.fourthYear} name='fourthYear' onChange={(e) => changeHandler(e, index)} rows="4" cols="4" /></td>
                 </tr>
             )
         })
@@ -93,20 +93,22 @@ export const StudentObjective = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>Student's Career Objective & Planning Record</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Sr. no</th>
-                        <th>Parameter</th>
-                        <th>First Year</th>
-                        <th>Second Year</th>
-                        <th>Third Year</th>
-                        <th>Fourth Year</th>
-                    </tr>
-                    {content}
-                </tbody>
-            </table>
-            <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            <div className='bg-slate-300 p-10'>
+                <table>
+                    <tbody>
+                        <tr className='bg-slate-200'>
+                            <th>Sr. no</th>
+                            <th>Parameter</th>
+                            <th>First Year</th>
+                            <th>Second Year</th>
+                            <th>Third Year</th>
+                            <th>Fourth Year</th>
+                        </tr>
+                        {content}
+                    </tbody>
+                </table>
+                <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            </div>
         </div >
     )
 }

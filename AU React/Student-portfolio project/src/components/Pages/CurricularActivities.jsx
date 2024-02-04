@@ -65,10 +65,10 @@ export function CurricularActivities() {
                         </select>
                     </td>
                     <td className='w-1/4'>
-                        <input className='border w-full border-gray-500 uppercase' name="value1" value={inputField.value1} onChange={(event) => handleChange(index, event)} />
+                        <input className='border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value1" value={inputField.value1} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <input className='border w-full border-gray-500 uppercase' name="value2" value={inputField.value2} onChange={(event) => handleChange(index, event)} />
+                        <input className='border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value2" value={inputField.value2} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-40'>
                         <input type="date" name="value3" value={inputField.value3} onChange={(event) => handleChange(index, event)} />
@@ -138,10 +138,10 @@ export function CurricularActivities() {
     return (
         <div className='max-w-7xl mx-auto '>
             <h1 className='text-center font-serif text-3xl py-5'>Co-Curricular/ Extra Curricular Activities Records</h1>
-            <form className='p-5 bg-slate-200'>
+            <form className='p-10 bg-slate-300'>
                 <table className="table-auto">
                     <tbody className='bg-white'>
-                        <tr>
+                        <tr className='bg-slate-200'>
                             <th>Sr no.</th>
                             <th>Sem</th>
                             <th>Details(Name of the Event/Conference/Symposium etc.)</th>

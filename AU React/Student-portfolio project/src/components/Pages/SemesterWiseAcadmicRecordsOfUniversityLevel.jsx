@@ -172,17 +172,17 @@ export const SemesterWiseAcadmicRecordsOfUniversityLevel = () => {
         content = value.map((items, index) => {
             return <tr key={index}>
                 <td className='text-md font-bold'>{items.sem}</td>
-                <td><textarea name='sdg' value={items.sdg} onChange={(e) => changeHandler(e, index)}>{items.sdg}</textarea></td>
-                <td><textarea name='hvhl' value={items.hvhl} onChange={(e) => changeHandler(e, index)}>{items.hvhl}</textarea></td>
-                <td><textarea name='cap' value={items.cap} onChange={(e) => changeHandler(e, index)}>{items.cap}</textarea></td>
-                <td><textarea name='vac' value={items.vac} onChange={(e) => changeHandler(e, index)}>{items.vac}</textarea></td>
-                <td><textarea name='coc' value={items.coc} onChange={(e) => changeHandler(e, index)}>{items.coc}</textarea></td>
-                <td><textarea name='c2p' value={items.c2p} onChange={(e) => changeHandler(e, index)}>{items.c2p}</textarea></td>
-                <td><textarea name='ge' value={items.ge} onChange={(e) => changeHandler(e, index)}>{items.ge}</textarea></td>
-                <td><textarea name='socialinternship' value={items.socialinternship} onChange={(e) => changeHandler(e, index)}>{items.socialinternship}</textarea></td>
-                <td><textarea name='industrialtraining1' value={items.industrialtraining1} onChange={(e) => changeHandler(e, index)}>{items.industrialtraining1}</textarea></td>
-                <td><textarea name='industrialtraining2' value={items.industrialtraining2} onChange={(e) => changeHandler(e, index)}>{items.industrialtraining2}</textarea></td>
-                <td><textarea name='projectwork' value={items.projectwork} onChange={(e) => changeHandler(e, index)}>{items.projectwork}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sdg' value={items.sdg} onChange={(e) => changeHandler(e, index)}>{items.sdg}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='hvhl' value={items.hvhl} onChange={(e) => changeHandler(e, index)}>{items.hvhl}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='cap' value={items.cap} onChange={(e) => changeHandler(e, index)}>{items.cap}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='vac' value={items.vac} onChange={(e) => changeHandler(e, index)}>{items.vac}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='coc' value={items.coc} onChange={(e) => changeHandler(e, index)}>{items.coc}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='c2p' value={items.c2p} onChange={(e) => changeHandler(e, index)}>{items.c2p}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='ge' value={items.ge} onChange={(e) => changeHandler(e, index)}>{items.ge}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='socialinternship' value={items.socialinternship} onChange={(e) => changeHandler(e, index)}>{items.socialinternship}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='industrialtraining1' value={items.industrialtraining1} onChange={(e) => changeHandler(e, index)}>{items.industrialtraining1}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='industrialtraining2' value={items.industrialtraining2} onChange={(e) => changeHandler(e, index)}>{items.industrialtraining2}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='projectwork' value={items.projectwork} onChange={(e) => changeHandler(e, index)}>{items.projectwork}</textarea></td>
             </tr>
         })
     } else {
@@ -208,26 +208,28 @@ export const SemesterWiseAcadmicRecordsOfUniversityLevel = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>Semester Wise Acadmic Records Of University Level Mandatory Courses</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>SEM</th>
-                        <th>SDG</th>
-                        <th>HVHL</th>
-                        <th>CAP</th>
-                        <th>VAC</th>
-                        <th>COC</th>
-                        <th>C2P</th>
-                        <th>GE</th>
-                        <th>SOCIAL INTERNSHIP</th>
-                        <th>INDUSTRIAL TRAINING 1</th>
-                        <th>INDUSTRIAL TRAINING 2</th>
-                        <th>PROJECT WORK</th>
-                    </tr>
-                    {content}
-                </tbody>
-            </table>
-            <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            <div className='bg-slate-300 p-10'>
+                <table>
+                    <tbody>
+                        <tr className='bg-slate-200'>
+                            <th>SEM</th>
+                            <th>SDG</th>
+                            <th>HVHL</th>
+                            <th>CAP</th>
+                            <th>VAC</th>
+                            <th>COC</th>
+                            <th>C2P</th>
+                            <th>GE</th>
+                            <th>SOCIAL INTERNSHIP</th>
+                            <th>INDUSTRIAL TRAINING 1</th>
+                            <th>INDUSTRIAL TRAINING 2</th>
+                            <th>PROJECT WORK</th>
+                        </tr>
+                        {content}
+                    </tbody>
+                </table>
+                <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            </div>
         </div>
     )
 }

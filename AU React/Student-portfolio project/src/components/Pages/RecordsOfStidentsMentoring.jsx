@@ -10,7 +10,8 @@ export function RecordsOfStidentsMentoring() {
         value1: '',
         value2: '',
         value3: '',
-        value4: ''
+        value4: '',
+        value5: ''
     }
     const [inputFields, setInputFields] = useState([initialValues]);
     const [isEditing, setIsEditing] = useState(false);
@@ -27,20 +28,17 @@ export function RecordsOfStidentsMentoring() {
             values[index].value2 = value;
         } else if (name == "value3") {
             values[index].value3 = value;
-        } else {
+        } else if (name == "value4") {
             values[index].value4 = value;
+        } else {
+            values[index].value5 = value;
         }
         setInputFields(values);
-        // setInputFields((pre) => {
-        //     return [...pre, {
-        //         id: nextId++
-        //     }]
-        // });
+
 
     };
-    // props.ongetData(inputFields)
 
-    // console.log(inputFields);
+    console.log(inputFields);
 
 
     //////////////////////////////
@@ -57,30 +55,24 @@ export function RecordsOfStidentsMentoring() {
                         {index + 1}
                     </td>
                     <td className='w-16'>
-                        <select id="cars" name="value0" value={inputField.value0} onChange={(event) => handleChange(index, event)}>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                        </select>
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value0" value={inputField.value0} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/4'>
-                        <input className='border w-full border-gray-500 uppercase' name="value1" value={inputField.value1} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value1" value={inputField.value1} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <input className='border w-full border-gray-500 uppercase' name="value2" value={inputField.value2} onChange={(event) => handleChange(index, event)} />
-                    </td>
-                    <td className='w-40'>
-                        <input type="date" name="value3" value={inputField.value3} onChange={(event) => handleChange(index, event)} />
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value2" value={inputField.value2} onChange={(event) => handleChange(index, event)} />
                     </td>
                     <td className='w-1/6'>
-                        <select id="cars" name="value4" value={inputField.value4} onChange={(event) => handleChange(index, event)}>
-                            <option value="University">University</option>
-                            <option value="State">State</option>
-                            <option value="National">National</option>
-                        </select>
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value3" value={inputField.value3} onChange={(event) => handleChange(index, event)} />
                     </td>
-                    <td>
+                    <td className='w-1/6'>
+                        <input type='text' className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value4" value={inputField.value4} onChange={(event) => handleChange(index, event)} />
+                    </td>
+                    <td className='w-1/6'>
+                        <input className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name="value5" value={inputField.value5} onChange={(event) => handleChange(index, event)} />
+                    </td>
+                    <td className='flex flex-col items-center justify-center gap-2'>
                         <button type='button' className={`w-16 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
                         <button type='button' className='w-16 py-1 bg-orange-500  mx-1 text-white' >Delete</button>
                     </td>
@@ -103,13 +95,16 @@ export function RecordsOfStidentsMentoring() {
                     <td className='w-1/6'>
                         <p className='uppercase'>{inputField.value2}</p>
                     </td>
-                    <td className='w-40'>
+                    <td className='w-1/6'>
                         <p className='uppercase'>{inputField.value3}</p>
                     </td>
                     <td className='w-1/6 '>
                         <p className='uppercase'>{inputField.value4}</p>
                     </td>
-                    <td>
+                    <td className='w-1/6 '>
+                        <p className='uppercase'>{inputField.value5}</p>
+                    </td>
+                    <td className='flex flex-col items-center justify-center gap-2'>
                         <button type='button' className={`w-16 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
                         <button type='button' className='w-16 py-1 bg-orange-500 mx-1 text-white' >Delete</button>
                     </td>
@@ -126,29 +121,31 @@ export function RecordsOfStidentsMentoring() {
     const handleAddFields = () => {
         setInputFields([...inputFields, {
             id: nextId++,
-            value0: '1',
+            value0: '',
             value1: '',
             value2: '',
             value3: '',
-            value4: ''
+            value4: '',
+            value5: ''
         }]);
     };
 
 
     return (
         <div className='max-w-7xl mx-auto '>
-            <h1 className='text-center font-serif text-3xl py-5'>Co-Curricular/ Extra Curricular Activities Records</h1>
-            <form className='p-5 bg-slate-200'>
+            <h1 className='text-center font-serif text-3xl py-5'>Records Of Students Mentoring</h1>
+            <form className='p-10 bg-slate-300'>
                 <table className="table-auto">
                     <tbody className='bg-white'>
-                        <tr>
+                        <tr className='bg-slate-200'>
                             <th>Sr no.</th>
-                            <th>Sem</th>
-                            <th>Details(Name of the Event/Conference/Symposium etc.)</th>
-                            <th>Organizer</th>
-                            <th>Date</th>
-                            <th>Level(Uni/State/National)</th>
-                            <th>Chages</th>
+                            <th>Date Of Meeting</th>
+                            <th>Agenda / Topic Of Discussion</th>
+                            <th>Duration(HH:MM)</th>
+                            <th>Vemue</th>
+                            <th>Signature Of Meeting</th>
+                            <th>Name Of Signatire Of Mentor</th>
+                            <th>Changes</th>
                         </tr>
                     </tbody>
                     {content}

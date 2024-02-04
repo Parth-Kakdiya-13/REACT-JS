@@ -132,14 +132,14 @@ export const SemesterWiserecord = () => {
             return <tr key={index}>
                 {/* <td>{index + 1}</td> */}
                 <td className='w-40 text-md font-bold'>{data.title}</td>
-                <td className='w-26 h-20'><textarea name='sem1' rows='3' cols='4' value={data.sem_1} onChange={(e) => changeHandler(e, index)}>{data.sem_1}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem2' rows='3' cols='4' value={data.sem_2} onChange={(e) => changeHandler(e, index)}>{data.sem_2}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem3' rows='3' cols='4' value={data.sem_3} onChange={(e) => changeHandler(e, index)}>{data.sem_3}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem4' rows='3' cols='4' value={data.sem_4} onChange={(e) => changeHandler(e, index)}>{data.sem_4}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem5' rows='3' cols='4' value={data.sem_5} onChange={(e) => changeHandler(e, index)}>{data.sem_5}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem6' rows='3' cols='4' value={data.sem_6} onChange={(e) => changeHandler(e, index)}>{data.sem_6}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem7' rows='3' cols='4' value={data.sem_7} onChange={(e) => changeHandler(e, index)}>{data.sem_7}</textarea></td>
-                <td className='w-26 h-20'><textarea name='sem8' rows='3' cols='4' value={data.sem_8} onChange={(e) => changeHandler(e, index)}>{data.sem_8}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem1' rows='3' cols='4' value={data.sem_1} onChange={(e) => changeHandler(e, index)}>{data.sem_1}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem2' rows='3' cols='4' value={data.sem_2} onChange={(e) => changeHandler(e, index)}>{data.sem_2}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem3' rows='3' cols='4' value={data.sem_3} onChange={(e) => changeHandler(e, index)}>{data.sem_3}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem4' rows='3' cols='4' value={data.sem_4} onChange={(e) => changeHandler(e, index)}>{data.sem_4}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem5' rows='3' cols='4' value={data.sem_5} onChange={(e) => changeHandler(e, index)}>{data.sem_5}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem6' rows='3' cols='4' value={data.sem_6} onChange={(e) => changeHandler(e, index)}>{data.sem_6}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem7' rows='3' cols='4' value={data.sem_7} onChange={(e) => changeHandler(e, index)}>{data.sem_7}</textarea></td>
+                <td className='w-26 h-20'><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem8' rows='3' cols='4' value={data.sem_8} onChange={(e) => changeHandler(e, index)}>{data.sem_8}</textarea></td>
             </tr>
         })
     } else {
@@ -162,23 +162,25 @@ export const SemesterWiserecord = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>Semester Wise Acadmic Records</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <th></th>
-                        <th>Sem-1</th>
-                        <th>Sem-2</th>
-                        <th>Sem-3</th>
-                        <th>Sem-4</th>
-                        <th>Sem-5</th>
-                        <th>Sem-6</th>
-                        <th>Sem-7</th>
-                        <th>Sem-8</th>
-                    </tr>
-                    {content}
-                </tbody>
-            </table>
-            <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            <div className='bg-slate-300 p-10'>
+                <table>
+                    <tbody>
+                        <tr className='bg-slate-200'>
+                            <th></th>
+                            <th>Sem-1</th>
+                            <th>Sem-2</th>
+                            <th>Sem-3</th>
+                            <th>Sem-4</th>
+                            <th>Sem-5</th>
+                            <th>Sem-6</th>
+                            <th>Sem-7</th>
+                            <th>Sem-8</th>
+                        </tr>
+                        {content}
+                    </tbody>
+                </table>
+                <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            </div>
 
         </div>
     )

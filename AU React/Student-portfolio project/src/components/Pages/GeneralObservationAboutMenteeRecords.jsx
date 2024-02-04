@@ -123,14 +123,14 @@ export const GeneralObservationAboutMenteeRecords = () => {
             return <tr key={index}>
                 <td className=' text-md font-bold'>{index + 1}</td>
                 <td className='w-40 text-md font-bold'>{items.title}</td>
-                <td><textarea name='sem_1' value={items.sem_1} onChange={(e) => changeHandler(e, index)}>{items.sem_1}</textarea></td>
-                <td><textarea name='sem_2' value={items.sem_2} onChange={(e) => changeHandler(e, index)}>{items.sem_2}</textarea></td>
-                <td><textarea name='sem_3' value={items.sem_3} onChange={(e) => changeHandler(e, index)}>{items.sem_3}</textarea></td>
-                <td><textarea name='sem_4' value={items.sem_4} onChange={(e) => changeHandler(e, index)}>{items.sem_4}</textarea></td>
-                <td><textarea name='sem_5' value={items.sem_5} onChange={(e) => changeHandler(e, index)}>{items.sem_5}</textarea></td>
-                <td><textarea name='sem_6' value={items.sem_6} onChange={(e) => changeHandler(e, index)}>{items.sem_6}</textarea></td>
-                <td><textarea name='sem_7' value={items.sem_7} onChange={(e) => changeHandler(e, index)}>{items.sem_7}</textarea></td>
-                <td><textarea name='sem_8' value={items.sem_8} onChange={(e) => changeHandler(e, index)}>{items.sem_8}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_1' value={items.sem_1} onChange={(e) => changeHandler(e, index)}>{items.sem_1}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_2' value={items.sem_2} onChange={(e) => changeHandler(e, index)}>{items.sem_2}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_3' value={items.sem_3} onChange={(e) => changeHandler(e, index)}>{items.sem_3}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_4' value={items.sem_4} onChange={(e) => changeHandler(e, index)}>{items.sem_4}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_5' value={items.sem_5} onChange={(e) => changeHandler(e, index)}>{items.sem_5}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_6' value={items.sem_6} onChange={(e) => changeHandler(e, index)}>{items.sem_6}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_7' value={items.sem_7} onChange={(e) => changeHandler(e, index)}>{items.sem_7}</textarea></td>
+                <td><textarea className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-100 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 uppercase' name='sem_8' value={items.sem_8} onChange={(e) => changeHandler(e, index)}>{items.sem_8}</textarea></td>
             </tr>
         })
     } else {
@@ -154,27 +154,29 @@ export const GeneralObservationAboutMenteeRecords = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <h1 className='text-center font-serif text-3xl py-5'>General Observation And Mantee Records(Confidential)</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <th rowSpan="2">Sr no.</th>
-                        <th rowSpan="2">Details</th>
-                        <th className='text-center' colSpan="8">Marking from 1 to 5</th>
-                    </tr>
-                    <tr>
-                        <th>Sem-1</th>
-                        <th>Sem-2</th>
-                        <th>Sem-3</th>
-                        <th>Sem-4</th>
-                        <th>Sem-5</th>
-                        <th>Sem-6</th>
-                        <th>Sem-7</th>
-                        <th>Sem-8</th>
-                    </tr>
-                    {content}
-                </tbody>
-            </table>
-            <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
-        </div >
+            <div className='bg-slate-300 p-10'>
+                <table>
+                    <tbody>
+                        <tr className='bg-slate-200'>
+                            <th rowSpan="2">Sr no.</th>
+                            <th rowSpan="2">Details</th>
+                            <th className='text-center' colSpan="8">Marking from 1 to 5</th>
+                        </tr>
+                        <tr className='bg-slate-200'>
+                            <th>Sem-1</th>
+                            <th>Sem-2</th>
+                            <th>Sem-3</th>
+                            <th>Sem-4</th>
+                            <th>Sem-5</th>
+                            <th>Sem-6</th>
+                            <th>Sem-7</th>
+                            <th>Sem-8</th>
+                        </tr>
+                        {content}
+                    </tbody>
+                </table>
+                <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            </div>
+        </div>
     )
 }
