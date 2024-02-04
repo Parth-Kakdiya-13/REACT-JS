@@ -228,7 +228,10 @@ export const SemesterWiseAcadmicRecordsOfUniversityLevel = () => {
                         {content}
                     </tbody>
                 </table>
-                <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+                <div className='flex flex-col items-start'>
+                    <span className='text-sm text-slate-500 py-3'>If it is not there in particular Semester write NA</span>
+                    <button type='button' className={`px-5 py-1  text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+                </div>
             </div>
         </div>
     )

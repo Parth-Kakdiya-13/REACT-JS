@@ -107,7 +107,10 @@ export const StudentObjective = () => {
                         {content}
                     </tbody>
                 </table>
-                <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+                <div className='flex flex-col items-start'>
+                    <span className='text-sm text-slate-500 py-2'>To be filled once in a Year (Begining of the Acadmic Year or at the end of the Acadmic Year)</span>
+                    <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+                </div>
             </div>
         </div >
     )

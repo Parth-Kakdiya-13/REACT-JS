@@ -153,9 +153,12 @@ export function CurricularActivities() {
                     </tbody>
                     {content}
                 </table>
-                <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 mr-2' onClick={handleAddFields}>
-                    + Add
-                </button>
+                <div className='flex flex-col items-start'>
+                    <span className='py-2 text-sm text-slate-500'>Note: If not achievements write - Nil. If more achievements you can add extra sheet, if required</span>
+                    <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 mr-2' onClick={handleAddFields}>
+                        + Add
+                    </button>
+                </div>
             </form>
         </div>
     );

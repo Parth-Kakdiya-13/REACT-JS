@@ -162,7 +162,7 @@ export const GeneralObservationAboutMenteeRecords = () => {
                             <th rowSpan="2">Details</th>
                             <th className='text-center' colSpan="8">Marking from 1 to 5</th>
                         </tr>
-                        <tr className='bg-slate-200'>
+                        <tr className='bg-slate-100'>
                             <th>Sem-1</th>
                             <th>Sem-2</th>
                             <th>Sem-3</th>

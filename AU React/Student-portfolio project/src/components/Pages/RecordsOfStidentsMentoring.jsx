@@ -150,10 +150,14 @@ export function RecordsOfStidentsMentoring() {
                     </tbody>
                     {content}
                 </table>
-                <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 mr-2' onClick={handleAddFields}>
-                    + Add
-                </button>
-            </form>
-        </div>
+                <div className='flex flex-col items-start'>
+                    <span className='text-sm text-slate-500 py-2'>Agendas of Meeting can be pre decided. All mentors can discuss on the same agendas in the meeting.<br />
+                        Extra sheets can be as per requirements.</span>
+                    <button type="button" className='mt-2 bg-blue-800 text-white px-5 py-1 mr-2' onClick={handleAddFields}>
+                        + Add
+                    </button>
+                </div>
+            </form >
+        </div >
     );
 }
