@@ -120,7 +120,7 @@ export const SemesterWiserecord = () => {
         setAddData(values)
     }
 
-    console.log(addData);
+    // console.log(addData);
     let content;
 
     const editingHandler = () => {
@@ -178,7 +178,7 @@ export const SemesterWiserecord = () => {
                     {content}
                 </tbody>
             </table>
-            <button type='button' className='px-5 py-1 bg-orange-500 mt-2 text-white' onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+            <button type='button' className={`px-5 py-1  mt-2 text-white ${isEditing ? 'bg-orange-500' : 'bg-blue-900'}`} onClick={editingHandler}>{isEditing ? 'Save' : 'Edit'}</button>
 
         </div>
     )

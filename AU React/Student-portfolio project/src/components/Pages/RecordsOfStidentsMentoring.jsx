@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './curricular.module.css';
 
-export function CurricularActivities() {
+export function RecordsOfStidentsMentoring() {
     let nextId = 0;
 
     const initialValues = {

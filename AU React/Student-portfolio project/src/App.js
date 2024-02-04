@@ -1,9 +1,10 @@
-import { useState } from 'react';
 import { CurricularActivities } from './components/Pages/CurricularActivities';
-import { DisplayData } from './components/Pages/DisplayData';
+// import { DisplayData } from './components/Pages/DisplayData';
 import { StudentObjective } from './components/Pages/StudentObjective';
 import { StudetnDetails } from './components/Pages/StudetnDetails';
 import { SemesterWiserecord } from './components/Pages/SemesterWiserecord';
+import { SemesterWiseAcadmicRecordsOfUniversityLevel } from './components/Pages/SemesterWiseAcadmicRecordsOfUniversityLevel';
+import { GeneralObservationAboutMenteeRecords } from './components/Pages/GeneralObservationAboutMenteeRecords';
 
 const App = () => {
 
@@ -21,6 +22,8 @@ const App = () => {
       <StudentObjective />
       {/* <DisplayData onSendData={send} /> */}
       <SemesterWiserecord />
+      <SemesterWiseAcadmicRecordsOfUniversityLevel />
+      <GeneralObservationAboutMenteeRecords />
     </div>
   );
 };
