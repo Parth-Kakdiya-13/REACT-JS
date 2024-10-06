@@ -13,11 +13,35 @@ function App() {
   });
 
   function handleAddTask(text) {
+    console.log(text.length);
 
+    if (text.length <= 0) {
+      alert("Plz Add some Text In Input Field")
+      return;
+    }
+
+    setProjectState((preState) => {
+      const taskId = Math.random();
+      const newTask = {
+        text: text,
+        projectId: preState.selectedProjectId,
+        id: taskId
+      };
+
+      return {
+        ...preState,
+        tasks: [...preState.tasks, newTask]
+      }
+    })
   }
 
-  function handleDeleteTask(text) {
-
+  function handleDeleteTask(id) {
+    setProjectState((preState) => {
+      return {
+        ...preState,
+        tasks: preState.tasks.filter(task => task.id !== id)
+      }
+    })
   }
 
   function handleStartAddProject() {
@@ -29,14 +53,14 @@ function App() {
     })
   }
 
-  function handleStart(projectData) {
-    const projectId = Math.random()
-    const newProject = {
-      ...projectData,
-      id: projectId
-    }
-
+  function handleAddProject(projectData) {
     setProjectState(preState => {
+      const projectId = Math.random()
+      const newProject = {
+        ...projectData,
+        id: projectId
+      };
+
       return {
         ...preState,
         selectedProjectId: undefined,
@@ -76,21 +100,20 @@ function App() {
     })
   }
 
-  console.log(projectState.selectedProjectId);
 
   const selectedProject = projectState.projects.find(project => project.id === projectState.selectedProjectId)
 
-  let content = <SelectedProjectData project={selectedProject} onDelete={handleDeleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} />;
+  let content = <SelectedProjectData project={selectedProject} onDelete={handleDeleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} task={projectState.tasks} />;
 
   if (projectState.selectedProjectId === null) {
-    content = <NewProject onAdd={handleStart} onCancel={handleCancelAddProject} />
+    content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />
   } else if (projectState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />
   }
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectSideBar onStartAddProject={handleStartAddProject} projects={projectState.projects} onSelectProject={handleSelectProject} />
+      <ProjectSideBar onStartAddProject={handleStartAddProject} projects={projectState.projects} onSelectProject={handleSelectProject} selectedProjectId={projectState.selectedProjectId} />
       {content}
       {/* <SelectedProjectData onSendData={sendProject} /> */}
     </main>
