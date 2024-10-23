@@ -14,10 +14,10 @@ export const ProjectSideBar = ({ onStartAddProject, projects, onSelectProject, s
             </div>
             <ul className='mt-8'>
                 {projects.map((project) => {
-                    let cssClasses = 'w-full rounded-md text-left px-4 py-2 mt-3 text-stone-400 hover:text-stone-100 hover:bg-stone-800'
+                    let cssClasses = 'w-full rounded-md text-left px-4 py-2 mt-3 text-stone-400 hover:text-white hover:bg-stone-800'
 
                     if (project.id === selectedProjectId) {
-                        cssClasses += ' bg-stone-800 text-stone-100'
+                        cssClasses += ' bg-stone-800 text-white'
                     } else {
                         cssClasses += ' text-stone-400'
                     }

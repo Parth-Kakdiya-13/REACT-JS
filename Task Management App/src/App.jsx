@@ -12,8 +12,9 @@ function App() {
     tasks: []
   });
 
+
   function handleAddTask(text) {
-    console.log(text.length);
+    // console.log(text.length);
 
     if (text.length <= 0) {
       alert("Plz Add some Text In Input Field")
@@ -101,9 +102,14 @@ function App() {
   }
 
 
+  const selectedProjectTasks = projectState.tasks.filter(task => task.projectId === projectState.selectedProjectId);
+  console.log(projectState);
+
+
+
   const selectedProject = projectState.projects.find(project => project.id === projectState.selectedProjectId)
 
-  let content = <SelectedProjectData project={selectedProject} onDelete={handleDeleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} task={projectState.tasks} />;
+  let content = <SelectedProjectData project={selectedProject} onDelete={handleDeleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} task={selectedProjectTasks} />;
 
   if (projectState.selectedProjectId === null) {
     content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />
