@@ -1,6 +1,9 @@
 const Sidebar = ({ aboutSlider, resumeSlider, workSlider, contactSlider, classes }) => {
 
 
+    console.log(classes);
+
+
     return (
         <aside className="bg-red-100 mt-5">
             <ul className="flex flex-col gap-3">

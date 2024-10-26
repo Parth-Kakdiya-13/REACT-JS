@@ -58,8 +58,8 @@ function App() {
     })
   }
 
-  console.log(classes);
-  console.log("rerender");
+  // console.log(classes);
+  // console.log("rerender");
 
 
 
@@ -68,10 +68,10 @@ function App() {
       <aside className='absolute z-50'>
         <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} classes={classes} />
       </aside>
-      <main className='w-fit h-auto max-sm:ml-10  sm:ml-20 md:ml-32 lg:ml-60 max-sm:mx-auto'>
-        <section className='relative w-[70rem] max-sm:w-[33rem] h-[35rem] mt-20'>
-          <div className='absolute -top-3 -left-3 bg-violet-300 w-5/12 max-sm:w-[31rem] h-[35rem]'></div>
-          <div className='relative flex h-[35rem] overflow-hidden max-sm:overflow-visible'>
+      <main className='max-sm:ml-10  sm:ml-20 md:ml-32 lg:ml-60'>
+        <section className='relative w-[70rem] max-md:w-fit h-[35rem] mt-20'>
+          <div className='absolute -top-3 -left-3 bg-violet-300 w-5/12 max-md:w-full h-[35rem]'></div>
+          <div className=' relative flex h-[35rem] overflow-hidden max-md:overflow-visible'>
             <Profile />
             <About aboutClass={classes} />
             <Resume resumeClass={classes} />
