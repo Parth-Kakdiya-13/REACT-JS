@@ -34,14 +34,14 @@ const About = ({ aboutClass }) => {
                 <div className="flex justify-center items-center mt-5">
                     <section className="w-1/2 h-[18rem] flex gap-3 flex-col items-center border-r  p-3">
                         <div className="w-20 h-20 bg-violet-500 flex justify-center items-center rounded-full text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2" /><path d="M8 21h8m-4-4v4" /></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="20" height="14" x="2" y="3" rx="2" /><path d="M8 21h8m-4-4v4" /></g></svg>
                         </div>
                         <h2 className="text-xl font-semibold">Frontend Developer</h2>
                         <p className="text-stone-500 text-center">Developing Frontend Responsive and Dynamic Designs using HTML, CSS, JavaScript, React, Tailwind</p>
                     </section>
                     <section className="w-1/2 h-[18rem] flex gap-3 flex-col items-center  p-3">
                         <div className="w-20 h-20 bg-violet-500 flex justify-center items-center rounded-full text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16" /></svg>
                         </div>
                         <h2 className="text-xl font-semibold">Backend Developer</h2>
                         <p className="text-stone-500 text-center">Developing RESTful structured API's using Node.js, Express.js, MongoDB, JWT, Joi and TypeScript in MVC Architecture</p>

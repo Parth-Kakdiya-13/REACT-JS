@@ -20,39 +20,53 @@ function App() {
   function aboutSliderHandler() {
     setClasses(() => {
       return {
-        about: true
+        about: true,
+        resume: false,
+        work: false,
+        contact: false
       }
     })
   }
   function resumeSliderHandler() {
     setClasses(() => {
       return {
-        resume: true
+        about: false,
+        resume: true,
+        work: false,
+        contact: false
       }
     })
   }
   function workSliderHandler() {
     setClasses(() => {
       return {
-        work: true
+        about: false,
+        resume: false,
+        work: true,
+        contact: false
       }
     })
   }
   function contacttSliderHandler() {
     setClasses(() => {
       return {
+        about: false,
+        resume: false,
+        work: false,
         contact: true
       }
     })
   }
 
   console.log(classes);
+  console.log("rerender");
+
 
 
   return (
     <>
       <aside className='absolute z-50'>
-        <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} />
+        <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} classes={classes} />
       </aside>
       <main className='w-fit h-auto max-sm:ml-10  sm:ml-20 md:ml-32 lg:ml-60 max-sm:mx-auto'>
         <section className='relative w-[70rem] max-sm:w-[33rem] h-[35rem] mt-20'>
