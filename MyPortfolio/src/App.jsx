@@ -58,9 +58,6 @@ function App() {
     })
   }
 
-  // console.log(classes);
-  // console.log("rerender");
-
 
 
   return (
