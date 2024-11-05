@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 import About from './components/About'
 import Profile from './components/Pofile'
@@ -15,7 +15,13 @@ function App() {
     resume: false,
     work: false,
     contact: false
-  })
+  });
+
+  const [theme, setTheme] = useState("light")
+
+  const aboutRef = useRef(null)
+  const resumeRef = useRef(null)
+
 
   function aboutSliderHandler() {
     setClasses(() => {
@@ -26,6 +32,8 @@ function App() {
         contact: false
       }
     })
+    aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+
   }
   function resumeSliderHandler() {
     setClasses(() => {
@@ -36,6 +44,7 @@ function App() {
         contact: false
       }
     })
+    resumeRef.current.scrollIntoView({ behavior: 'smooth' });
   }
   function workSliderHandler() {
     setClasses(() => {
@@ -48,36 +57,38 @@ function App() {
     })
   }
   function contacttSliderHandler() {
-    setClasses(() => {
-      return {
-        about: false,
-        resume: false,
-        work: false,
-        contact: true
-      }
-    })
+    // setClasses(() => {
+    //   return {
+    //     about: false,
+    //     resume: false,
+    //     work: false,
+    //     contact: true
+    //   }
+    // })
+    setTheme((theme) => theme === 'light' ? 'dark' : 'light')
   }
+  console.log(theme);
 
 
 
   return (
-    <>
+    <div className={`${theme === 'light' ? 'bg-white' : 'bg-black'} h-screen pt-20 transition-all duration-700 ease-in`}>
       <aside className='absolute z-50'>
-        <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} classes={classes} />
+        <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} classes={classes} theme={theme} />
       </aside>
       <main className='max-sm:ml-10  sm:ml-20 md:ml-32 lg:ml-60 max-sm:mx-6'>
-        <section className='relative w-[70rem] max-md:w-fit h-[35rem] mt-20'>
+        <section className='relative w-[70rem] max-md:w-fit h-[35rem]'>
           <div className='absolute -top-3 -left-3 bg-violet-300 w-5/12 max-md:w-full h-[35rem]'></div>
           <div className=' relative flex h-[35rem] overflow-hidden max-md:overflow-visible'>
             <Profile />
-            <About aboutClass={classes} />
-            <Resume resumeClass={classes} />
-            {/* <Work workClasses={classes} />
-            <Contact contactClasses={classes} /> */}
+            <About aboutClass={classes} theme={theme} ref={aboutRef} />
+            <Resume resumeClass={classes} theme={theme} />
+            {/* <Work workClasses={classes} /> */}
+            {/* <Contact contactClasses={classes} /> */}
           </div>
         </section>
       </main>
-    </>
+    </div>
   )
 }
 

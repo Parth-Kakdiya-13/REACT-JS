@@ -1,18 +1,19 @@
 import { education } from '../myDetails'
 import { experience } from '../myDetails'
 
-const Resume = ({ resumeClass }) => {
+const Resume = ({ resumeClass, theme }) => {
     let classes = ''
 
     if (resumeClass.resume) {
-        classes = 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute left-[29rem] max-md:-left-0 max-md:top-[35rem]   transition-all duration-1000 ease-in-out overflow-y-scroll'
+        classes = `${theme === 'light' ? 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute left-[29rem] max-md:-left-0 max-md:top-[35rem]   transition-all duration-1000 ease-in-out overflow-y-scroll'
+            : 'w-[41rem] max-md:w-full h-full z-10 bg-black  absolute left-[29rem] max-md:-left-0 max-md:top-[35rem]   transition-all duration-1000 ease-in-out overflow-y-scroll'}`
     } else {
-        classes = 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute -left-[12rem] max-md:left-0 max-md:top-0  transition-all duration-1000 ease-in-out overflow-y-scroll'
+        classes = `${theme === 'light' ? 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute -left-[12rem] max-md:left-0 max-md:top-0  transition-all duration-1000 ease-in-out overflow-y-scroll' : 'w-[41rem] max-md:w-full h-full z-10 bg-black  absolute -left-[12rem] max-md:left-0 max-md:top-0  transition-all duration-1000 ease-in-out overflow-y-scroll'} `
     }
 
 
     return (
-        <div className={`${classes} p-1`}>
+        <div className={`${classes} p-1 ${theme === 'dark' ? 'text-white' : ' '}`}>
             <header className="mt-5">
                 <h2 className="pb-3 pl-5 max-sm:pl-0 border-b text-2xl font-semibold"><span className="text-violet-500">R</span>esume</h2>
             </header>
@@ -40,7 +41,7 @@ const Resume = ({ resumeClass }) => {
                     </div>
                     {education.map((items) => {
                         return <div className="flex flex-col p-5 border-b h-[14rem] max-sm:h-fit ">
-                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "B.com R.P. Bhalodia College" ? 'border-stone-300 text-stone-300' : ' border-violet-300 text-violet-300'}`}>{items.date}</p>
+                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "B.com R.P. Bhalodia College" ? 'border-stone-300 text-stone-300' : ' border-violet-300 text-violet-300'} `}>{items.date}</p>
                             <h2 className="text-xl">{items.title}</h2>
                             <p className="text-stone-400">{items.city}</p>
                             <p className=" text-stone-500 text-lg">{items.description}</p>
@@ -109,7 +110,6 @@ const Resume = ({ resumeClass }) => {
             <div className="flex">
                 <section className="w-1/2 p-5 max-sm:w-full">
                     <div className="flex flex-col">
-
                         <ul className="flex flex-col items-start mt-3">
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>

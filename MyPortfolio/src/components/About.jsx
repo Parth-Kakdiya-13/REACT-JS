@@ -1,19 +1,22 @@
+import { forwardRef } from "react"
 import { myServices } from "../myDetails"
 
 
-const About = ({ aboutClass }) => {
+const About = forwardRef(function About({ aboutClass, theme }, ref) {
 
     let classes = ''
 
     if (aboutClass.about == true) {
-        classes = 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute left-[29rem] max-md:-left-0 max-md:top-[35rem]  transition-all duration-1000 ease-in-out overflow-y-scroll'
+        classes = theme === 'light' ? 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute left-[29rem] max-md:-left-0 max-md:top-[35rem]  transition-all duration-1000 ease-in-out overflow-y-scroll'
+            : 'w-[41rem] max-md:w-full h-full z-10 bg-black  absolute left-[29rem] max-md:-left-0 max-md:top-[35rem]  transition-all duration-1000 ease-in-out overflow-y-scroll'
     } else {
-        classes = 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute -left-[12rem] max-md:left-0 max-md:top-0  transition-all duration-1000 ease-in-out overflow-y-scroll'
+        classes = theme === 'light' ? 'w-[41rem] max-md:w-full h-full z-10 bg-white  absolute -left-[12rem] max-md:left-0 max-md:top-0  transition-all duration-1000 ease-in-out overflow-y-scroll'
+            : 'w-[41rem] max-md:w-full h-full z-10 bg-black  absolute -left-[12rem] max-md:left-0 max-md:top-0  transition-all duration-1000 ease-in-out overflow-y-scroll'
     }
 
 
     return (
-        <div className={`${classes} p-1`}>
+        <div className={`${classes} p-1 ${theme === 'dark' ? 'text-white' : ' '}`} ref={ref}>
             <header className="mt-5">
                 <h2 className="pb-3 pl-5 max-sm:pl-0 border-b text-2xl font-semibold"><span className="text-violet-500">A</span>bout Me</h2>
             </header>
@@ -51,6 +54,6 @@ const About = ({ aboutClass }) => {
             </div>
         </div>
     )
-}
+})
 
 export default About;
