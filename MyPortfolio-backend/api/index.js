@@ -1,31 +1,24 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const fs = require('fs'); // Add fs module
 
 const app = express();
 
 
-app.use(express.json());
-
-const allowedOrigins = [
-    "https://portfolio-parths-projects-754f6040.vercel.app",
-    "http://localhost:5173"
-];
-
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            // Allow requests with no origin (like Postman) or from allowed origins
-            callback(null, true);
-        } else {
-            console.error(`CORS error: Origin ${origin} not allowed`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true // Allow cookies if required
+    origin: ['https://portfolio-parths-projects-754f6040.vercel.app', 'http://localhost:5173'],
+    methods: ['GET', 'POST'],
+    credentials: true
 }));
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // Update with your origins if needed
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 
 
 
@@ -36,10 +29,13 @@ app.get('/', (req, res) => {
 
 // Route to serve a file
 app.get('/download/:fileName', (req, res) => {
-    const fileName = req.params.fileName;
-    const filePath = path.join(__dirname, 'files', safeFileName);
-
-
+    const fileName = req.params.fileName; // Get the file name from the request params
+    const filePath = path.join(__dirname, 'files', fileName); // Adjust this to the actual directory of your files
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+        console.error(`File not found: ${filePath}`);
+        return res.status(404).send({ message: 'File not found.' });
+    }
     // Send the file
     res.download(filePath, fileName, (err) => {
         if (err) {
