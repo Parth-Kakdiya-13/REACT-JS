@@ -7,7 +7,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ['https://portfolio-parths-projects-754f6040.vercel.app', 'http://localhost:5173'],
+    origin: ['https://portfolio-parths-projects-754f6040.vercel.app/', 'http://localhost:5173'],
     methods: ['GET', 'POST'],
     credentials: true
 }));
