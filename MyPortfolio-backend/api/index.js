@@ -30,12 +30,17 @@ app.get('/', (req, res) => {
 // Route to serve a file
 app.get('/download/:fileName', (req, res) => {
     const fileName = req.params.fileName; // Get the file name from the request params
-    const filePath = path.join(__dirname, 'files', fileName); // Adjust this to the actual directory of your files
+    const filePath = path.join(__dirname, '../files', fileName); // Adjust path to 'files' folder
+
+    // Log the file path to ensure it's correct
+    console.log('File path:', filePath);
+
     // Check if file exists
     if (!fs.existsSync(filePath)) {
-        console.error(`File not found: ${filePath}`);
+        console.error('File not found:', filePath);
         return res.status(404).send({ message: 'File not found.' });
     }
+
     // Send the file
     res.download(filePath, fileName, (err) => {
         if (err) {
