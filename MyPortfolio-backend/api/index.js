@@ -6,22 +6,26 @@ const app = express();
 
 
 app.use(express.json());
+
 const allowedOrigins = [
-    "https://portfolio-parths-projects-754f6040.vercel.app/"
+    "https://portfolio-parths-projects-754f6040.vercel.app",
+    "http://localhost:5173"
 ];
 
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
+            // Allow requests with no origin (like Postman) or from allowed origins
             callback(null, true);
         } else {
             console.error(`CORS error: Origin ${origin} not allowed`);
             callback(new Error('Not allowed by CORS'));
         }
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true // Allow cookies if required
 }));
+
 
 
 
