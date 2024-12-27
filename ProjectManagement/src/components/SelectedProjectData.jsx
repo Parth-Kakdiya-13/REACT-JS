@@ -1,7 +1,7 @@
 import React from 'react'
 import Tasks from './Tasks'
 
-export default function SelectedProjectData({ project, onDelete, onAddTask, onDeleteTask, task }) {
+export const SelectedProjectData = ({ project, onDelete, onAddTask, onDeleteTask, task }) => {
 
 
 
