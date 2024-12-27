@@ -6,22 +6,23 @@ const app = express();
 
 
 app.use(express.json());
-const allowedOrigins = [
-    "https://portfolio-parths-projects-754f6040.vercel.app/"
-];
+// const allowedOrigins = [
+//     "https://portfolio-parths-projects-754f6040.vercel.app/"
+// ];
 
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.error(`CORS error: Origin ${origin} not allowed`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             console.error(`CORS error: Origin ${origin} not allowed`);
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true
+// }));
+app.use(cors())
 
 
 // Route to serve a file
