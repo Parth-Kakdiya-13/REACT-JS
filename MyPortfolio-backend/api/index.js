@@ -24,6 +24,10 @@ app.use(express.json());
 // }));
 app.use(cors())
 
+app.get('/', (req, res) => {
+    res.json("hello")
+})
+
 
 // Route to serve a file
 app.get('/download/:fileName', (req, res) => {
