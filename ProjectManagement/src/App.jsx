@@ -2,7 +2,11 @@ import { useState } from "react";
 import { NewProject } from "./components/NewProject";
 import { NoProjectSelected } from "./components/NoProjectSelected";
 import { ProjectSideBar } from "./components/ProjectSideBar";
+<<<<<<< HEAD
 import { SelectedProjectData } from "./components/SelectedProjectData";
+=======
+import {SelectedProjectData} from "./components/SelectedProjectData";
+>>>>>>> bdf799ef3687067053784c2281c1165483c7af4b
 
 function App() {
 

@@ -83,7 +83,7 @@ function App() {
             <Profile />
             <About aboutClass={classes} theme={theme} ref={aboutRef} />
             <Resume resumeClass={classes} theme={theme} />
-            {/* <Work workClasses={classes} /> */}
+            <Work workClasses={classes} theme={theme} />
             {/* <Contact contactClasses={classes} /> */}
           </div>
         </section>
