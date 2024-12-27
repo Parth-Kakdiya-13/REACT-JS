@@ -6,9 +6,10 @@ const Profile = () => {
 
     const handleDownload = async (fileName) => {
         try {
-            const response = await axios.get(`https://react-js-fq8y.vercel.app/${fileName}`, {
-                responseType: 'blob', // Set response type to blob for file download
+            const response = await axios.get(`https://your-backend-url.com/download/${fileName}`, {
+                responseType: 'blob',
             });
+
 
             // Create a URL for the blob and trigger the download
             const url = window.URL.createObjectURL(new Blob([response.data]));

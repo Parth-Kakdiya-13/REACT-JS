@@ -6,33 +6,18 @@ const app = express();
 
 
 app.use(express.json());
-const allowedOrigins = [
-    "https://portfolio-parths-projects-754f6040.vercel.app/"
-];
-
+const allowedOrigins = ['https://portfolio-parths-projects-754f6040.vercel.app/'];
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.error(`CORS error: Origin ${origin} not allowed`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    origin: allowedOrigins,
 }));
-// app.use(cors())
 
-app.get('/', (req, res) => {
-    res.json("hello")
-})
 
 
 // Route to serve a file
 app.get('/download/:fileName', (req, res) => {
-    const fileName = req.params.fileName; // Get the file name from the request params
-    const filePath = path.join(__dirname, 'files', fileName); // Adjust this to the actual directory of your files
+    const safeFileName = path.basename(fileName);
+    const filePath = path.join(__dirname, 'files', safeFileName);
+
 
     // Send the file
     res.download(filePath, fileName, (err) => {
