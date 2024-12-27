@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 // Route to serve a file
 app.get('/download/:fileName', (req, res) => {
-    const safeFileName = path.basename(fileName);
+    const fileName = req.params.fileName;
     const filePath = path.join(__dirname, 'files', safeFileName);
 
 
