@@ -14,7 +14,7 @@ const Work = ({ workClasses, theme }) => {
 
     const ecommerceAdmin = () => {
         // Redirect to the desired link
-        window.location.href = "https://ecommerce-syby.vercel.app/";
+        window.location.href = "https://ecommerce-v36f.vercel.app/";
     };
     const ecommerceUsers = () => {
         // Redirect to the desired link
