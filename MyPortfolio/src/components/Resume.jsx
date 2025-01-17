@@ -71,11 +71,11 @@ const Resume = ({ resumeClass, theme }) => {
                                     <div className="w-[10rem] h-1 bg-violet-500"></div>
                                 </div>
                             </li>
-                            <li className="text-stone-500 w-full">Ethical Hacking and Cyber Security
+                            {/* <li className="text-stone-500 w-full">Ethical Hacking and Cyber Security
                                 <div className="w-full h-1 bg-stone-300 my-2">
                                     <div className="w-[9rem] h-1 bg-violet-500"></div>
                                 </div>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </section>
@@ -119,7 +119,7 @@ const Resume = ({ resumeClass, theme }) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Git Hub</p>
                             </li>
-                            <li className="text-stone-500 w-full flex items-center gap-3">
+                            {/* <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Networking</p>
                             </li>
@@ -130,7 +130,7 @@ const Resume = ({ resumeClass, theme }) => {
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Ethical Hacking</p>
-                            </li>
+                            </li> */}
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Photo Shop</p>
