@@ -12,10 +12,10 @@ const Work = ({ workClasses, theme }) => {
     const projectmanagement = useAnimation();
 
 
-    const ecommerceAdmin = () => {
-        // Redirect to the desired link
-        window.location.href = "https://ecommerce-v36f.vercel.app/";
-    };
+    // const ecommerceAdmin = () => {
+    //     // Redirect to the desired link
+    //     window.location.href = "https://ecommerce-v36f.vercel.app/";
+    // };
     const ecommerceUsers = () => {
         // Redirect to the desired link
         window.location.href = "https://ecommerce-one-pi-90.vercel.app/";
@@ -41,7 +41,7 @@ const Work = ({ workClasses, theme }) => {
 
     return (
         <div className={classes}>
-            <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
+            {/* <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
                 // Trigger the animation when hovering starts
                 admin.start({ y: 0 });
             }}
@@ -58,7 +58,7 @@ const Work = ({ workClasses, theme }) => {
                     className='w-full cursor-pointer'
                     onClick={ecommerceAdmin} // Handle click
                 />
-            </motion.div>
+            </motion.div> */}
             <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
                 // Trigger the animation when hovering starts
                 user.start({ y: 0 });
@@ -68,7 +68,7 @@ const Work = ({ workClasses, theme }) => {
                     user.start({ y: 380 });
                 }}>
                 <motion.div initial={{ y: 0 }} animate={user} className='w-full h-full bg-black bg-opacity-70 flex justify-center items-center absolute cursor-pointer' onClick={ecommerceUsers} >
-                    <h1 className="text-white text-xl">User Panel</h1>
+                    <h1 className="text-white text-xl">E-Commerce With Admin Panel</h1>
                 </motion.div>
                 <img
                     src={eUser} // Replace with your image URL
