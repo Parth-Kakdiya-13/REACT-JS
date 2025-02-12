@@ -18,7 +18,7 @@ const Work = ({ workClasses, theme }) => {
     // };
     const ecommerceUsers = () => {
         // Redirect to the desired link
-        window.location.href = "https://ecommerce-one-pi-90.vercel.app/";
+        window.location.href = "https://ecommerce-ql8y.vercel.app/";
     };
     const projectManagement = () => {
         // Redirect to the desired link
