@@ -1,12 +1,12 @@
 import profilePicture from '../assets/pk_01.jpg';
-import axios from 'axios';
+import API from '../API/api';
 
 const Profile = () => {
 
 
     const handleDownload = async (fileName) => {
         try {
-            const response = await axios.get(`https://react-js-29hp.vercel.app/download/${fileName}`, {
+            const response = await API.get(`/download/${fileName}`, {
                 responseType: 'blob',
             });
 

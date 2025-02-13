@@ -18,11 +18,21 @@ const trasnporter = nodemailer.createTransport(
 )
 
 
+
+const allowedOrigins = ['https://myportfolio-alpha-black-81.vercel.app', 'http://localhost:5173'];
 app.use(cors({
-    origin: ['https://myportfolio-alpha-black-81.vercel.app', 'http://localhost:5173'],
-    methods: ['GET', 'POST'],
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.error(`CORS error: Origin ${origin} not allowed`);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
