@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://myportfoliobackend-seven.vercel.app"
+    baseURL: "https://myportfoliobackend-eight.vercel.app"
 })
 
 
