@@ -19,7 +19,7 @@ const trasnporter = nodemailer.createTransport(
 
 
 app.use(cors({
-    origin: ['https://react-js-1lqq.vercel.app', 'http://localhost:5173'],
+    origin: ['https://myportfolio-alpha-black-81.vercel.app', 'http://localhost:5173'],
     methods: ['GET', 'POST'],
     credentials: true
 }));
