@@ -57,24 +57,27 @@ function App() {
     })
   }
   function contacttSliderHandler() {
-    // setClasses(() => {
-    //   return {
-    //     about: false,
-    //     resume: false,
-    //     work: false,
-    //     contact: true
-    //   }
-    // })
+    setClasses(() => {
+      return {
+        about: false,
+        resume: false,
+        work: false,
+        contact: true
+      }
+    })
+
+  }
+
+  function themeChanger() {
     setTheme((theme) => theme === 'light' ? 'dark' : 'light')
   }
-  console.log(theme);
 
 
 
   return (
     <div className={`${theme === 'light' ? 'bg-white' : 'bg-black'} h-screen pt-20 transition-all duration-700 ease-in`}>
       <aside className='absolute z-50'>
-        <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} classes={classes} theme={theme} />
+        <Sidebar aboutSlider={aboutSliderHandler} resumeSlider={resumeSliderHandler} workSlider={workSliderHandler} contactSlider={contacttSliderHandler} themeChanger={themeChanger} classes={classes} theme={theme} />
       </aside>
       <main className='max-sm:ml-10  sm:ml-20 md:ml-32 lg:ml-60 max-sm:mx-6'>
         <section className='relative w-[70rem] max-md:w-fit h-[35rem]'>
@@ -84,7 +87,7 @@ function App() {
             <About aboutClass={classes} theme={theme} ref={aboutRef} />
             <Resume resumeClass={classes} theme={theme} />
             <Work workClasses={classes} theme={theme} />
-            {/* <Contact contactClasses={classes} /> */}
+            <Contact contactClasses={classes} theme={theme} />
           </div>
         </section>
       </main>
