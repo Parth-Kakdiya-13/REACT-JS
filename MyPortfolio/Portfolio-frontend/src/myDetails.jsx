@@ -1,7 +1,7 @@
 export const myServices = [
     {
         title: "Frontend Developer",
-        description: "Developing Frontend Responsive and Dynamic Design using HTML, CSS, JavaScript, React, Tailwind",
+        description: "Developing Frontend Responsive, Dynamic and Animated using HTML, CSS, JavaScript, React, Tailwind and Framer-motion",
         icon: <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="20" height="14" x="2" y="3" rx="2" /><path d="M8 21h8m-4-4v4" /></g></svg>
 
     },
@@ -24,7 +24,7 @@ export const myServices = [
 
 export const experience = [
     {
-        date: "april'23 - Prensent",
+        date: "Jan'25 - Prensent",
         title: "MERN Stack Developer",
         subtitle: "fresher",
         description: "Leverage MERN Stack expertise to design and build robust web applications"
@@ -45,7 +45,7 @@ export const education = [
     //     description: "Bechelor's degree in commerve at R.P. Bhalodia Commerce College, Rajkot, Gujarat"
     // },
     {
-        date: "Nov'2024 - Present",
+        date: "Nov'2024",
         title: "MCA - Atmiya University",
         "city": "Rajkot",
         description: "Master Of Computer Application in Information Techonology at Atmiya University, Rajkot, Gujarat"

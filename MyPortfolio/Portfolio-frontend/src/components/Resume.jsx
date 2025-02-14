@@ -41,7 +41,7 @@ const Resume = ({ resumeClass, theme }) => {
                     </div>
                     {education.map((items) => {
                         return <div className="flex flex-col p-5 border-b h-[14rem] max-sm:h-fit ">
-                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "B.com R.P. Bhalodia College" ? 'border-stone-300 text-stone-300' : ' border-violet-300 text-violet-300'} `}>{items.date}</p>
+                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "B.com R.P. Bhalodia College" ? 'border-stone-300 text-stone-300' : ' border-gray-300 text-gray-300'} `}>{items.date}</p>
                             <h2 className="text-xl">{items.title}</h2>
                             <p className="text-stone-400">{items.city}</p>
                             <p className=" text-stone-500 text-lg">{items.description}</p>
@@ -113,13 +113,21 @@ const Resume = ({ resumeClass, theme }) => {
                         <ul className="flex flex-col items-start mt-3">
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
-                                <p>Full Stack Develpoment</p>
+                                <p>Web Develpoment</p>
                             </li>
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
-                                <p>Git Hub</p>
+                                <p>Web APIs</p>
                             </li>
-                            {/* <li className="text-stone-500 w-full flex items-center gap-3">
+                            <li className="text-stone-500 w-full flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
+                                <p>Web Design</p>
+                            </li>
+                            <li className="text-stone-500 w-full flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
+                                <p>Git, Git Hub</p>
+                            </li>
+                            <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Networking</p>
                             </li>
@@ -130,7 +138,7 @@ const Resume = ({ resumeClass, theme }) => {
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Ethical Hacking</p>
-                            </li> */}
+                            </li>
                             <li className="text-stone-500 w-full flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="text-violet-500" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z" /></svg>
                                 <p>Photo Shop</p>

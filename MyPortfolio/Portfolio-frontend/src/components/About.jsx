@@ -22,7 +22,7 @@ const About = forwardRef(function About({ aboutClass, theme }, ref) {
             </header>
             <div className="flex justify-between p-5 max-md:flex-col max-sm:w-full max-sm:items-center">
                 <section className="w-[16rem] max-sm:w-full">
-                    <p className="text-stone-500 text-xl leading-8 text-wrap">Hi, I'm Parth Kakdiya, a MERN stack developer with great knowledge in React, Node and Tailwind css. A Cyber security enthusiast</p>
+                    <p className="text-stone-500 text-lg leading-7 text-wrap">"Hi, I'm Parth Kakadiya, a MERN stack developer skilled in React, Node.js, Tailwind CSS, and building REST APIs. I specialize in authentication, sending emails, and creating scalable web applications. As a cybersecurity enthusiast, I stay updated on the latest security trends to enhance digital safety."</p>
                 </section>
                 <section className="w-1/2 max-sm:w-full mt-5">
                     <ul className="flex gap-3 flex-col items-start">
