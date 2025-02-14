@@ -1,15 +1,5 @@
 const Sidebar = ({ aboutSlider, resumeSlider, workSlider, contactSlider, classes, theme, themeChanger }) => {
 
-    // let classNames = ""
-
-    // if (classes.about) {
-    //     classNames = "border-violet-700 border-r-2 border-b-2 left-0 "
-    // } else {
-    //     classNames = "border-b-2 border-r-2  "
-    // }
-    // console.log(classNames);
-
-
 
     return (
         <aside className=" mt-5">

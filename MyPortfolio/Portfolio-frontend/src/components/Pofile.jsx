@@ -1,7 +1,8 @@
 import profilePicture from '../assets/pk_01.jpg';
 import API from '../API/api';
 
-const Profile = () => {
+const Profile = ({ theme }) => {
+    console.log(theme);
 
 
     const handleDownload = async (fileName) => {
@@ -26,7 +27,7 @@ const Profile = () => {
 
 
     return (
-        <main className={`w-5/12 max-md:w-full flex items-center rounded-ms bg-stone-200 z-20 profile`}>
+        <main className={`w-5/12 max-md:w-full flex items-center rounded-ms ${theme === 'light' ? 'bg-stone-200' : ' bg-stone-800'} transition-all duration-700 ease-in  z-20 profile`}>
             <div className='flex flex-col items-center'>
                 <img src={profilePicture} className='w-1/2 h-fit' />
                 <button className='w-fit rounded-xl px-5 py-2 bg-purple-500 text-white mt-5' onClick={() => handleDownload('Resume.pdf')}>Download Resume</button>

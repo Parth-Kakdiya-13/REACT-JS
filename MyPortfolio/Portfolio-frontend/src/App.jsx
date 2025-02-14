@@ -83,7 +83,7 @@ function App() {
         <section className='relative w-[70rem] max-md:w-fit h-[35rem]'>
           <div className='absolute -top-3 -left-3 bg-violet-300 w-5/12 max-md:w-full h-[35rem]'></div>
           <div className=' relative flex h-[35rem] overflow-hidden max-md:overflow-visible'>
-            <Profile />
+            <Profile theme={theme} />
             <About aboutClass={classes} theme={theme} ref={aboutRef} />
             <Resume resumeClass={classes} theme={theme} />
             <Work workClasses={classes} theme={theme} />
