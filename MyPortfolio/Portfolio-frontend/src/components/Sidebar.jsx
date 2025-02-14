@@ -1,20 +1,20 @@
 const Sidebar = ({ aboutSlider, resumeSlider, workSlider, contactSlider, classes, theme, themeChanger }) => {
 
-    let classNames = ""
+    // let classNames = ""
 
-    if (classes.about) {
-        classNames = "border-violet-700 border-r-2 border-b-2 left-0 "
-    } else {
-        classNames = "border-b-2 border-r-2 border-white "
-    }
-    console.log(classNames);
+    // if (classes.about) {
+    //     classNames = "border-violet-700 border-r-2 border-b-2 left-0 "
+    // } else {
+    //     classNames = "border-b-2 border-r-2  "
+    // }
+    // console.log(classNames);
 
 
 
     return (
         <aside className=" mt-5">
             <ul className="flex flex-col gap-3">
-                <button className={`${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'} group flex items-center    justify-center p-3  rounded-xl w-52 gap-20 absolute -left-36 z-100 transition-all duration-700 ease-in hover:border-violet-700 hover:left-0 hover:border-b-2 hover:border-r-2 ${classNames}`} onClick={aboutSlider}>
+                <button className={`${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'} group flex items-center    justify-center p-3  rounded-xl w-52 gap-20 absolute -left-36 z-100 transition-all duration-700 ease-in hover:border-violet-700 hover:left-0 hover:border-b-2 hover:border-r-2 ${classes.about ? ' border-violet-700 left-0 border-b-2 border-r-2' : ' '}`} onClick={aboutSlider}>
                     ABOUT
                     <svg xmlns="http://www.w3.org/2000/svg" className="group-hover:rotate-[360deg] transition-all duration-1000 ease-in-out text-violet-700" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2" /></svg>
                 </button>
