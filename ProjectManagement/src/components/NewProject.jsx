@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Input from './Input'
 import Modal from './Modal';
 
@@ -14,6 +14,7 @@ export const NewProject = ({ onAdd, onCancel }) => {
         const enteredTitle = title.current.value;
         const enteredDescription = description.current.value;
         const enteredDueDate = dueDate.current.value;
+
 
         //validation logic
 
@@ -32,8 +33,9 @@ export const NewProject = ({ onAdd, onCancel }) => {
         description.current.value = ""
         dueDate.current.value = ""
 
-
     }
+
+
 
 
     return (
@@ -45,11 +47,11 @@ export const NewProject = ({ onAdd, onCancel }) => {
                     <p className='text-stone-600'>Please make sure you provide a valid value for every input field.</p>
                 </div>
             </Modal>
-            <div className='w-[35rem] mt-16'>
+
+            <div className='w-[35rem] mx-auto mt-16'>
                 <menu className='flex items-center justify-end gap-4 my-4'>
                     <li><button className='px-4 py-2 text-stone-800 hover:text-stone-950' onClick={onCancel}>Cancel</button></li>
                     <li><button className='px-6 py-2 text-stone-50 bg-stone-800 hover:bg-stone-950 rounded-md' onClick={handleSave}>Save</button></li>
-
                 </menu>
                 <div>
                     <Input ref={title} label="Title" type="text" />
