@@ -47,7 +47,7 @@ export const NewProject = () => {
     async function postData(project) {
 
         try {
-            const response = await axios.post('http://localhost:3000/create', project);
+            const response = await axios.post('https://projectmanagement-backend.vercel.app/create', project);
         } catch (error) {
             console.error("Error posting data:", error);
         }

@@ -10,14 +10,14 @@ export const SelectedProjectData = () => {
 
     useEffect(() => {
         async function fetchProject() {
-            const response = await axios.get(`http://localhost:3000/getProjectsById/${projectId}`)
+            const response = await axios.get(`https://projectmanagement-backend.vercel.app/getProjectsById/${projectId}`)
             setPrjectData(response.data)
         }
         fetchProject()
     }, [projectId])
 
     async function deleteProjectHandler() {
-        const response = await axios.delete(`http://localhost:3000/deleteProject/${projectData._id}`)
+        const response = await axios.delete(`https://projectmanagement-backend.vercel.app/deleteProject/${projectData._id}`)
         navigate('/')
     }
 

@@ -10,7 +10,7 @@ export default function Tasks({ projectId }) {
     useEffect(() => {
         async function fetchTasks() {
             try {
-                const response = await axios.get(`http://localhost:3000/getTasks/${projectId}`);
+                const response = await axios.get(`https://projectmanagement-backend.vercel.app/getTasks/${projectId}`);
                 setGetTasks(response.data.tasks);
             } catch (error) {
                 console.error('Error fetching tasks:', error);
@@ -21,7 +21,7 @@ export default function Tasks({ projectId }) {
 
     async function clearTaskHandler(taskId) {
         try {
-            const response = await axios.delete(`http://localhost:3000/clearTask/${projectId}/${taskId}`);
+            const response = await axios.delete(`https://projectmanagement-backend.vercel.app/clearTask/${projectId}/${taskId}`);
             if (response.status === 200) {
                 navigate(`/selectedproject/${projectId}`)
                 alert("task deleted")

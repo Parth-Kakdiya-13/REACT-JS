@@ -13,7 +13,7 @@ export const ProjectSideBar = () => {
 
     useEffect(() => {
         async function fetchProject() {
-            const response = await axios.get('http://localhost:3000/getProjects')
+            const response = await axios.get('https://projectmanagement-backend.vercel.app/getProjects')
             setProject(response.data[0].projects);
             console.log(response);
 

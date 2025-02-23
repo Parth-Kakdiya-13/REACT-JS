@@ -13,7 +13,7 @@ export default function NewTasks({ projectId }) {
     }
 
     async function handleClick() {
-        const response = await axios.post('http://localhost:3000/createTask', { projectId, task: enteredTask })
+        const response = await axios.post('https://projectmanagement-backend.vercel.app/createTask', { projectId, task: enteredTask })
         if (response.status === 200) {
             alert("task submited")
         } else {
