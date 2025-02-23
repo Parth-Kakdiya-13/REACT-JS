@@ -1,8 +1,12 @@
 import React, { useRef, useState } from 'react'
 import Input from './Input'
 import Modal from './Modal';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-export const NewProject = ({ onAdd, onCancel }) => {
+export const NewProject = () => {
+
+    const navigate = useNavigate()
 
     const title = useRef();
     const description = useRef();
@@ -15,26 +19,43 @@ export const NewProject = ({ onAdd, onCancel }) => {
         const enteredDescription = description.current.value;
         const enteredDueDate = dueDate.current.value;
 
+        // Use dueDate as per the updated schema
+        const newProject = {
+            title: enteredTitle,
+            description: enteredDescription,
+            dueDate: enteredDueDate  // Using dueDate now
+        }
 
-        //validation logic
+        postData(newProject);
 
-        if (enteredTitle.trim() === '' || enteredDescription.trim() === '' || enteredDueDate.trim() === '') {
+        if (
+            enteredTitle.trim() === '' ||
+            enteredDescription.trim() === '' ||
+            enteredDueDate.trim() === ''
+        ) {
             modal.current.open();
             return;
         }
 
-        onAdd({
-            title: enteredTitle,
-            description: enteredDescription,
-            dueDate: enteredDueDate
-        })
+        navigate('/newproject')
 
-        title.current.value = ""
-        description.current.value = ""
-        dueDate.current.value = ""
+        title.current.value = "";
+        description.current.value = "";
+        dueDate.current.value = "";
+    };
 
+    async function postData(project) {
+
+        try {
+            const response = await axios.post('http://localhost:3000/create', project);
+        } catch (error) {
+            console.error("Error posting data:", error);
+        }
     }
 
+    function cancelProject() {
+        navigate('/')
+    }
 
 
 
@@ -48,9 +69,9 @@ export const NewProject = ({ onAdd, onCancel }) => {
                 </div>
             </Modal>
 
-            <div className='w-[35rem] mx-auto mt-16'>
+            <div className='w-full md:w-1/2 mx-5 mt-16'>
                 <menu className='flex items-center justify-end gap-4 my-4'>
-                    <li><button className='px-4 py-2 text-stone-800 hover:text-stone-950' onClick={onCancel}>Cancel</button></li>
+                    <li><button className='px-4 py-2 text-stone-800 hover:text-stone-950' onClick={cancelProject}>Cancel</button></li>
                     <li><button className='px-6 py-2 text-stone-50 bg-stone-800 hover:bg-stone-950 rounded-md' onClick={handleSave}>Save</button></li>
                 </menu>
                 <div>
