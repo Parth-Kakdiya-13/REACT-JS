@@ -45,7 +45,7 @@ export const education = [
     //     description: "Bechelor's degree in commerve at R.P. Bhalodia Commerce College, Rajkot, Gujarat"
     // },
     {
-        date: "Nov'2023 - Present",
+        date: "July'2023 - Present",
         title: "MCA - Atmiya University",
         "city": "Rajkot",
         description: "Master Of Computer Application in Information Techonology at Atmiya University, Rajkot, Gujarat"
