@@ -24,7 +24,7 @@ export const myServices = [
 
 export const experience = [
     {
-        date: "Jan'25 - Prensent",
+        date: "Jan'24 - Prensent",
         title: "MERN Stack Developer",
         subtitle: "fresher",
         description: "Leverage MERN Stack expertise to design and build robust web applications"
@@ -45,7 +45,7 @@ export const education = [
     //     description: "Bechelor's degree in commerve at R.P. Bhalodia Commerce College, Rajkot, Gujarat"
     // },
     {
-        date: "Nov'2024",
+        date: "Nov'2023 - Present",
         title: "MCA - Atmiya University",
         "city": "Rajkot",
         description: "Master Of Computer Application in Information Techonology at Atmiya University, Rajkot, Gujarat"

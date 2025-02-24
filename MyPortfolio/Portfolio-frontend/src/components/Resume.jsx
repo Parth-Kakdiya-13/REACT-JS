@@ -41,7 +41,7 @@ const Resume = ({ resumeClass, theme }) => {
                     </div>
                     {education.map((items) => {
                         return <div className="flex flex-col p-5 border-b h-[14rem] max-sm:h-fit ">
-                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "B.com R.P. Bhalodia College" ? 'border-stone-300 text-stone-300' : ' border-gray-300 text-gray-300'} `}>{items.date}</p>
+                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "MCA - Atmiya University" ? 'border-violet-300 text-violet-300' : ' border-gray-300 text-gray-300'} `}>{items.date}</p>
                             <h2 className="text-xl">{items.title}</h2>
                             <p className="text-stone-400">{items.city}</p>
                             <p className=" text-stone-500 text-lg">{items.description}</p>
