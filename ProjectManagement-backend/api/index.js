@@ -12,8 +12,14 @@ mongoose.connect('mongodb+srv://parthrkakdiya:prk59595@cluster0.qx5ox.mongodb.ne
 const app = express();
 app.use(express.json())
 app.use(cors({
-    origin: ["https://react-js-six-rose.vercel.app", "http://localhost:5173"]
-}))
+    origin: [
+        "https://react-js-six-rose.vercel.app",
+        "http://localhost:5173"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 
 
 
