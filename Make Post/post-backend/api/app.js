@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
     cors({
-        origin: ["https://make-post.vercel.app/", "http://localhost:5173"], // Fixed Typo
+        origin: ["https://make-post.vercel.app", "http://localhost:5173"], // Fixed Typo
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
         credentials: true
