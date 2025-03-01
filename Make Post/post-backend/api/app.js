@@ -5,11 +5,11 @@ const cors = require('cors')
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
-const User = require('./api/model/user');
+const User = require('./model/user');
 
-const authRoutes = require('./api/routes/auth/user');
-const feedRoutes = require('./api/routes/feed');
-const commentRoutes = require('./api/routes/comment')
+const authRoutes = require('./routes/auth/user');
+const feedRoutes = require('./routes/feed');
+const commentRoutes = require('./routes/comment')
 
 const app = express();
 
