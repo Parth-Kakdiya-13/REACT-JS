@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://vercel.com/parths-projects-754f6040/post-backend",
+    baseURL: "https://my-post-backend.vercel.app",
     withCredentials: true
 })
 
