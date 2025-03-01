@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
     cors({
-        origin: ["http://localhost:5173"], // Fixed Typo
+        origin: ["https://make-post.vercel.app/", "http://localhost:5173"], // Fixed Typo
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
         credentials: true
@@ -41,9 +41,9 @@ app.use(session({
     saveUninitialized: false,
     store: store,
     cookie: {
-        secure: false, // Use secure cookies in production
+        secure: true, // Use secure cookies in production
         httpOnly: true,
-        sameSite: "Lax",
+        sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24 // 1 day
     }
 }))
