@@ -5,28 +5,36 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         API.get("/auth", { withCredentials: true })
             .then((res) => {
-                setUser(res.data.user);
+                setUser(res?.data?.user);
                 setIsAuthenticated(true);
             })
             .catch(() => {
                 setUser(null);
                 setIsAuthenticated(false);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, []);
+
+    useEffect(() => {
+        console.log("Updated user state:", user);
+    }, [user]);
 
     async function loginHandler(credentials) {
         try {
             const response = await API.post('/auth/login', credentials);
             if (response.status === 200) {
+                setUser(response?.data?.user);
                 setIsAuthenticated(true);
-                setUser(res.data.user);
-                alert("login successfull")
             } else {
                 alert("login failed")
             }
@@ -52,9 +60,10 @@ export const AuthContextProvider = ({ children }) => {
         login: loginHandler,
         logout: logoutHandler,
         isAuthenticated: isAuthenticated,
-        user: user
+        user: user,
+        loading: loading
     }
-    // console.log(user);
+    console.log(user);
 
     return (
         <AuthContext.Provider value={ctxValue}>
