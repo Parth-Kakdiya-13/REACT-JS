@@ -31,7 +31,7 @@ export const Feeds = () => {
             }
         }
         fetchData();
-    }, []);
+    }, [isCommentOpen]);
 
 
     function newPost() {

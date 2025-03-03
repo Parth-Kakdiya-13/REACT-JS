@@ -5,8 +5,8 @@ const cors = require('cors')
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
-const User = require('./model/user');
 
+const User = require('./model/user');
 const authRoutes = require('./routes/auth/user');
 const feedRoutes = require('./routes/feed');
 const commentRoutes = require('./routes/comment')
@@ -36,7 +36,7 @@ const store = MongoDbStore({
 })
 
 app.use(session({
-    secret: "secret key",
+    secret: "your secret key",
     resave: false,
     saveUninitialized: false,
     store: store,

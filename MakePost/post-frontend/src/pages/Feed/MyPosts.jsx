@@ -43,7 +43,7 @@ export const MyPosts = () => {
             }
         }
         fetchDataHandler();
-    }, [authCtx.user, isEdit, posts]);
+    }, [authCtx.user, isEdit]);
 
     function changeHandler(event) {
         const { name, value } = event.target;
