@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose')
@@ -5,7 +6,7 @@ const mongoose = require('mongoose')
 const projectRoutes = require('./routes/project');
 const port = 3000;
 
-mongoose.connect('mongodb+srv://parthrkakdiya:prk59595@cluster0.qx5ox.mongodb.net/project').then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log("mognoDB Connected")
 })
 
