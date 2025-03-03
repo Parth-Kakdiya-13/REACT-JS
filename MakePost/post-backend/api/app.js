@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGO_URI).then(result => {
     console.log(err)
 })
 
-const store = MongoDbStore({
+const store = new MongoDbStore({
     uri: process.env.MONGO_URI,
     collection: "sessions"
 })
@@ -41,7 +41,7 @@ app.use(session({
     saveUninitialized: false,
     store: store,
     cookie: {
-        secure: true, // Use secure cookies in production
+        secure: process.env.NODE_ENV === "production",
         httpOnly: true,
         sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24 // 1 day
