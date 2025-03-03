@@ -4,10 +4,6 @@
     {
       "src": "api/app.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "files/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -17,3 +13,5 @@
     }
   ]
 }
+
+
