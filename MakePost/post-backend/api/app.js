@@ -35,6 +35,10 @@ const store = new MongoDbStore({
     collection: "sessions"
 })
 
+store.on('error', function (error) {
+    console.error("SESSION STORE ERROR:", error);
+});
+
 app.use(session({
     secret: "your secret key",
     resave: false,
