@@ -3,8 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoDbStore = require('connect-mongodb-session')(session);
+// const session = require('express-session');
+// const MongoDbStore = require('connect-mongodb-session')(session);
 
 const User = require('./model/user');
 const authRoutes = require('./routes/auth/user');
@@ -30,52 +30,44 @@ mongoose.connect(process.env.MONGO_URI).then(result => {
     console.log(err)
 })
 
-const store = new MongoDbStore({
-    uri: process.env.MONGO_URI,
-    collection: "sessions"
-})
+// const store = new MongoDbStore({
+//     uri: process.env.MONGO_URI,
+//     collection: "sessions"
+// })
 
-store.on('error', function (error) {
-    console.error("SESSION STORE ERROR:", error);
-});
+// store.on('error', function (error) {
+//     console.error("SESSION STORE ERROR:", error);
+// });
 
-app.use(session({
-    secret: "your secret key",
-    resave: false,
-    saveUninitialized: false,
-    store: store,
-    cookie: {
-        secure: true,
-        httpOnly: true,
-        sameSite: "None",
-        maxAge: 1000 * 60 * 60 * 24
-    }
-}))
+// app.use(session({
+//     secret: "your secret key",
+//     resave: false,
+//     saveUninitialized: false,
+//     store: store,
+//     cookie: {
+//         secure: true,
+//         httpOnly: true,
+//         sameSite: "None",
+//         maxAge: 1000 * 60 * 60 * 24
+//     }
+// }))
 
-app.use(async (req, res, next) => {
-    if (!req.session.user || !mongoose.Types.ObjectId.isValid(req.session.user._id)) {
-        return next();
-    }
-    try {
-        const user = await User.findById(req.session.user._id);
-        if (!user) {
-            return next();
-        }
-        req.user = user;
-        next();
-    } catch (err) {
-        console.error("Error Retrieving User:", err);
-        next();
-    }
-});
-
-app.get("/auth", (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ message: "Unauthorized" });
-    }
-    res.json({ user: req.session.user });
-});
-
+// app.use(async (req, res, next) => {
+//     if (!req.session.user || !mongoose.Types.ObjectId.isValid(req.session.user._id)) {
+//         return next();
+//     }
+//     try {
+//         const user = await User.findById(req.session.user._id);
+//         if (!user) {
+//             return next();
+//         }
+//         req.user = user;
+//         next();
+//     } catch (err) {
+//         console.error("Error Retrieving User:", err);
+//         next();
+//     }
+// });
 
 app.use('/feed', feedRoutes);
 app.use('/comment', commentRoutes);

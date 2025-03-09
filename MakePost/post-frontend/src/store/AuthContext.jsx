@@ -8,32 +8,17 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
-
-
-    useEffect(() => {
-        API.get("/auth", { withCredentials: true })
-            .then((res) => {
-                setUser(res?.data?.user);
-                setIsAuthenticated(true);
-            })
-            .catch(() => {
-                setUser(null);
-                setIsAuthenticated(false);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
-    useEffect(() => {
-        console.log("Updated user state:", user);
-    }, [user]);
+    const [token, setToken] = useState(null);
 
     async function loginHandler(credentials) {
         try {
             const response = await API.post('/auth/login', credentials);
+            console.log(response);
+
             if (response.status === 200) {
-                setUser(response?.data?.user);
+                localStorage.setItem("token", response?.data?.token);
+                localStorage.setItem("userId", response?.data?.userId);
+                setToken(response?.data?.token);
                 setIsAuthenticated(true);
             } else {
                 alert("login failed")
@@ -43,27 +28,13 @@ export const AuthContextProvider = ({ children }) => {
         }
     }
 
-    async function logoutHandler() {
-        try {
-            const response = await API.post('/auth/logout');
-
-            if (response.status === 200) {
-                setIsAuthenticated(false);
-                setUser(null);
-            }
-        } catch (error) {
-            console.error("Logout failed:", error);
-        }
-    }
 
     const ctxValue = {
         login: loginHandler,
-        logout: logoutHandler,
         isAuthenticated: isAuthenticated,
-        user: user,
-        loading: loading
+        token: token,
     }
-    console.log(user);
+    // console.log(user);
 
     return (
         <AuthContext.Provider value={ctxValue}>

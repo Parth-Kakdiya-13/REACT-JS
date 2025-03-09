@@ -8,7 +8,7 @@ exports.createPost = async (req, res, next) => {
   }
   try {
     const imagebase64 = req.file.buffer.toString('base64');
-    const post = new Post({ title, image: imagebase64, content, creator: req.user._id });
+    const post = new Post({ title, image: imagebase64, content, creator: req.user });
     await post.save();
     res.status(200).json({ message: post })
   } catch (error) {

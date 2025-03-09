@@ -4,10 +4,10 @@ const multer = require('multer')
 const feedController = require('../controllers/feed');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
-const isAuth = require('../middleware/authMiddleware')
+const isAuth = require('../middleware/is-auth')
 
 
-router.post('/post', isAuth.isAuthenticated, upload.single('image'), feedController.createPost);
+router.post('/post', isAuth, upload.single('image'), feedController.createPost);
 router.get('/getAll', feedController.getAll);
 router.get('/getPost/:id', feedController.getPost);
 router.put('/updatePost/:id', upload.single('image'), feedController.updatePost);

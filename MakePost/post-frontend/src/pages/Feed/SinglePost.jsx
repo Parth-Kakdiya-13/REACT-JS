@@ -51,15 +51,20 @@ export const SinglePost = () => {
         formData.append("content", post.content);
 
         try {
+            const token = localStorage.getItem("token"); // ✅ Get JWT token
+
             const response = await API.post('/feed/post', formData, {
-                headers: { "Content-Type": "multipart/form-data" },
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": `Bearer ${token}` // ✅ Correct header placement
+                }
             });
 
             if (response.status === 200 || response.status === 201) {
                 navigate('/');
                 alert("Data submitted successfully!");
                 setPost({ title: "", image: null, content: "" }); // Reset form
-                setPreview(null)
+                setPreview(null);
             } else {
                 alert("Data submission failed.");
             }
@@ -68,6 +73,7 @@ export const SinglePost = () => {
             alert(error.response?.data?.message || "An error occurred while submitting.");
         }
     }
+
 
     return (
         <div>

@@ -12,8 +12,7 @@ export const MyPosts = () => {
     const [currentPost, setCurrentPost] = useState(null); // Track the post being edited
     const [isCommentOpen, setIsCommentOpen] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
-
-
+    const [loading, setLoading] = useState(true);
 
     const authCtx = useContext(AuthContext);
     const navigate = useNavigate();
@@ -24,26 +23,26 @@ export const MyPosts = () => {
     }
 
     useEffect(() => {
-        if (!authCtx.user?._id) return;
+        if (!localStorage.getItem("token")) return;
 
         async function fetchDataHandler() {
             try {
-                const response = await API.get(`/feed/getPost/${authCtx.user._id}`);
+                const response = await API.get(`/feed/getPost/${localStorage.getItem("userId")}`);
                 if (response.data?.posts?.length) {
                     setPosts(response.data.posts);
+                    setLoading(false)
                 } else {
                     alert("No posts found.");
                 }
             } catch (error) {
                 if (error.status === 404) {
-                    navigate('/')
-                    alert("No Post Found. Plz create a post first");
+                    setLoading(false)
                 }
                 // console.error("Error fetching posts:", error);
             }
         }
         fetchDataHandler();
-    }, [authCtx.user, isEdit]);
+    }, [authCtx.token, isEdit]);
 
     function changeHandler(event) {
         const { name, value } = event.target;
@@ -98,7 +97,12 @@ export const MyPosts = () => {
     }
 
     async function deleteHandler(id) {
-        const response = await API.delete(`/feed/deletePost/${id}`);
+        const response = await API.delete(`/feed/deletePost/${id}`, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        });
         if (response.status === 200) {
             alert("deleted Successfull")
         }
@@ -107,7 +111,7 @@ export const MyPosts = () => {
     function openComments(post) {
         console.log(post);
 
-        if (authCtx.isAuthenticated) {
+        if (localStorage.getItem("token")) {
             setSelectedPost(post);
             setIsCommentOpen(true);
         } else {
@@ -117,9 +121,19 @@ export const MyPosts = () => {
     }
 
 
+    if (loading) {
+        return <div className=' text-gray-500 fixed top-72  bg-opacity-50 flex w-full justify-center place-self-center items-center'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24"><circle cx="12" cy="2" r="0" fill="currentColor"><animate attributeName="r" begin="0" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(45 12 12)"><animate attributeName="r" begin="0.125s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(90 12 12)"><animate attributeName="r" begin="0.25s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(135 12 12)"><animate attributeName="r" begin="0.375s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(180 12 12)"><animate attributeName="r" begin="0.5s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(225 12 12)"><animate attributeName="r" begin="0.625s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(270 12 12)"><animate attributeName="r" begin="0.75s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(315 12 12)"><animate attributeName="r" begin="0.875s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle></svg>
+        </div>;
+    }
+
+    if (posts.length === 0) {
+        return <h2 className='text-center p-5'>No posts yet. Create the first post📭</h2>;
+    }
+
+
     return (
         <div className='flex flex-wrap w-fit mx-auto gap-5 mt-5 justify-center'>
-            {posts.length === 0 ? <p>No Post Created</p> : ""}
             {posts.map((data) => {
                 const formattedDate = new Date(data.createdAt).toLocaleString("en-IN", {
                     day: "2-digit",
