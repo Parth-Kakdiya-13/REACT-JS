@@ -9,8 +9,8 @@ const isAuth = require('../middleware/is-auth')
 
 router.post('/post', isAuth, upload.single('image'), feedController.createPost);
 router.get('/getAll', feedController.getAll);
-router.get('/getPost/:id', feedController.getPost);
-router.put('/updatePost/:id', upload.single('image'), feedController.updatePost);
-router.delete('/deletePost/:id', feedController.deletePost);
+router.get('/getPost/:id', isAuth, feedController.getPost);
+router.put('/updatePost/:id', isAuth, upload.single('image'), feedController.updatePost);
+router.delete('/deletePost/:id', isAuth, feedController.deletePost);
 
 module.exports = router;

@@ -19,6 +19,7 @@ exports.createPost = async (req, res, next) => {
 exports.getAll = async (req, res) => {
   try {
     const posts = await Post.find()
+      .sort({ createdAt: -1 }) // Sort by latest posts first
       .populate("creator", "name") // Populate post creator's name
       .populate({
         path: "comments", // Populate comments
@@ -34,6 +35,7 @@ exports.getAll = async (req, res) => {
     res.status(500).json({ message: error.message || "Internal Server Error" });
   }
 };
+
 
 
 exports.getPost = async (req, res) => {

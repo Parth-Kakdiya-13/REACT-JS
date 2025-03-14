@@ -14,6 +14,9 @@ export const MyPosts = () => {
     const [selectedPost, setSelectedPost] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const token = localStorage.getItem("token");
+
+
     const authCtx = useContext(AuthContext);
     const navigate = useNavigate();
     const fileGet = useRef();
@@ -27,7 +30,11 @@ export const MyPosts = () => {
 
         async function fetchDataHandler() {
             try {
-                const response = await API.get(`/feed/getPost/${localStorage.getItem("userId")}`);
+                const response = await API.get(`/feed/getPost/${localStorage.getItem("userId")}`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
                 if (response.data?.posts?.length) {
                     setPosts(response.data.posts);
                     setLoading(false)
@@ -76,8 +83,12 @@ export const MyPosts = () => {
         formData.append("content", currentPost.content);
 
         try {
+
             const response = await API.put(`/feed/updatePost/${currentPost._id}`, formData, {
-                headers: { "Content-Type": "multipart/form-data" },
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": `Bearer ${token}`
+                }
             });
 
             if (response.status === 200 || response.status === 201) {
@@ -100,7 +111,7 @@ export const MyPosts = () => {
         const response = await API.delete(`/feed/deletePost/${id}`, {
             headers: {
                 "Content-Type": "multipart/form-data",
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                "Authorization": `Bearer ${token}`
             }
         });
         if (response.status === 200) {
