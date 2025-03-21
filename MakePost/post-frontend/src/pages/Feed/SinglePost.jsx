@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import API from '../../API/api';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Header/Button';
 import { Dialog } from '../../components/Dialog';
+import { AuthContext } from '../../store/AuthContext';
 
 export const SinglePost = () => {
     const [post, setPost] = useState({
@@ -12,7 +13,9 @@ export const SinglePost = () => {
     });
     const [preview, setPreview] = useState(null);
     const [dialog, setDialog] = useState(false);
-    const [text, setText] = useState("")
+    const [text, setText] = useState("");
+
+    const authCtx = useContext(AuthContext)
 
     const navigate = useNavigate();
     const fileGet = useRef();
@@ -95,10 +98,11 @@ export const SinglePost = () => {
             <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
                 <form
                     onSubmit={submitHandler}
-                    className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300"
+                    className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300 max-sm:mx-10"
                 >
                     <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Create a Post</h2>
                     <button
+                        type='button'
                         onClick={onClose}
                         className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                     >
@@ -166,6 +170,7 @@ export const SinglePost = () => {
                             Submit Post
                         </Button>
                         <Button classes="bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => localStorage.getItem("token") ? navigate('/myposts') : navigate('/')}>My Posts</Button>
+                        <Button onClick={() => { authCtx.logout(); navigate('/') }}>Logout</Button>
                     </div>
                 </form >
             </div >

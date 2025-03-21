@@ -28,11 +28,16 @@ export const AuthContextProvider = ({ children }) => {
         }
     }
 
+    function logoutHandler() {
+        localStorage.removeItem("token")
+    }
+
 
     const ctxValue = {
         login: loginHandler,
         isAuthenticated: isAuthenticated,
         token: token,
+        logout: logoutHandler
     }
     // console.log(user);
 

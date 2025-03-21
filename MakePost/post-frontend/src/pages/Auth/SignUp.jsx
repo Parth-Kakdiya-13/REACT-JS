@@ -55,6 +55,7 @@ export const SignUp = () => {
             <div className="relative w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
                 {/* Close Button */}
                 <button
+                    type="button"
                     onClick={onClose}
                     className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                 >
@@ -110,6 +111,8 @@ export const SignUp = () => {
                     >
                         SIGN UP
                     </Button>
+                    <p className="text-gray-500 text-center  mt-5">Already have an Account. <span className="text-fuchsia-500 cursor-pointer" onClick={() => navigate('/login')}>Login</span></p>
+
                 </form>
             </div>
         </div>

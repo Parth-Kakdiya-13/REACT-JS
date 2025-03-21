@@ -163,6 +163,7 @@ export const MyPosts = () => {
                 return (
                     <div key={data._id} className='relative flex flex-col items-start rounded-md shadow-2xl bg-white max-sm:mx-10'>
                         <button
+                            type='button'
                             onClick={onClose}
                             className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                         >
@@ -201,67 +202,82 @@ export const MyPosts = () => {
 
             {isEdit && currentPost && (
                 <div className="fixed inset-0 bg-black/0 backdrop-blur-sm flex items-center justify-center z-50">
-                    <div className="relative bg-white p-5 rounded-lg shadow-lg w-[500px] max-w-full max-sm:mx-10">
+
+                    <form
+                        onSubmit={submitHandler}
+                        className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300 max-sm:mx-10"
+                    >
+                        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Create a Post</h2>
                         <button
-                            onClick={onCloseEditBackDrop}
+                            type='button'
+                            onClick={onClose}
                             className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                         >
                             ✖
                         </button>
-                        <form onSubmit={submitHandler} className='w-full rounded-xl'>
-                            <label className='block'>
-                                Title:
-                                <input
-                                    className='border-2 w-full border-fuchsia-900 p-1'
-                                    type='text'
-                                    name='title'
-                                    value={currentPost.title}
-                                    onChange={changeHandler}
-                                />
-                            </label>
 
-                            <label className='block mt-5'>
-                                Image:
+                        {/* Title Input */}
+                        <label className="block text-lg font-medium text-gray-700">Title:</label>
+                        <input
+                            className="w-full p-2 mt-1 rounded-md border border-gray-300 focus:border-purple-500 focus:outline-none"
+                            type="text"
+                            name="title"
+                            placeholder="Enter your post title"
+                            value={currentPost.title}
+                            onChange={changeHandler}
+                            required
+                        />
+
+                        {/* Image Upload */}
+                        <div className="mt-4">
+                            <label className="block text-lg font-medium text-gray-700">Image:</label>
+                            <div
+                                className="w-full border border-dashed border-gray-400 rounded-lg p-3 flex flex-col items-center cursor-pointer hover:bg-gray-50 transition-all"
+                                onClick={clickHandler}
+                            >
+                                <p className="text-gray-500">Click to upload image</p>
                                 <input
-                                    className='border-2 block w-fit border-fuchsia-900'
-                                    type='file'
-                                    accept='image/*'
-                                    name='image'
+                                    type="file"
+                                    hidden
+                                    accept="image/*"
+                                    name="image"
                                     ref={fileGet}
                                     onChange={handleFileChange}
                                 />
-                                <Button onClick={clickHandler}>Upload Image</Button>
-                                <div className="mt-2">
-                                    <p>Image Preview:</p>
+                            </div>
+                            {preview && (
+                                <div className="mt-3 flex justify-center">
                                     <img
-                                        src={preview || `data:image/jpeg;base64,${currentPost.image}`}
-                                        alt='Preview'
-                                        className='w-40 h-40 object-cover mb-4 border border-gray-300 rounded-md'
+                                        src={preview}
+                                        alt="Preview"
+                                        className="w-40 h-40 object-cover rounded-lg shadow-md"
                                     />
                                 </div>
-                            </label>
+                            )}
+                        </div>
 
-                            <label className='block mt-5'>
-                                Content:
-                                <input
-                                    className='border-2 w-full border-fuchsia-900 p-1'
-                                    type='text'
-                                    name='content'
-                                    value={currentPost.content}
-                                    onChange={changeHandler}
-                                />
-                            </label>
+                        {/* Content Input */}
+                        <label className="block mt-5 text-lg font-medium text-gray-700">Content:</label>
+                        <textarea
+                            className="w-full p-2 mt-1 rounded-md border border-gray-300 focus:border-purple-500 focus:outline-none resize-none"
+                            name="content"
+                            placeholder="Write something interesting..."
+                            value={currentPost.content}
+                            onChange={changeHandler}
+                            rows="4"
+                            required
+                        ></textarea>
 
-                            <div className="flex gap-2 mt-5">
-                                <button className='px-5 py-2 bg-fuchsia-900 text-white cursor-pointer' type='submit'>
-                                    Submit
-                                </button>
-                                <button className='px-5 py-2 bg-gray-500 text-white cursor-pointer' type='button' onClick={() => setIsEdit(false)}>
-                                    Cancel
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        {/* Submit Button */}
+                        <div className='flex gap-2 items-center mt-5'>
+                            <Button
+                                type="submit"
+
+                            >
+                                Update
+                            </Button>
+                        </div>
+                    </form>
                 </div>
             )}
             {selectedPost && (

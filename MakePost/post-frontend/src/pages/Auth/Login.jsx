@@ -54,10 +54,11 @@ export const Login = () => {
             <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-40"></div>
 
             {/* Login Form Container */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md bg-white p-8 rounded-lg shadow-2xl">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md bg-white p-8 rounded-lg shadow-2xl max-sm:mx-5">
                 {/* Dialog for Success/Error */}
                 {dialog && <Dialog text={text} onClick={dialogCloseHandler} logo={true} />}
                 <button
+                    type="button"
                     onClick={onClose}
                     className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                 >
@@ -92,9 +93,10 @@ export const Login = () => {
                     />
 
                     {/* Submit Button */}
-                    <Button classes="w-full mt-5 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all">
+                    <Button classes="w-full mt-5 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all" type="submit">
                         Login
                     </Button>
+                    <p className="text-gray-500 text-center  mt-5">Don't have Account. <span className="text-fuchsia-500 cursor-pointer" onClick={() => navigate('/signup')}>Create New Account</span></p>
                 </form>
             </div>
         </>
