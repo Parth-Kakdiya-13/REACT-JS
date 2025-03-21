@@ -15,7 +15,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/', element: <Navbar />, children: [
-        { path: "/", index: true, element: <Feeds /> },
+        // { path: "/", index: true, element: <Feeds /> },
         { path: '/login', element: <Login /> },
         { path: '/signup', element: <SignUp /> },
         {
@@ -32,11 +32,11 @@ function App() {
 
 
   return (
-    <>
+    <div className="bg-emerald-200/40 h-screen">
       <AuthContextProvider>
         <RouterProvider router={router} />
       </AuthContextProvider>
-    </>
+    </div>
   )
 }
 

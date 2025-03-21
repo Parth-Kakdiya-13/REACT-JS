@@ -1,0 +1,75 @@
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    background: url('../assets/clock.png') white;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 12px 3px #cfc8c8;
+    border: 10px solid rgb(255, 188, 111);
+    position: relative;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #42a5f5;
+    border-radius: 50%;
+    z-index: 40;
+}
+
+.hour, .minute, .second {
+    position: absolute;
+}
+
+.hour, .hr {
+    height: 70px;
+    width: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+.hr::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 50px;
+    background: black;
+    border-radius: 6px 6px 0 0;
+}
+
+.minute, .min {
+    height: 80px;
+    width: 80px;
+    justify-content: center;
+    display: flex;
+}
+
+.min::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 55px;
+    background: blue;
+    border-radius: 6px 6px 0 0;
+}
+
+.second, .sec {
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+.sec::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 70px;
+    background: red;
+    border-radius: 6px 6px 0 0;
+}

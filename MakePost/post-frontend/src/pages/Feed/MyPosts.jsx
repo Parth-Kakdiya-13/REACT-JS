@@ -119,6 +119,14 @@ export const MyPosts = () => {
         }
     }
 
+    function onClose() {
+        navigate('/')
+    }
+
+    function onCloseEditBackDrop() {
+        setIsEdit(false)
+    }
+
     function openComments(post) {
         console.log(post);
 
@@ -133,7 +141,7 @@ export const MyPosts = () => {
 
 
     if (loading) {
-        return <div className=' text-gray-500 fixed top-72  bg-opacity-50 flex w-full justify-center place-self-center items-center'>
+        return <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24"><circle cx="12" cy="2" r="0" fill="currentColor"><animate attributeName="r" begin="0" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(45 12 12)"><animate attributeName="r" begin="0.125s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(90 12 12)"><animate attributeName="r" begin="0.25s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(135 12 12)"><animate attributeName="r" begin="0.375s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(180 12 12)"><animate attributeName="r" begin="0.5s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(225 12 12)"><animate attributeName="r" begin="0.625s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(270 12 12)"><animate attributeName="r" begin="0.75s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(315 12 12)"><animate attributeName="r" begin="0.875s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0" /></circle></svg>
         </div>;
     }
@@ -144,7 +152,7 @@ export const MyPosts = () => {
 
 
     return (
-        <div className='flex flex-wrap w-fit mx-auto gap-5 mt-5 justify-center'>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
             {posts.map((data) => {
                 const formattedDate = new Date(data.createdAt).toLocaleString("en-IN", {
                     day: "2-digit",
@@ -153,7 +161,13 @@ export const MyPosts = () => {
                 });
 
                 return (
-                    <div key={data._id} className='flex flex-col items-start rounded-md shadow-2xl'>
+                    <div key={data._id} className='relative flex flex-col items-start rounded-md shadow-2xl bg-white max-sm:mx-10'>
+                        <button
+                            onClick={onClose}
+                            className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
+                        >
+                            ✖
+                        </button>
                         <div className='flex w-full justify-between items-center p-5'>
                             <h2 className='text-2xl capitalize font-semibold'>
                                 {data.creator ? data.creator.name : "Unknown"}
@@ -164,10 +178,10 @@ export const MyPosts = () => {
                             <img className='w-60 h-full rounded-tr-xl  shadow-2xl' src={`data:image/jpeg;base64,${data.image}`} />
                             <div className='w-full flex flex-col p-5'>
                                 <h2 className='text-xl capitalize font-sans'>{data.title}</h2>
-                                <p className='text-gray-500'>{data.content}</p>
+                                <p className='text-gray-500 py-3'>{data.content}</p>
                                 <div className='flex gap-2'>
                                     <Button
-                                        classes="w-fit mt-2"
+                                        classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950"
                                         onClick={() => {
                                             setIsEdit(true);
                                             setCurrentPost(data);
@@ -176,8 +190,8 @@ export const MyPosts = () => {
                                     >
                                         Edit
                                     </Button>
-                                    <Button classes="w-fit mt-2" onClick={() => deleteHandler(data._id)}>Delete</Button>
-                                    <Button classes="w-fit mt-2" onClick={() => openComments(data)}>Comments</Button>
+                                    <Button classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => deleteHandler(data._id)}>Delete</Button>
+                                    <Button classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => openComments(data)}>Comments</Button>
                                 </div>
                             </div>
                         </div>
@@ -186,8 +200,14 @@ export const MyPosts = () => {
             })}
 
             {isEdit && currentPost && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-                    <div className="bg-white p-5 rounded-lg shadow-lg w-[500px] max-w-full">
+                <div className="fixed inset-0 bg-black/0 backdrop-blur-sm flex items-center justify-center z-50">
+                    <div className="relative bg-white p-5 rounded-lg shadow-lg w-[500px] max-w-full max-sm:mx-10">
+                        <button
+                            onClick={onCloseEditBackDrop}
+                            className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
+                        >
+                            ✖
+                        </button>
                         <form onSubmit={submitHandler} className='w-full rounded-xl'>
                             <label className='block'>
                                 Title:

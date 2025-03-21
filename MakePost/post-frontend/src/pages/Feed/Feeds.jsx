@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Header/Button';
 import API from '../../API/api';
 import CommentModal from '../../components/Header/Comment';
+import { Dialog } from '../../components/Dialog';
 
 export const Feeds = () => {
     const [posts, setPosts] = useState([]);
@@ -10,6 +11,7 @@ export const Feeds = () => {
     const [isCommentOpen, setIsCommentOpen] = useState(false);
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
+    const [dialog, setDialog] = useState(false);
 
 
     useEffect(() => {
@@ -35,8 +37,7 @@ export const Feeds = () => {
         if (localStorage.getItem("token")) {
             navigate('/singlepost');
         } else {
-            navigate('/login');
-            alert("Please log in first");
+            setDialog(true)
         }
     }
 
@@ -45,9 +46,13 @@ export const Feeds = () => {
             setSelectedPost(post);
             setIsCommentOpen(true);
         } else {
-            navigate('/login');
-            alert("Login First...")
+            setDialog(true)
         }
+    }
+
+    function dialogCloseHandler() {
+        setDialog(false)
+        navigate('/login')
     }
 
     async function commentHandler(text) {
@@ -69,7 +74,7 @@ export const Feeds = () => {
                 }
             });
             if (response.status === 201) {
-                alert("Comment added!");
+
                 setSelectedPost((prev) => ({
                     ...prev,
                     comments: [...(prev.comments || []), response.data.comment], // ✅ Append new comment
@@ -89,8 +94,9 @@ export const Feeds = () => {
 
     return (
         <div>
+            {dialog && <Dialog onClick={dialogCloseHandler} text="Plz Login First" />}
             <Link>
-                <Button classes="flex justify-center w-fit mx-auto bg-gray-500" type="button" onClick={newPost}>
+                <Button classes="flex justify-center w-fit mx-auto bg-gradient-to-br from-fuchsia-500  to-blue-950 mt-5" type="button" onClick={newPost}>
                     New Post
                 </Button>
             </Link>
@@ -119,7 +125,7 @@ export const Feeds = () => {
                                         <div className='w-full flex flex-col p-5'>
                                             <h2 className='text-xl capitalize font-sans'>{data.title}</h2>
                                             <p className='text-gray-500'>{data.content}</p>
-                                            <Button classes="w-fit mt-2" onClick={() => openComments(data)}>
+                                            <Button classes="w-fit mt-5" onClick={() => openComments(data)}>
                                                 Comment
                                             </Button>
                                         </div>
