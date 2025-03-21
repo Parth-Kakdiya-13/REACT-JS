@@ -161,11 +161,11 @@ export const MyPosts = () => {
                 });
 
                 return (
-                    <div key={data._id} className='relative flex flex-col items-start rounded-md shadow-2xl bg-white max-sm:mx-10'>
+                    <div key={data._id} className='relative flex flex-col items-start rounded-md shadow-2xl bg-white max-sm:scale-90'>
                         <button
                             type='button'
                             onClick={onClose}
-                            className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
+                            className="absolute -top-8 right-0 p-2 rounded-t-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                         >
                             ✖
                         </button>
@@ -205,13 +205,13 @@ export const MyPosts = () => {
 
                     <form
                         onSubmit={submitHandler}
-                        className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300 max-sm:mx-10"
+                        className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300 max-sm:scale-90"
                     >
                         <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Create a Post</h2>
                         <button
                             type='button'
                             onClick={onClose}
-                            className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
+                            className="absolute -top-8 right-0 p-2 rounded-t-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                         >
                             ✖
                         </button>
