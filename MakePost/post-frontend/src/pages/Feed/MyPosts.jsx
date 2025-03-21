@@ -152,53 +152,55 @@ export const MyPosts = () => {
 
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
-            {posts.map((data) => {
-                const formattedDate = new Date(data.createdAt).toLocaleString("en-IN", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                });
+        <div className="fixed top-0 left-0 w-full flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
+            <div className="w-[90%] md:w-3/5 max-h-[90vh] overflow-y-auto p-4 rounded-lg shadow-lg">
+                {posts.map((data) => {
+                    const formattedDate = new Date(data.createdAt).toLocaleString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                    });
 
-                return (
-                    <div key={data._id} className='relative flex flex-col items-start rounded-md shadow-2xl bg-white max-sm:scale-90'>
-                        <button
-                            type='button'
-                            onClick={onClose}
-                            className="absolute -top-8 right-0 p-2 rounded-t-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
-                        >
-                            ✖
-                        </button>
-                        <div className='flex w-full justify-between items-center p-5'>
-                            <h2 className='text-2xl capitalize font-semibold'>
-                                {data.creator ? data.creator.name : "Unknown"}
-                            </h2>
-                            <p className='text-gray-500'>{formattedDate}</p>
-                        </div>
-                        <div className='flex items-start max-md:flex-col max-md:items-start'>
-                            <img className='w-60 h-full rounded-tr-xl  shadow-2xl' src={`data:image/jpeg;base64,${data.image}`} />
-                            <div className='w-full flex flex-col p-5'>
-                                <h2 className='text-xl capitalize font-sans'>{data.title}</h2>
-                                <p className='text-gray-500 py-3'>{data.content}</p>
-                                <div className='flex gap-2'>
-                                    <Button
-                                        classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950"
-                                        onClick={() => {
-                                            setIsEdit(true);
-                                            setCurrentPost(data);
-                                            setPreview(`data:image/jpeg;base64,${data.image}`);
-                                        }}
-                                    >
-                                        Edit
-                                    </Button>
-                                    <Button classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => deleteHandler(data._id)}>Delete</Button>
-                                    <Button classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => openComments(data)}>Comments</Button>
+                    return (
+                        <div key={data._id} className='relative flex flex-col items-start rounded-md shadow-2xl bg-white max-sm:scale-90 mt-10'>
+                            <button
+                                type='button'
+                                onClick={onClose}
+                                className="absolute -top-8 right-0 p-2 rounded-t-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
+                            >
+                                ✖
+                            </button>
+                            <div className='flex w-full justify-between items-center p-5'>
+                                <h2 className='text-2xl capitalize font-semibold'>
+                                    {data.creator ? data.creator.name : "Unknown"}
+                                </h2>
+                                <p className='text-gray-500'>{formattedDate}</p>
+                            </div>
+                            <div className='flex items-start max-md:flex-col max-md:items-start'>
+                                <img className='w-60 h-full max-[500px]:w-full rounded-xl  shadow-2xl' src={`data:image/jpeg;base64,${data.image}`} />
+                                <div className='w-full flex flex-col p-5'>
+                                    <h2 className='text-xl capitalize font-sans'>{data.title}</h2>
+                                    <p className='text-gray-500 py-3'>{data.content}</p>
+                                    <div className='flex flex-wrap gap-2'>
+                                        <Button
+                                            classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950"
+                                            onClick={() => {
+                                                setIsEdit(true);
+                                                setCurrentPost(data);
+                                                setPreview(`data:image/jpeg;base64,${data.image}`);
+                                            }}
+                                        >
+                                            Edit
+                                        </Button>
+                                        <Button classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => deleteHandler(data._id)}>Delete</Button>
+                                        <Button classes="w-fit mt-2 bg-gradient-to-br from-fuchsia-500  to-blue-950" onClick={() => openComments(data)}>Comments</Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
 
             {isEdit && currentPost && (
                 <div className="fixed inset-0 bg-black/0 backdrop-blur-sm flex items-center justify-center z-50">
@@ -210,7 +212,7 @@ export const MyPosts = () => {
                         <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Create a Post</h2>
                         <button
                             type='button'
-                            onClick={onClose}
+                            onClick={onCloseEditBackDrop}
                             className="absolute -top-8 right-0 p-2 rounded-t-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
                         >
                             ✖

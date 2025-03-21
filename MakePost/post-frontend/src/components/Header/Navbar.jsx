@@ -32,10 +32,6 @@ export const Navbar = () => {
         setDialog(true)
     }
 
-    function dialogCloseHandler() {
-        setDialog(false)
-        navigate("/login");
-    }
 
 
     return (
