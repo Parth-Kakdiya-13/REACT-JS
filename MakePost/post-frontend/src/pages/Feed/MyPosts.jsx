@@ -152,7 +152,7 @@ export const MyPosts = () => {
 
 
     return (
-        <div className="fixed top-0 left-0 w-full flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
+        <div className="fixed h-screen top-0 left-0 w-full flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
             <div className="w-[90%] md:w-3/5 max-h-[90vh] overflow-y-auto p-4 rounded-lg shadow-lg">
                 {posts.map((data) => {
                     const formattedDate = new Date(data.createdAt).toLocaleString("en-IN", {
@@ -204,10 +204,9 @@ export const MyPosts = () => {
 
             {isEdit && currentPost && (
                 <div className="fixed inset-0 bg-black/0 backdrop-blur-sm flex items-center justify-center z-50">
-
                     <form
                         onSubmit={submitHandler}
-                        className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300 max-sm:scale-90"
+                        className="relative w-full max-w-lg bg-white p-6 rounded-lg shadow-lg border border-gray-300 scale-90"
                     >
                         <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Create a Post</h2>
                         <button

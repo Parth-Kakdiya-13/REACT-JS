@@ -75,7 +75,7 @@ export const Slider = () => {
             >
 
                 <div className='absolute flex items-center w-12 h-28 top-[11rem] max-lg:top-[10rem] max-md:top-[6rem] left-0 rounded-2xl bg-white shadow-2xl p-2'>
-                    <div className='rounded-full w-full h-full bg-gray-500'></div>
+                    <div className='rounded-full w-full h-full bg-amber-600/50 shadow-inner shadow-gray-700'></div>
                 </div>
                 <hr className='w-full border border-gray-300' />
                 <hr className='w-full border border-gray-300' />

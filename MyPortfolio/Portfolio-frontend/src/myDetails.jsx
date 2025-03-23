@@ -7,7 +7,7 @@ export const myServices = [
     },
     {
         title: "Backend Developer",
-        description: "Developing RESTful API's using Node.js, Express.js, MongoDB, JWT and Joi in MVC Architecture",
+        description: "Developing RESTful API's using Node.js, Express.js, MongoDB, JWT and Express-Validator in MVC Architecture",
         icon: <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16" /></svg>
     },
     //  {
@@ -45,10 +45,10 @@ export const education = [
     //     description: "Bechelor's degree in commerve at R.P. Bhalodia Commerce College, Rajkot, Gujarat"
     // },
     {
-        date: "July'2023 - Present",
+        date: "July'2023 - 2025",
         title: "MCA - Atmiya University",
         "city": "Rajkot",
-        description: "Master Of Computer Application in Information Techonology at Atmiya University, Rajkot, Gujarat"
+        description: "Master Of Computer Application in Computer Science at Atmiya University, Rajkot, Gujarat"
     }
 ]
 

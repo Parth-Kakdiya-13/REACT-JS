@@ -28,8 +28,8 @@ const Resume = ({ resumeClass, theme }) => {
                         return <div className="flex flex-col p-5 border-b h-[14rem] max-sm:h-fit ">
                             <p className="w-fit rounded-md text-sm font-medium mb-3 px-2 border border-violet-300 text-violet-300">{items.date}</p>
                             <h2 className="text-xl">{items.title}</h2>
-                            <p className="text-stone-400">{items.subtitle}</p>
-                            <p className=" text-stone-500 text-lg">{items.description}</p>
+                            <p className="text-stone-400 capitalize">{items.subtitle}</p>
+                            <p className=" text-stone-500 text-lg text-justify">{items.description}</p>
                         </div>
                     })}
                 </div>
@@ -41,10 +41,10 @@ const Resume = ({ resumeClass, theme }) => {
                     </div>
                     {education.map((items) => {
                         return <div className="flex flex-col p-5 border-b h-[14rem] max-sm:h-fit ">
-                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border ${items.title === "MCA - Atmiya University" ? 'border-violet-300 text-violet-300' : ' border-gray-300 text-gray-300'} `}>{items.date}</p>
+                            <p className={`w-fit rounded-md text-sm font-medium mb-3 px-2 border  border-gray-400 text-gray-400 `}>{items.date}</p>
                             <h2 className="text-xl">{items.title}</h2>
                             <p className="text-stone-400">{items.city}</p>
-                            <p className=" text-stone-500 text-lg">{items.description}</p>
+                            <p className=" text-stone-500 text-lg text-justify">{items.description}</p>
                         </div>
                     })}
                 </div>
@@ -61,12 +61,12 @@ const Resume = ({ resumeClass, theme }) => {
                             <h2 className="text-xl font-semibold ">CATEGORIES</h2>
                         </div>
                         <ul className="flex flex-col items-start p-5">
-                            <li className="text-stone-500 w-full">Frontend (React,Tailwind)
+                            <li className="text-stone-500 w-full">Frontend (React, Tailwind, Framer-motion)
                                 <div className="w-full h-1 bg-stone-300 my-2">
                                     <div className="w-[13rem] h-1 bg-violet-500"></div>
                                 </div>
                             </li>
-                            <li className="text-stone-500 w-full">Backend (MongoDB,Express.js,Node.js)
+                            <li className="text-stone-500 w-full">Backend (MongoDB, Express.js, Node.js, REST APIs, GraphQL)
                                 <div className="w-full h-1 bg-stone-300 my-2">
                                     <div className="w-[10rem] h-1 bg-violet-500"></div>
                                 </div>
