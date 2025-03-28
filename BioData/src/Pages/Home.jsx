@@ -6,7 +6,7 @@ import { Services } from '../components/Services'
 export const Home = () => {
     return (
         <>
-            <div className='py-10 flex items-center max-md:flex-col'>
+            <div className='py-10 flex items-center max-md:flex-col max-md:mt-20'>
                 <div className='w-full flex flex-col items-start justify-center max-md:items-center'>
                     <h1 className='text-6xl font-black max-md:text-center max-md:text-5xl max-sm:text-4xl'>BioData Builder (Fast,<br /> Easy & Free to Use)</h1>
                     <p className='py-10 text-2xl text-gray-500 max-md:text-center max-md:text-xl max-sm:text-lg'>Create your BioData with one of the best Bio Data Builder.<br /> With eazy and scalable approach, make with mobile or desktop</p>
