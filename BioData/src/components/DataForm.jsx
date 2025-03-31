@@ -22,6 +22,8 @@ export const DataForm = ({ onChangeFormData }) => {
         contact: "",
         email: "",
         address: "",
+        blood: "",
+        maternal: ""
     })
 
     const [isOpen, setIsOpen] = useState(true);
@@ -54,7 +56,7 @@ export const DataForm = ({ onChangeFormData }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className='mt-5 ml-10 overflow-hidden '
+                        className='mt-5 overflow-hidden '
                     >
                         <label className='block mt-2 text-lg text-gray-500'>
                             Name:
@@ -81,6 +83,10 @@ export const DataForm = ({ onChangeFormData }) => {
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='cast' onChange={changeHanler} />
                         </label>
                         <label className='block mt-2 text-lg text-gray-500'>
+                            Blood Group
+                            <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='blood' onChange={changeHanler} />
+                        </label>
+                        <label className='block mt-2 text-lg text-gray-500'>
                             Highest Qualification:
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='education' onChange={changeHanler} />
                         </label>
@@ -100,7 +106,7 @@ export const DataForm = ({ onChangeFormData }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={isOpenFamily ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className='mt-5 ml-10 overflow-hidden '
+                        className='mt-5 overflow-hidden '
                     >
                         <label className='block mt-2 text-lg text-gray-500'>
                             Father name:
@@ -113,6 +119,10 @@ export const DataForm = ({ onChangeFormData }) => {
                         <label className='block mt-2 text-lg text-gray-500'>
                             Siblings:
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='siblings' onChange={changeHanler} />
+                        </label>
+                        <label className='block mt-2 text-lg text-gray-500'>
+                            Maternal Uncle:
+                            <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='maternal' onChange={changeHanler} />
                         </label>
                         <label className='block mt-2 text-lg text-gray-500'>
                             Family status:
@@ -139,7 +149,7 @@ export const DataForm = ({ onChangeFormData }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={isOpenContact ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className='mt-5 ml-10 overflow-hidden '
+                        className='mt-5 overflow-hidden '
                     >
                         <label className='block mt-2 text-lg text-gray-500'>
                             Conatact Number:

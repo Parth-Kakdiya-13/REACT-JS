@@ -21,7 +21,7 @@ function App() {
 
 
   return (
-    <div className="mx-10 md:mx-20 lg:mx-30 ">
+    <div className="mx-0 sm:mx-10 md:mx-20 lg:mx-30 ">
       <RouterProvider router={router} />
     </div>
   );

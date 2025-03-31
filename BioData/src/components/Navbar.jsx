@@ -4,6 +4,7 @@ import { Button } from './Button'
 import menu from '../assets/menu.png'
 import close from '../assets/close.png'
 import { Outlet, useLocation, Link } from 'react-router-dom'
+import RandomEmojis from './Test2'
 
 export const Navbar = () => {
 

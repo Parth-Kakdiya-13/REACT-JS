@@ -38,7 +38,7 @@ export const Templates = () => {
 
 
     return (
-        <div className='max-md:mt-20'>
+        <div>
             <h2 className='w-fit mx-auto px-20 text-5xl font-semibold max-md:text-center max-md:text-5xl max-sm:text-4xl text-center mt-10 pb-5 border-b-4 border-yellow-500/50 capitalize'>Choose template</h2>
             <div className='flex flex-wrap gap-10 justify-center items-center mt-10'>
                 {templateArray.map((template) => {
