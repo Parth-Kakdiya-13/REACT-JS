@@ -82,12 +82,12 @@ const Test2 = forwardRef(({ data }, ref) => {
     }
 
     return (
-        <div className="relative w-fit shadow-2xl">
+        <div className="relative w-fit h-fit shadow-2xl">
             <div className=" h-fit w-fit relative p-5" ref={ref}>
                 <div
                     style={{
-                        width: "35rem",
-                        height: "50rem",
+                        width: "40rem",
+                        height: "55rem",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",

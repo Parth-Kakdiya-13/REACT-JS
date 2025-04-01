@@ -1,6 +1,6 @@
 import React from 'react';
-import cvtemplate from '../assets/CV-Template.jpg'
-import cvtemplate02 from '../assets/CV-Template-02.jpg'
+import cvtemplate from '../assets/arti.jpg'
+import cvtemplate02 from '../assets/parth.jpg'
 import cvtemplate03 from '../assets/CV-Template-03.jpg'
 import { Button } from '../components/Button';
 import { useDispatch } from 'react-redux';

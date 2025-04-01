@@ -1,11 +1,12 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import profileImage from '../assets/pk_01.jpg';
+import block from '../assets/block.png';
 
 
 
 
 const Test = forwardRef(({ data }, ref) => {
-
+    // 15261c
     //     const marriageIcons = [
     //     "https://cdn-icons-png.flaticon.com/128/929/929571.png", // Wedding Rings
     //     "https://cdn-icons-png.flaticon.com/128/2920/2920056.png", // Bride & Groom
@@ -62,94 +63,139 @@ const Test = forwardRef(({ data }, ref) => {
 
 
     return (
-        <div
-            ref={ref}
-            style={{
-                width: "35rem",
-                height: "50rem",
-                display: "flex",
-                background: "#fff",
-                position: "relative",
-                overflow: "hidden",
-                padding: "20px"
-            }}
-        >
-            {/* Render Random PNG Background Icons */}
-            {/* {Array.from({ length: 13 }).map((_, i) => {
-                const iconSrc = marriageIcons[Math.floor(Math.random() * marriageIcons.length)];
-                return (
-                    <img
-                        key={i}
-                        src={iconSrc}
-                        alt="icon"
-                        style={{
-                            position: "absolute",
-                            top: `${Math.random() * 100}%`,
-                            left: `${Math.random() * 100}%`,
-                            width: "50px",
-                            height: "50px",
-                            opacity: 0.2,
-                            transform: `rotate(${Math.random() * 360}deg)`,
-                        }}
-                    />
-                );
-            })} */}
+        <div className="shadow-2xl w-fit h-fit">
+            <div
+                ref={ref}
+                style={{
+                    width: "40rem",
+                    height: "55rem",
+                    display: "flex",
+                    padding: "10px",
+                    background: "#ffe9c0"
+                }}
+            >
+                <div style={{ width: "100%", height: "100%", position: "relative", padding: "20px" }}>
+                    <div style={{ width: "100%", height: "100%", border: "3px solid #15261c", padding: "10px" }}>
+                        <div style={{ width: "100%", height: "100%", border: "1px solid #15261c" }}>
+                            <img src={block} style={{ width: "200px", position: "absolute", left: "0", top: "0" }} />
+                            <img src={block} style={{ width: "200px", position: "absolute", right: "0", bottom: "0", transform: "rotate(180deg)" }} />
+                            <div style={{ display: "flex", flexDirection: "column", gap: "20px", margin: "30px", fontSize: "20px", position: "relative", padding: "10px" }}>
+                                {/* personal details */}
+                                <div>
+                                    <img src={profileImage} style={{ width: "150px", height: "200px", position: "absolute", top: "50px", right: "-15px" }} alt="profileimage" />
+                                    <h2 style={{ fontSize: "20px", color: "#15261c", textAlign: "center", fontWeight: "500" }}>Personal Details</h2>
+                                    <div>
+                                        <div style={{ display: "flex", marginTop: "10px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Name:
+                                            </p>
+                                            <span style={{ fontSize: "16px", textTransform: "capitalize" }}>{formData.name ? formData.name : "Name"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Birth data:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.dateofbirth ? formData.dateofbirth : "xx/xx/xxxx"} </span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Birth Place:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.place ? formData.place : "Place"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Religion:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.cast ? formData.cast : "Cast"} </span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Height:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.height ? formData.height : "Height"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Blood Group:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.blood ? formData.blood : "blood"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Education:
+                                            </p>
+                                            <p style={{ fontSize: "16px" }}>{formData.education ? formData.education : "Education"}</p>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Occupation:
+                                            </p>
+                                            <p style={{ fontSize: "16px" }}>{formData.occupation ? formData.occupation : "Occupation"}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* family details */}
+                                <div>
+                                    <h2 style={{ fontSize: "20px", textAlign: "center", fontWeight: "500" }}>Family Details</h2>
+                                    <div>
+                                        <div style={{ display: "flex", marginTop: "10px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Father name:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.father ? formData.father : "Father name"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Mother name:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.mother ? formData.mother : "Mother name"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Siblings:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.siblings ? formData.siblings : "Siblings"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Maternal:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.maternal ? formData.maternal : "Maternal uncle"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Status:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.status ? formData.status : "Satus"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Native:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.native ? formData.native : "Native"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Property:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.property ? formData.property : "Property"}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* contact details */}
+                                <div>
+                                    <h2 style={{ fontSize: "20px", textAlign: "center", fontWeight: "500" }}>Contact Details</h2>
+                                    <div>
+                                        <div style={{ display: "flex", marginTop: "10px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Phone number:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.contact ? formData.contact : "Number"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Email name:
+                                            </p>
+                                            <span style={{ fontSize: "16px" }}>{formData.email ? formData.email : "Email"}</span>
+                                        </div>
+                                        <div style={{ display: "flex", marginTop: "5px" }}>
+                                            <p style={{ width: "120px", fontSize: "16px" }}>Address:
+                                            </p>
+                                            <span style={{ fontSize: "16px", width: "300px" }}>{formData.address ? formData.address : "Address"}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            {/* Left Sidebar */}
-            <div style={{ width: "35%", textAlign: "center", display: "flex", gap: "10px", flexDirection: "column", alignItems: "center", justifyContent: "space-between" }}>
-                <div className="w-44 h-auto p-5 flex flex-col items-center justify-center bg-black border border-black  rounded-b-xl rounded-tl-xl text-white">
-                    <img
-                        src={profileImage}
-                        alt="Profile"
-                        className="mt-5 w-44 h-40 mx-5 rounded-xl"
-                    />
-                </div>
-
-                <div>
-                    <h1 style={{ fontSize: "24px", marginTop: "10px", textTransform: "capitalize" }}>{formData.name ? formData.name : "Name"}</h1>
-                    <p style={{ fontSize: "14px", marginTop: "5px", textTransform: "capitalize" }}>
-                        {formData.occupation ? formData.occupation : "Occupation"}
-                    </p>
-                </div>
-
-                <div className="w-44 h-full flex flex-col text-left bg-black text-white rounded-xl p-5 mt-5">
-                    <h2 className="mt-5" style={{ fontSize: " 20px " }}>Contact Details</h2>
-                    <p className="mt-5">Phone No:<br /> {formData.contact ? formData.contact : "Contact"}</p>
-                    <p className="mt-5">Email:<br /> {formData.address ? formData.address : "Address"}</p>
-                    <p className="mt-5">Email:<br /> {formData.email ? formData.email : "Email"}</p>
                 </div>
             </div>
-
-            {/* Right Content */}
-            <div className="w-full">
-                <div className="w-full h-16 rounded-r-xl bg-black">
-
-                </div>
-                <div style={{ margin: "20px" }}>
-                    <h2 className="w-fit " style={{ fontSize: "20px", color: "gray" }}>Personal Details</h2>
-                    <div className="ml-5 mt-2">
-                        <p className="mt-2">Birth data: {formData.dateofbirth ? formData.dateofbirth : "xx/xx/xxxx"} </p>
-                        <p className="mt-2">Birth Place: {formData.place ? formData.place : "Place"}</p>
-                        <p className="mt-2">Religion: {formData.cast ? formData.cast : "Cast"} </p>
-                        <p className="mt-2">Height: {formData.height ? formData.height : "Height"}</p>
-                        <p className="mt-2">Blood Group: {formData.blood ? formData.blood : "blood"}</p>
-                        <p className="mt-2">Education: {formData.education ? formData.education : "Education"}</p>
-                        <p className="mt-2">Occupation: {formData.occupation ? formData.occupation : "Occupation"}</p>
-                    </div>
-                </div>
-                <div style={{ margin: "20px" }}>
-                    <h2 style={{ fontSize: "20px", color: "gray" }}>Family Details</h2>
-                    <div className="ml-5 mt-2">
-                        <p className="mt-2">Father name: {formData.father ? formData.father : "Father name"}</p>
-                        <p className="mt-2">Mother name: {formData.mother ? formData.mother : "Mother name"}</p>
-                        <p className="mt-2">Siblings: {formData.siblings ? formData.siblings : "Siblings"}</p>
-                        <p className="mt-2">Maternal: {formData.maternal ? formData.maternal : "Maternal uncle"}</p>
-                        <p className="mt-2">Status: {formData.status ? formData.status : "Satus"}</p>
-                        <p className="mt-2">Property: {formData.property ? formData.property : "Property"}</p>
-                    </div>
-                </div>
-            </div>
-        </div >
+        </div>
     );
 });
 

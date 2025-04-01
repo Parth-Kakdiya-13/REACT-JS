@@ -3,14 +3,18 @@ import logo from '../assets/icon.png'
 import { Button } from './Button'
 import menu from '../assets/menu.png'
 import close from '../assets/close.png'
-import { Outlet, useLocation, Link } from 'react-router-dom'
-import RandomEmojis from './Test2'
+import { Outlet, useLocation, Link, useNavigate } from 'react-router-dom'
 
 export const Navbar = () => {
 
     const [bar, setBar] = useState(false);
 
     const location = useLocation();
+
+    const navigate = useNavigate()
+    function navigateToTemplates() {
+        navigate('/')
+    }
 
     const isActive = (path) => location.pathname === path;
 
@@ -24,7 +28,7 @@ export const Navbar = () => {
             <header className='sticky left-0 top-0 w-full shadow-2xl bg-white rounded-md z-100'>
                 <nav className='flex justify-between md:px-20 lg:px-28 '>
                     <div className='flex items-center max-md:hidden'>
-                        <img src={logo} className='max-w-2xl h-20 relative z-50 ' />
+                        <img src={logo} className='max-w-2xl h-20 relative z-50 cursor-pointer' onClick={navigateToTemplates} />
                         <h2 className='flex flex-col text-sm'>Create<span className='text-yellow-500/50 font-semibold text-2xl uppercase'>Bio</span></h2>
                     </div>
                     <div className=' md:hidden'>

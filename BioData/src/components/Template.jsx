@@ -1,15 +1,13 @@
 import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import parth from "../assets/pk_01.jpg";
-// import flower from '../assets/icons8-flowers-100 (1).png'
-import patern from '../assets/Patern01.png'
-import subpatern from '../assets/PaternSub01.png'
+
 import { DataForm } from "./DataForm";
 import Test from "./Test";
 import Test2 from "./Test2";
+import { Button } from "./Button";
 
-export const Template1 = () => {
+export const Template = () => {
     const resumeRef = useRef(null);
 
     const [formData, setFormData] = useState({
@@ -76,7 +74,7 @@ export const Template1 = () => {
         const imgData = canvas.toDataURL("image/png");
 
         // Define width as standard A4 (794px at 96 DPI)
-        const pdfWidth = 500;
+        const pdfWidth = 600;
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width; // Maintain aspect ratio
 
         const pdf = new jsPDF({
@@ -87,7 +85,7 @@ export const Template1 = () => {
         });
 
         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-        pdf.save("Marriage_BioData.pdf");
+        pdf.save(formData.name);
     };
 
 
@@ -103,7 +101,7 @@ export const Template1 = () => {
 
         const link = document.createElement("a");
         link.href = canvas.toDataURL(`image/${format}`);
-        link.download = `Marriage_BioData.${format}`;
+        link.download = `${formData.name}.${format}`;
         link.click();
     };
 
@@ -128,15 +126,15 @@ export const Template1 = () => {
 
 
             <div className="flex gap-5 mt-5 mb-20 max-sm:flex-col">
-                <button onClick={exportAsPDF} style={{ padding: "10px 20px", border: "none", backgroundColor: "black", color: "white", fontWeight: "bold", cursor: "pointer" }}>
+                <Button classes="bg-red-500/50 hover:bg-red-500" onClick={exportAsPDF} >
                     Download as PDF
-                </button>
-                <button onClick={() => exportAsImage("png")} style={{ padding: "10px 20px", border: "none", backgroundColor: "black", color: "white", fontWeight: "bold", cursor: "pointer" }}>
+                </Button>
+                <Button classes="bg-green-500/50 hover:bg-green-500" onClick={() => exportAsImage("png")} >
                     Download as PNG
-                </button>
-                <button onClick={() => exportAsImage("jpg")} style={{ padding: "10px 20px", border: "none", backgroundColor: "black", color: "white", fontWeight: "bold", cursor: "pointer" }}>
+                </Button>
+                <Button classes="bg-blue-500/50 hover:bg-blue-500" onClick={() => exportAsImage("jpg")} >
                     Download as JPG
-                </button>
+                </Button>
             </div>
         </div >
     );

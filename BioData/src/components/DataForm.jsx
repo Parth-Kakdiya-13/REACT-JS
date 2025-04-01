@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from './Button'
 import { motion } from 'framer-motion'
 
 export const DataForm = ({ onChangeFormData }) => {
@@ -167,7 +166,6 @@ export const DataForm = ({ onChangeFormData }) => {
                 </div>
                 {/* image  */}
             </div>
-            <Button classes="mt-5 w-fit h-fit bg-yellow-500/50 hover:bg-yellow-500">Submit</Button>
         </form>
     )
 }
