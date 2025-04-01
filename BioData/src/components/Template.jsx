@@ -26,7 +26,8 @@ export const Template = ({ tId }) => {
         native: "",
         property: "",
         blood: "",
-        maternal: ""
+        maternal: "",
+        image: null
     });
 
     const [bar, setBar] = useState(false)
@@ -57,7 +58,8 @@ export const Template = ({ tId }) => {
             address: data.address,
             email: data.email,
             blood: data.blood,
-            maternal: data.maternal
+            maternal: data.maternal,
+            image: data.image
         })
     }
 

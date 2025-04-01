@@ -1,22 +1,11 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import profileImage from '../assets/pk_01.jpg';
 import block from '../assets/block.png';
-
+import userIcon from '../assets/userIcon.png'
 
 
 
 const Test = forwardRef(({ data }, ref) => {
-    // 15261c
-    //     const marriageIcons = [
-    //     "https://cdn-icons-png.flaticon.com/128/929/929571.png", // Wedding Rings
-    //     "https://cdn-icons-png.flaticon.com/128/2920/2920056.png", // Bride & Groom
-    //     "https://cdn-icons-png.flaticon.com/128/3062/3062195.png", // Wedding Bells
-    //     "https://cdn-icons-png.flaticon.com/128/2892/2892094.png", // Love Heart
-    //     "https://cdn-icons-png.flaticon.com/128/3012/3012883.png", // Champagne Toast
-    //     "https://cdn-icons-png.flaticon.com/128/2956/2956609.png", // Calendar with Heart
-    //     "https://cdn-icons-png.flaticon.com/128/2315/2315377.png", // Groom Tuxedo
-    //     "https://cdn-icons-png.flaticon.com/128/1385/1385301.png"  // Wedding Invitation
-    // ];
+
 
     const [formData, setFormData] = useState({
         name: "",
@@ -34,7 +23,8 @@ const Test = forwardRef(({ data }, ref) => {
         native: "",
         property: "",
         blood: "",
-        maternal: ""
+        maternal: "",
+        image: null
     });
 
     useEffect(() => {
@@ -57,8 +47,11 @@ const Test = forwardRef(({ data }, ref) => {
             address: data.address,
             email: data.email,
             blood: data.blood,
-            maternal: data.maternal
+            maternal: data.maternal,
+            image: data.image
         })
+
+
     }, [data]);
 
     const date = new Date(formData.dateofbirth);
@@ -67,6 +60,7 @@ const Test = forwardRef(({ data }, ref) => {
         month: "short",
         year: "numeric",
     });
+
 
 
     return (
@@ -200,13 +194,16 @@ const Test = forwardRef(({ data }, ref) => {
                             </div>
 
                             {/* Right Content */}
-                            <div style={{ padding: "0 10px", fontSize: "16px", width: "50%", height: "100%", displa: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: "200px" }}>
+                            <div style={{ fontSize: "16px", width: "60%", height: "100%", displa: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: "200px" }}>
                                 <div className="h-fit p-3 flex flex-col items-center justify-center" style={{ position: "relative", zIndex: "40", border: "5px solid #15261c", padding: "5px" }}>
-                                    <img
-                                        src={profileImage}
+                                    {!formData.image && <div className="w-44 flex justify-center items-center f-fit mx-5" style={{ background: "gray" }}>
+                                        <img src={userIcon} className="w-20 h-20" />
+                                    </div>}
+                                    {formData.image && <img
+                                        src={formData.image}
                                         alt="Profile"
-                                        className="w-44 h-fit mx-5"
-                                    />
+                                        className="w-full h-fit mx-5"
+                                    />}
                                 </div>
 
                                 <div className="flex flex-col justify-center items-center text-center  w-full mt-5">

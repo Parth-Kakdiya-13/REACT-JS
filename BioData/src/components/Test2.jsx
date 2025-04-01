@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import profileImage from '../assets/arti2.jpg';
+import userIcon from '../assets/userIcon.png'
 
 import diamond from '../assets/diamond.png';
 import diamondLine from '../assets/diamondLine.png';
@@ -40,7 +40,8 @@ const Test2 = forwardRef(({ data }, ref) => {
         native: "",
         property: "",
         blood: "",
-        maternal: ""
+        maternal: "",
+        image: null
     });
 
     useEffect(() => {
@@ -63,7 +64,8 @@ const Test2 = forwardRef(({ data }, ref) => {
             address: data.address,
             email: data.email,
             blood: data.blood,
-            maternal: data.maternal
+            maternal: data.maternal,
+            image: data.image
         })
     }, [data]);
 
@@ -88,6 +90,8 @@ const Test2 = forwardRef(({ data }, ref) => {
         month: "short",
         year: "numeric",
     });
+
+    console.log(data.image)
 
     return (
         <div className="relative w-fit h-fit shadow-2xl">
@@ -233,11 +237,14 @@ const Test2 = forwardRef(({ data }, ref) => {
                     {/* Right Content */}
                     <div style={{ paddingRight: "20px", fontSize: "16px", width: "70%", height: "100%", displa: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: "200px" }}>
                         <div className="h-fit p-3 flex flex-col items-center justify-center" style={{ position: "relative", zIndex: "40", background: "rgba(255, 182, 0,0.5)" }}>
-                            <img
-                                src={profileImage}
+                            {!formData.image && <div className="w-full h-52 flex justify-center items-center f-fit mx-5" style={{ background: "gray" }}>
+                                <img src={userIcon} className="w-20 h-20" />
+                            </div>}
+                            {formData.image && <img
+                                src={formData.image}
                                 alt="Profile"
                                 className="w-full h-fit mx-5"
-                            />
+                            />}
                         </div>
 
                         <div className="flex flex-col justify-center items-center text-center  w-full mt-5">

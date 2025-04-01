@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { Button } from './Button';
 
 export const DataForm = ({ onChangeFormData }) => {
 
@@ -22,12 +23,15 @@ export const DataForm = ({ onChangeFormData }) => {
         email: "",
         address: "",
         blood: "",
-        maternal: ""
+        maternal: "",
+        image: null
     })
 
+    const fileInputRef = useRef(null);
     const [isOpen, setIsOpen] = useState(true);
     const [isOpenFamily, setIsOpenFamily] = useState(false);
     const [isOpenContact, setIsOpenContact] = useState(false);
+    const [isOpenImage, setIsOpenImage] = useState(false);
 
     function changeHanler(event) {
         const { name, value } = event.target
@@ -42,12 +46,32 @@ export const DataForm = ({ onChangeFormData }) => {
         onChangeFormData(formData);
     }, [formData]);
 
+
+    const handleClick = () => {
+        fileInputRef.current.click(); // Triggers file input click event
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (!file) return; // Exit if no file is selected
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = () => {
+            setFormData(prevState => ({
+                ...prevState,
+                image: reader.result // Store base64 image
+            }));
+        };
+    };
+
     return (
         <form>
             <div className='flex flex-col gap-5 relative'>
                 {/* personal details */}
                 <div className=''>
-                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-red-500/50 cursor-pointer hover:bg-red-500' onClick={() => { setIsOpen(!isOpen); setIsOpenFamily(false); setIsOpenContact(false) }}
+                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-red-500/50 cursor-pointer hover:bg-red-500' onClick={() => { setIsOpen(!isOpen); setIsOpenImage(false); setIsOpenFamily(false); setIsOpenContact(false) }}
                     >
                         <h2 className='text-2xl font-semibold'>Personal Details</h2>
                     </div>
@@ -97,7 +121,7 @@ export const DataForm = ({ onChangeFormData }) => {
                 </div>
                 {/* family details */}
                 <div>
-                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-green-500/50 cursor-pointer hover:bg-green-500' onClick={() => { setIsOpenFamily(!isOpenFamily); setIsOpen(false); setIsOpenContact(false) }}
+                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-green-500/50 cursor-pointer hover:bg-green-500' onClick={() => { setIsOpenImage(false); setIsOpenFamily(!isOpenFamily); setIsOpen(false); setIsOpenContact(false) }}
                     >
                         <h2 className='text-2xl font-semibold'>Family Details</h2>
                     </div>
@@ -140,7 +164,7 @@ export const DataForm = ({ onChangeFormData }) => {
 
                 {/* contact details  */}
                 <div>
-                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-blue-500/50 cursor-pointer hover:bg-blue-500' onClick={() => { setIsOpen(false); setIsOpenContact(!isOpenContact); setIsOpenFamily(false) }}
+                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-blue-500/50 cursor-pointer hover:bg-blue-500' onClick={() => { setIsOpenImage(false); setIsOpen(false); setIsOpenContact(!isOpenContact); setIsOpenFamily(false) }}
                     >
                         <h2 className='text-2xl font-semibold'>Contact Details</h2>
                     </div>
@@ -165,6 +189,34 @@ export const DataForm = ({ onChangeFormData }) => {
                     </motion.div>
                 </div>
                 {/* image  */}
+                <div>
+                    <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-fuchsia-500/50 cursor-pointer hover:bg-fuchsia-500' onClick={() => { setIsOpen(false); setIsOpenImage(!isOpenImage); setIsOpenFamily(false); setIsOpenContact(false) }}
+                    >
+                        <h2 className='text-2xl font-semibold'>Upload Image</h2>
+                    </div>
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={isOpenImage ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className='mt-5 overflow-hidden '
+                    >
+                        <input
+                            type="file"
+                            accept="image/*"
+                            ref={fileInputRef}
+                            onChange={handleFileChange}
+                            className="hidden"
+                        />
+
+                        {/* Custom Button to Trigger File Input */}
+                        <Button
+                            onClick={handleClick}
+                            classes="bg-yellow-500/50 hover:yellow-500"
+                        >
+                            Upload File
+                        </Button>
+                    </motion.div>
+                </div>
             </div>
         </form>
     )
