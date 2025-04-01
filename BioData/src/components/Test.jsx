@@ -196,7 +196,7 @@ const Test = forwardRef(({ data }, ref) => {
                             {/* Right Content */}
                             <div style={{ fontSize: "16px", width: "60%", height: "100%", displa: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: "200px" }}>
                                 <div className="h-fit p-3 flex flex-col items-center justify-center" style={{ position: "relative", zIndex: "40", border: "5px solid #15261c", padding: "5px" }}>
-                                    {!formData.image && <div className="w-44 flex justify-center items-center f-fit mx-5" style={{ background: "gray" }}>
+                                    {!formData.image && <div className="w-full h-52 flex justify-center items-center f-fit mx-5" style={{ background: "gray" }}>
                                         <img src={userIcon} className="w-20 h-20" />
                                     </div>}
                                     {formData.image && <img
