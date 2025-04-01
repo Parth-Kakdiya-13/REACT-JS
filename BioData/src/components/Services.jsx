@@ -4,9 +4,8 @@ import paper from '../assets/paper.png'
 import form from '../assets/form.png'
 import filefolder from '../assets/file-folder.png'
 import { Button } from './Button';
-import cvtemplate from '../assets/CV-Template.jpg'
-import cvtemplate02 from '../assets/CV-Template-02.jpg'
-import cvtemplate03 from '../assets/CV-Template-03.jpg'
+import cvtemplate from '../assets/Parth Kakdiya.jpg'
+import cvtemplate02 from '../assets/Arti Kakdiya.jpg'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -50,12 +49,6 @@ export const Services = () => {
                     </div>
                     <div className='relative group overflow-hidden transition-all duration-500 ease-in-out shadow-2xl shadow-gray-500 rounded-md'>
                         <img src={cvtemplate02} className='max-w-max h-[30rem]' alt="cv templates" />
-                        <div className='absolute top-full flex justify-center items-center left-0 w-full h-full group-hover:top-0 bg-amber-500/50  transition-all duration-500 ease-in-out'>
-                            <Button classes="bg-blue-500 text-2xl text-white" onClick={navigateToTemplates}>Create Bio</Button>
-                        </div>
-                    </div>
-                    <div className='relative group overflow-hidden transition-all duration-500 ease-in-out shadow-2xl shadow-gray-500 rounded-md'>
-                        <img src={cvtemplate03} className='max-w-max h-[30rem]' alt="cv templates" />
                         <div className='absolute top-full flex justify-center items-center left-0 w-full h-full group-hover:top-0 bg-amber-500/50  transition-all duration-500 ease-in-out'>
                             <Button classes="bg-blue-500 text-2xl text-white" onClick={navigateToTemplates}>Create Bio</Button>
                         </div>

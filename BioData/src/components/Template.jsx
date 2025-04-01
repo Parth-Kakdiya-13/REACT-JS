@@ -7,7 +7,7 @@ import Test from "./Test";
 import Test2 from "./Test2";
 import { Button } from "./Button";
 
-export const Template = () => {
+export const Template = ({ tId }) => {
     const resumeRef = useRef(null);
 
     const [formData, setFormData] = useState({
@@ -105,6 +105,18 @@ export const Template = () => {
         link.click();
     };
 
+    const templatesArray = [
+        {
+            id: "t1",
+            template: <Test2 ref={resumeRef} data={formData} />
+        },
+        {
+            id: "t2",
+            template: <Test ref={resumeRef} data={formData} />
+        },
+
+    ]
+
     return (
         <div className="w-full flex flex-col justify-center items-center mt-20">
             <div className="flex justify-center gap-10 max-[900px]:gap-0 w-full ">
@@ -120,8 +132,11 @@ export const Template = () => {
                     <DataForm onChangeFormData={fetchFormData} />
                 </div>
 
-                {/* <Test data={formData} ref={resumeRef} /> */}
-                <Test2 data={formData} ref={resumeRef} />
+                {templatesArray.map((template) => {
+                    if (template.id === tId) {
+                        return template.template
+                    }
+                })}
             </div>
 
 

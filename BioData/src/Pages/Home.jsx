@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '../components/Button'
-import cvtemplate from '../assets/arti.jpg'
+import cvtemplate from '../assets/Arti Kakdiya.jpg'
 import { Services } from '../components/Services'
 import { useNavigate } from 'react-router-dom'
 

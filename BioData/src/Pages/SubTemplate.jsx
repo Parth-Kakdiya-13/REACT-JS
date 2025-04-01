@@ -4,10 +4,11 @@ import { Template } from '../components/Template'
 
 export const SubTemplate = () => {
 
+    const { id } = useParams();
 
     return (
         <div>
-            <Template />
+            <Template tId={id} />
         </div>
     )
 }

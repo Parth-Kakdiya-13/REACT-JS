@@ -4,6 +4,9 @@ import { Home } from "./Pages/Home";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Templates } from "./Pages/Templates";
 import { SubTemplate } from "./Pages/SubTemplate";
+import { About } from "./Pages/About";
+import { Contact } from "./Pages/Contact";
+import { Login } from "./Pages/Login";
 
 
 
@@ -15,6 +18,9 @@ function App() {
         { path: "/", index: true, element: <Home /> },
         { path: "/templates", element: <Templates /> },
         { path: "/templates/:id", element: <SubTemplate /> },
+        { path: "/about", element: <About /> },
+        { path: "/contact", element: <Contact /> },
+        { path: "/login", element: <Login /> },
       ]
     }
   ])

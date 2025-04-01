@@ -1,7 +1,6 @@
 import React from 'react';
-import cvtemplate from '../assets/arti.jpg'
-import cvtemplate02 from '../assets/Parth.jpg'
-import cvtemplate03 from '../assets/CV-Template-03.jpg'
+import arti from '../assets/Arti Kakdiya.jpg'
+import parth from '../assets/Parth Kakdiya.jpg'
 import { Button } from '../components/Button';
 import { useDispatch } from 'react-redux';
 import { tempalteAction } from '../store/template-slice';
@@ -17,18 +16,14 @@ export const Templates = () => {
         {
             id: "t1",
             title: "template1",
-            image: cvtemplate
+            image: arti
         },
         {
             id: "t2",
             title: "template2",
-            image: cvtemplate02
+            image: parth
         },
-        {
-            id: "t3",
-            title: "template3",
-            image: cvtemplate03
-        },
+
     ];
 
     function selectTemplate(id) {
