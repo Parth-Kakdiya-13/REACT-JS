@@ -4,7 +4,7 @@ import paper from '../assets/paper.png'
 import form from '../assets/form.png'
 import filefolder from '../assets/file-folder.png'
 import { Button } from './Button';
-import parth from '../assets/parth Kakdiya.jpg'
+import parth from '../assets/parth kakdiya.jpg'
 import arti from '../assets/Arti Kakdiya.jpg'
 import { useNavigate } from 'react-router-dom';
 
