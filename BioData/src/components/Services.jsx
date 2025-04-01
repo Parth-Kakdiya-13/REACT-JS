@@ -4,8 +4,8 @@ import paper from '../assets/paper.png'
 import form from '../assets/form.png'
 import filefolder from '../assets/file-folder.png'
 import { Button } from './Button';
-import cvtemplate from '../assets/Parth Kakdiya.jpg'
-import cvtemplate02 from '../assets/Arti Kakdiya.jpg'
+import parth from '../assets/Parth Kakdiya.jpg'
+import arti from '../assets/Arti Kakdiya.jpg'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -42,13 +42,13 @@ export const Services = () => {
                 <h2 className='text-5xl font-black text-center max-md:text-4xl'>Choose Your Favourite Template</h2>
                 <div className='flex flex-wrap justify-center gap-10 mt-10 items-center'>
                     <div className='relative group overflow-hidden transition-all duration-500 ease-in-out shadow-2xl shadow-gray-500 rounded-md'>
-                        <img src={cvtemplate} className='max-w-max h-[30rem]' alt="cv templates" />
+                        <img src={parth} className='max-w-max h-[30rem]' alt="cv templates" />
                         <div className='absolute top-full flex justify-center items-center left-0 w-full h-full group-hover:top-0 bg-amber-500/50  transition-all duration-500 ease-in-out'>
                             <Button classes="bg-blue-500 text-2xl text-white" onClick={navigateToTemplates}>Create Bio</Button>
                         </div>
                     </div>
                     <div className='relative group overflow-hidden transition-all duration-500 ease-in-out shadow-2xl shadow-gray-500 rounded-md'>
-                        <img src={cvtemplate02} className='max-w-max h-[30rem]' alt="cv templates" />
+                        <img src={arti} className='max-w-max h-[30rem]' alt="cv templates" />
                         <div className='absolute top-full flex justify-center items-center left-0 w-full h-full group-hover:top-0 bg-amber-500/50  transition-all duration-500 ease-in-out'>
                             <Button classes="bg-blue-500 text-2xl text-white" onClick={navigateToTemplates}>Create Bio</Button>
                         </div>
