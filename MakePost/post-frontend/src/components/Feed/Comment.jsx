@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Dialog } from "../Dialog";
 
 
 const CommentModal = ({ isOpen, onClose, comments, onCommentSubmit }) => {
@@ -13,9 +12,11 @@ const CommentModal = ({ isOpen, onClose, comments, onCommentSubmit }) => {
                 <div className="relative bg-white p-5 rounded-lg shadow-lg w-[500px] max-w-full max-sm:mx-10">
                     <button
                         onClick={onClose}
-                        className="absolute top-0 -right-8 p-2 rounded-r-xl text-gray-600 hover:text-gray-800 cursor-pointer bg-white"
+                        className="absolute top-0 -right-8 p-2 rounded-r-xl text-blue-500 hover:text-gray-800 cursor-pointer bg-white"
                     >
-                        ✖
+                        <span onClick={() => setShowBar(false)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z" /></svg>
+                        </span>
                     </button>
                     <h2 className="text-xl font-bold mb-3">Comments</h2>
                     <div className="max-h-96 overflow-y-auto space-y-3 mb-4">
@@ -51,7 +52,7 @@ const CommentModal = ({ isOpen, onClose, comments, onCommentSubmit }) => {
                                 onChange={(e) => setNewComment(e.target.value)}
                             />
                             <button
-                                className="bg-gradient-to-br from-fuchsia-500  to-blue-950 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
+                                className="bg-gradient-to-br from-blue-500  to-blue-950 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
                                 onClick={() => {
                                     console.log(newComment.trim().length)
                                     if (newComment.trim()) {

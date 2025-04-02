@@ -10,6 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [token, setToken] = useState(null);
 
+
     async function loginHandler(credentials) {
         try {
             const response = await API.post('/auth/login', credentials);

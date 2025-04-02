@@ -1,43 +1,39 @@
-import { useEffect, useState } from "react"
-import { Navbar } from "./components/Header/Navbar"
-import { Login } from "./pages/Auth/Login"
-import { SignUp } from "./pages/Auth/SignUp"
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Feeds } from "./pages/Feed/Feeds"
-import { SinglePost } from "./pages/Feed/SinglePost"
-import { AuthContextProvider } from "./store/AuthContext"
-import { MyPosts } from "./pages/Feed/MyPosts"
-import { ProtectedRoutes } from "./components/ProtectedRoutes"
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Notifications from "./pages/Notifications";
+import Messages from "./pages/Messages";
+import Profile from "./pages/Profile";
+import MainLayout from "./layout/MainLayout";
+import { Home } from "./pages/Home";
+import { Badges } from "./pages/Badges";
+import { TrendingTopics } from "./pages/TrendingTopics";
+import { Settings } from "./pages/Settings";
+import { Login } from "./components/Auth/Login";
+import { AuthContextProvider } from "./store/AuthContext";
+import { SignUp } from "./components/Auth/Signup";
+import { SinglePost } from "./components/Feed/SinglePost";
 
 function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/", element: <Navbar />, children: [
-        { path: '/login', element: <Login /> },
-        { path: '/signup', element: <SignUp /> },
-        {
-          path: '/', element: <ProtectedRoutes />,
-          children: [
-            { path: '/singlepost', element: <SinglePost /> },
-            { path: '/myposts', element: <MyPosts /> }
-          ]
-        }
-
-      ]
-    },
-  ])
-
-
-
   return (
-    <div className="bg-emerald-200/40 h-screen">
-      <AuthContextProvider>
-        <RouterProvider router={router} />
-      </AuthContextProvider>
-    </div>
-  )
+    <AuthContextProvider>
+      <Router>
+        <Routes>
+          {/* Wrap all pages inside MainLayout */}
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="badges" element={<Badges />} />
+            <Route path="topics" element={<TrendingTopics />} />
+            <Route path="singlepost" element={<SinglePost />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthContextProvider>
+  );
 }
 
-export default App
+export default App;

@@ -41,6 +41,7 @@ exports.getAll = async (req, res) => {
 exports.getPost = async (req, res) => {
   try {
     const userId = new mongoose.Types.ObjectId(req.params.id);
+    console.log(userId)
 
     const posts = await Post.find({ creator: userId }).populate("creator", "name email").populate({
       path: "comments",
