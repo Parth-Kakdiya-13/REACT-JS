@@ -1,9 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import RightSidebar from "../components/RightSidebar";
-import LeftSidebar from "../components/LeftSideBar";
 import { Navbar } from "../components/Navbar";
-import { useContext } from "react";
-import { AuthContext } from "../store/AuthContext";
+import LeftSidebar from "../components/LeftSideBar";
 
 
 const MainLayout = () => {
