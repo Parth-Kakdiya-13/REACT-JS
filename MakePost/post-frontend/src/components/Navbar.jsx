@@ -46,7 +46,7 @@ export const Navbar = () => {
                         </motion.li>
                     )}
                 </div>
-                <div className="w-full" onClick={() => setShowBar(false)}>
+                <div className="w-full md:hidden" onClick={() => setShowBar(false)}>
                     <Profile />
                 </div>
 
