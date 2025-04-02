@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import RightSidebar from "../components/RightSidebar";
 import { Navbar } from "../components/Navbar";
-import LeftSidebar from "../components/LeftSideBar";
+import { LeftSidebar } from "../components/LeftSideBar";
 
 
 const MainLayout = () => {

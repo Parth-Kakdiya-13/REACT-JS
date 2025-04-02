@@ -3,7 +3,7 @@ import { Profile } from "./Profile";
 import { motion } from "framer-motion";
 
 
-const LeftSidebar = () => {
+export const LeftSidebar = () => {
 
     const location = useLocation();
 
@@ -78,4 +78,4 @@ const LeftSidebar = () => {
     </div >;
 };
 
-export default LeftSidebar;
+

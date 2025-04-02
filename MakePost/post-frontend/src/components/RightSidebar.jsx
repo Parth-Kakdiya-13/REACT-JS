@@ -4,9 +4,6 @@ import profileimage from '../assets/pk_01.jpg';
 
 const RightSidebar = () => {
 
-
-
-
     return <div className="flex flex-col gap-5">
         <h2 className="text-2xl text-white">Suggestions</h2>
         <motion.div
