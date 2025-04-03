@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../API/api";
 import { Button } from "../components/UI/Button";
 import CommentModal from "../components/Feed/Comment";
+import { useNavigate } from "react-router-dom";
 
 export const MyPosts = () => {
 
@@ -9,6 +10,8 @@ export const MyPosts = () => {
     const [selectedPost, setSelectedPost] = useState(null);
     const [isCommentOpen, setIsCommentOpen] = useState(false);
     const [loading, setLoading] = useState(true);
+
+    const navigate = useNavigate()
 
     function openComments(post) {
         if (localStorage.getItem("token")) {

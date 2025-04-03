@@ -27,7 +27,7 @@ function App() {
             <Route path="badges" element={<Badges />} />
             <Route path="topics" element={<TrendingTopics />} />
             <Route path="singlepost" element={<SinglePost />} />
-            <Route path="mypost/:id" element={<EditPost />} />
+            <Route path="myposts/:id" element={<EditPost />} />
             <Route path="settings" element={<Settings />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
