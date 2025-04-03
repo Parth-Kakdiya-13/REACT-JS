@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Notifications from "./pages/Notifications";
 import Messages from "./pages/Messages";
-import Profile from "./pages/Profile";
 import MainLayout from "./layout/MainLayout";
 import { Home } from "./pages/Home";
 import { Badges } from "./pages/Badges";
@@ -11,6 +10,8 @@ import { Login } from "./components/Auth/Login";
 import { AuthContextProvider } from "./store/AuthContext";
 import { SignUp } from "./components/Auth/Signup";
 import { SinglePost } from "./components/Feed/SinglePost";
+import MyProfile from "./pages/MyProfile";
+import { EditPost } from "./components/EditPost";
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
           {/* Wrap all pages inside MainLayout */}
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="profile" element={<MyProfile />} />
             <Route path="messages" element={<Messages />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="badges" element={<Badges />} />
             <Route path="topics" element={<TrendingTopics />} />
             <Route path="singlepost" element={<SinglePost />} />
+            <Route path="mypost/:id" element={<EditPost />} />
             <Route path="settings" element={<Settings />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />

@@ -1,109 +1,125 @@
-const Post = require('../model/post');
-const mongoose = require('mongoose')
+const Post = require("../model/post");
+const mongoose = require("mongoose");
 
+// Custom Error Response Function
+const handleError = (res, error, statusCode = 500) => {
+  console.error(error); // Log error for debugging
+  res.status(statusCode).json({ success: false, message: error.message || "Internal Server Error" });
+};
+
+// CREATE POST
 exports.createPost = async (req, res, next) => {
-  const { title, content } = req.body;
-  if (!req.file) {
-    return res.status(400).json({ message: "Image is required" });
-  }
   try {
-    const imagebase64 = req.file.buffer.toString('base64');
+    const { title, content } = req.body;
+
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: "Image is required" });
+    }
+
+    const imagebase64 = req.file.buffer.toString("base64");
+
     const post = new Post({ title, image: imagebase64, content, creator: req.user });
     await post.save();
-    res.status(200).json({ message: post })
+
+    res.status(201).json({ success: true, message: "Post created successfully", post });
   } catch (error) {
-    res.status(500).json({ message: error })
+    handleError(res, error);
   }
 };
 
+// GET ALL POSTS
 exports.getAll = async (req, res) => {
   try {
     const posts = await Post.find()
-      .sort({ createdAt: -1 }) // Sort by latest posts first
-      .populate("creator", "name") // Populate post creator's name
+      .sort({ createdAt: -1 })
+      .populate("creator", "name")
       .populate({
-        path: "comments", // Populate comments
-        select: "text createdAt", // Fetch comment text and timestamp
+        path: "comments",
+        select: "text createdAt",
         populate: {
-          path: "userId", // Populate commenter details
-          select: "name" // Fetch only the user's name
-        }
+          path: "userId",
+          select: "name",
+        },
       });
 
-    res.status(200).json({ data: posts });
+    res.status(200).json({ success: true, data: posts });
   } catch (error) {
-    res.status(500).json({ message: error.message || "Internal Server Error" });
+    handleError(res, error);
   }
 };
 
-
-
+// GET POSTS BY USER ID
 exports.getPost = async (req, res) => {
   try {
-    const userId = new mongoose.Types.ObjectId(req.params.id);
-    console.log(userId)
-
-    const posts = await Post.find({ creator: userId }).populate("creator", "name email").populate({
-      path: "comments",
-      populate: {
-        path: "userId",
-        select: "name",
-      },
-      select: "text createdAt",
-    });
-
-    if (!posts.length) {
-      return res.status(404).json({ message: "No Post Created yet." });
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ success: false, message: "Invalid User ID" });
     }
 
-    res.status(200).json({ message: "Posts fetched successfully", posts });
+    const userId = new mongoose.Types.ObjectId(req.params.id);
+    const posts = await Post.find({ creator: userId })
+      .populate("creator", "name email")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "userId",
+          select: "name",
+        },
+        select: "text createdAt",
+      });
+
+    if (!posts.length) {
+      return res.status(404).json({ success: false, message: "No Posts Created Yet" });
+    }
+
+    res.status(200).json({ success: true, message: "Posts fetched successfully", posts });
   } catch (error) {
-    console.error("Error fetching posts:", error);
-    res.status(500).json({ message: "Server error", error });
+    handleError(res, error);
   }
 };
 
+// UPDATE POST
 exports.updatePost = async (req, res) => {
-  const postId = req.params.id;
-
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ success: false, message: "Invalid Post ID" });
+    }
+
     const updateData = {
       title: req.body.title,
       content: req.body.content,
     };
 
-    // Handle new image upload if available
     if (req.file) {
-      updateData.image = req.file.buffer.toString("base64"); // Store image as base64
+      updateData.image = req.file.buffer.toString("base64");
     }
 
-    const updatedPost = await Post.findByIdAndUpdate(postId, updateData, { new: true });
+    const updatedPost = await Post.findByIdAndUpdate(req.params.id, updateData, { new: true });
 
     if (!updatedPost) {
-      return res.status(404).json({ message: "Post not found" });
+      return res.status(404).json({ success: false, message: "Post not found" });
     }
 
-    res.status(200).json({ message: "Post updated successfully", updatedPost });
+    res.status(200).json({ success: true, message: "Post updated successfully", updatedPost });
   } catch (error) {
-    console.error("Error updating post:", error);
-    res.status(500).json({ message: "Server error", error });
+    handleError(res, error);
   }
 };
 
-
+// DELETE POST
 exports.deletePost = async (req, res) => {
-  const postId = req.params.id
-
   try {
-    const post = await Post.findByIdAndDelete(postId)
-    if (!post) {
-      res.status(404).json({ message: "Post not found" });
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ success: false, message: "Invalid Post ID" });
     }
-    res.status(200).json({ message: "deleted successfully" })
+
+    const post = await Post.findByIdAndDelete(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ success: false, message: "Post not found" });
+    }
+
+    res.status(200).json({ success: true, message: "Post deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: error })
+    handleError(res, error);
   }
-}
-
-
-
+};

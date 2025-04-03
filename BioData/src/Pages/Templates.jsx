@@ -1,6 +1,6 @@
 import React from 'react';
-import arti from '../assets/Arti Kakdiya.jpg'
-import parth from '../assets/parth kakdiya.jpg'
+import arti from '../assets/preview02.jpg'
+import parth from '../assets/preview01.jpg'
 import { Button } from '../components/Button';
 import { useDispatch } from 'react-redux';
 import { tempalteAction } from '../store/template-slice';
