@@ -11,8 +11,8 @@ export const LeftSidebar = () => {
 
     return <div className="">
         <Profile />
-        <aside>
-            <ul className="flex flex-col gap-5 mt-0 md:mt-10 p-5">
+        <aside className="">
+            <ul className="flex flex-col gap-5 mt-0 md:mt-10">
                 <Link to="/">
                     <motion.li
                         initial={{ scale: 1 }}

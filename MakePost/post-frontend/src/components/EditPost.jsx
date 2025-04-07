@@ -5,6 +5,15 @@ import API from '../API/api';
 
 export const EditPost = () => {
 
+    const token = localStorage.getItem("token")
+
+
+    useEffect(() => {
+        if (!token) {
+            return navigate('/login')
+        }
+    }, [token])
+
     const [post, setPost] = useState({
         title: "",
         image: null,
@@ -56,8 +65,6 @@ export const EditPost = () => {
         formData.append("image", post.image);
         formData.append("content", post.content);
         try {
-
-
             const response = await API.put(`/feed/updatePost/${id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -65,6 +72,7 @@ export const EditPost = () => {
                 }
             });
             alert("updated successfully")
+            navigate('/profile')
         } catch (error) {
             console.log(error.message)
         }
@@ -172,6 +180,7 @@ export const EditPost = () => {
                     >
                         Save
                     </Button>
+                    <Button type="button" classes="bg-gray-500" onClick={() => navigate('/profile')}>Cancel</Button>
                 </div>
             </form >
         </div>

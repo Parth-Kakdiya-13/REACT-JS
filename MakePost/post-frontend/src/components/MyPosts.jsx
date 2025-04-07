@@ -6,6 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 export const MyPosts = () => {
 
+    const token = localStorage.getItem("token")
+
+
+    useEffect(() => {
+        if (!token) {
+            return navigate('/login')
+        }
+    }, [token])
+
     const [post, setPost] = useState([])
     const [selectedPost, setSelectedPost] = useState(null);
     const [isCommentOpen, setIsCommentOpen] = useState(false);
@@ -89,7 +98,7 @@ export const MyPosts = () => {
     }
 
     return (
-        <div>
+        <div className="w-4/5 mx-auto">
             {post.length === 0 ? (
                 <h2 className='text-center p-5'>No post yet. Create the first post📭</h2>
             ) : (
@@ -110,7 +119,7 @@ export const MyPosts = () => {
                                     <p className='text-gray-500'>{formattedDate}</p>
                                 </div>
                                 <div className='flex items-start flex-col mt-5'>
-                                    <img className='w-60 h-full object-contain  rounded-md shadow-2xl' src={`data:image/jpeg;base64,${data.image}`} />
+                                    <img className='w-96 h-full object-contain  rounded-md shadow-2xl' src={`data:image/jpeg;base64,${data.image}`} />
                                     <div className='w-full flex flex-col p-5'>
                                         <h2 className='text-2xl text-white capitalize font-sans'>{data.title}</h2>
                                         <p className='text-gray-500'>{data.content}</p>
