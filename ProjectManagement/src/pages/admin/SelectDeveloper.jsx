@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
-import API from '../API/API';
+import API from '../../API/API';
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
-import { assignTask } from '../utils/AssighTaskContext';
+import { assignTask } from '../../utils/AssighTaskContext';
 
 export const SelectDeveloper = () => {
 

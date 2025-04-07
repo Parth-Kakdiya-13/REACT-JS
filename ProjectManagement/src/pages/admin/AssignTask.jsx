@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { assignTask } from '../utils/AssighTaskContext';
-import API from '../API/API';
+import { assignTask } from '../../utils/AssighTaskContext';
+import API from '../../API/API';
 import { useDispatch } from 'react-redux';
-import { notificationAction } from '../store/notification';
+import { notificationAction } from '../../store/notification';
 import { useNavigate } from 'react-router-dom';
 
 export const AssignTask = () => {
@@ -67,7 +67,7 @@ export const AssignTask = () => {
     console.log(taskCtx.developer)
 
     if (!taskCtx.developer.id) {
-        return <p>Select A Developer First</p>
+        return <p className='text-center mt-10'>Select A Developer First</p>
     }
 
     return (
