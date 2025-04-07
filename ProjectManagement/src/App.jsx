@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { RootLayout } from "./components/RootLayout"
 import { Login } from "./pages/Login"
-import { SelectDeveloper } from './pages/SelectDEveloper'
+import { SelectDeveloper } from './pages/SelectDeveloper'
 import { AssignTask } from './pages/AssignTask'
 import { AssignTaskProvider } from './utils/AssighTaskContext'
 import { TaskLists } from './pages/TaskLists'
