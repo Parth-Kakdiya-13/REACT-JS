@@ -127,7 +127,7 @@ export const Template = ({ tId }) => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="currentColor" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414" /></svg>
                     </span>}
                 </div>
-                <div className={`w-1/3 max-[900px]:w-96 max-sm:w-fit max-[900px]:fixed transition-all duration-300 ease-in-out max-[900px]:-left-full ${bar ? "max-[900px]:left-0" : " "}  top-24 max-[900px]:bg-white max-[900px]:p-8 max-[900px]:shadow-2xl max-[900px]:z-50`}>
+                <div className={`w-1/3  max-[900px]:w-96 max-sm:w-fit max-[900px]:fixed transition-all duration-300 ease-in-out max-[900px]:-left-full ${bar ? "max-[900px]:left-0" : " "}  top-20 max-[900px]:bg-white max-[900px]:p-8 max-[900px]:shadow-2xl max-[900px]:z-50`}>
                     {bar && <span className="min-[900px]:hidden absolute top-2 right-2 z-50" onClick={sideBarHandler}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4" /></svg>
                     </span>}

@@ -28,7 +28,7 @@ export const DataForm = ({ onChangeFormData }) => {
     })
 
     const fileInputRef = useRef(null);
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const [isOpenFamily, setIsOpenFamily] = useState(false);
     const [isOpenContact, setIsOpenContact] = useState(false);
     const [isOpenImage, setIsOpenImage] = useState(false);

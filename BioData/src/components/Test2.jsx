@@ -1,6 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import userIcon from '../assets/userIcon.png'
-
 import diamond from '../assets/diamond.png';
 import diamondLine from '../assets/diamondLine.png';
 import flower from '../assets/flower.png';
@@ -13,6 +12,8 @@ import pandel from '../assets/pandel.png';
 import lines from '../assets/lines.png';
 import group from '../assets/group.png';
 import ring from '../assets/ring.png';
+
+import classes from './Test2.module.css'
 
 const marriageIcons = [
     diamond, diamondLine, flower, bird, rabbit, butterfly, set, stars, pandel, lines, group, ring
@@ -94,22 +95,11 @@ const Test2 = forwardRef(({ data }, ref) => {
     console.log(data.image)
 
     return (
-        <div className="relative w-fit h-fit shadow-2xl">
+        <div className="relative w-fit h-fit shadow-2xl max-md:mt-20 flex">
             <div className=" h-fit w-fit relative p-5" ref={ref}>
                 <div
-                    style={{
-                        width: "40rem",
-                        height: "55rem",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "30px",
-                        position: "relative",
-                        overflow: "hidden",
-                        // padding: "0 50px",
-                        border: "3px solid #ff6ea3",
-                        // margin: "50px"
-                    }}
+                    className={classes.container}
+
                 >
 
                     {/* Render Random PNG Background Icons */}
@@ -133,35 +123,35 @@ const Test2 = forwardRef(({ data }, ref) => {
                     ))}
 
                     {/* Left Sidebar */}
-                    <div style={{ width: "100%", fontSize: "16px", display: "flex", flexDirection: "column" }}>
+                    <div className={classes.leftDetails}>
                         {/* personal details */}
                         <div>
                             <h2 className="w-full font-light p-2" style={{ fontSize: "18px", color: "white", background: "#ff6ea3", fontWeight: "500" }}>Personal Details</h2>
-                            <div className="mt-2 ml-10">
-                                <div className="flex mt-5 items-center">
+                            <div className="mt-2 ml-10 max-[600px]:ml-5">
+                                <div className="flex mt-5 max-[600px]:mt-2 items-center">
                                     <p style={{ color: "#454545", }} className=" w-full ">Birth data:
                                     </p>
-                                    <span className="w-full">{formData.dateofbirth ? formattedDate : "xx/xx/xxxx"} </span>
+                                    <p className="w-full">{formData.dateofbirth ? formattedDate : "xx/xx/xxxx"} </p>
                                 </div>
                                 <div className="flex mt-2 items-start">
                                     <p style={{ color: "#454545" }} className=" w-full ">Birth Place:
                                     </p>
-                                    <span className="w-full">{formData.place ? formData.place : "Place"}</span>
+                                    <p className="w-full">{formData.place ? formData.place : "Place"}</p>
                                 </div>
                                 <div className="flex mt-2 items-start">
                                     <p style={{ color: "#454545" }} className=" w-full ">Religion:
                                     </p>
-                                    <span className="w-full">{formData.cast ? formData.cast : "Cast"} </span>
+                                    <p className="w-full">{formData.cast ? formData.cast : "Cast"} </p>
                                 </div>
                                 <div className="flex mt-2 items-start">
                                     <p style={{ color: "#454545" }} className=" w-full ">Height:
                                     </p>
-                                    <span className="w-full">{formData.height ? formData.height : "Height"}</span>
+                                    <p className="w-full">{formData.height ? formData.height : "Height"}</p>
                                 </div>
                                 <div className="flex mt-2 items-start">
                                     <p style={{ color: "#454545" }} className=" w-full ">Blood Group:
                                     </p>
-                                    <span className="w-full">{formData.blood ? formData.blood : "blood"}</span>
+                                    <p className="w-full">{formData.blood ? formData.blood : "blood"}</p>
                                 </div>
                                 <div className="flex mt-2 items-start">
                                     <p style={{ color: "#454545" }} className=" w-full ">Education:
@@ -178,7 +168,7 @@ const Test2 = forwardRef(({ data }, ref) => {
                         {/* family details */}
                         <div>
                             <h2 className="font-light p-2 mt-5" style={{ fontSize: "20px", color: "white", background: "#ff6ea3", fontWeight: "500" }}>Family Details</h2>
-                            <div className="mt-5 ml-10">
+                            <div className="mt-5 max-[600px]:mt-2 ml-10 max-[600px]:ml-5">
                                 <div className=" flex items-start mt-2">
                                     <p style={{ color: "#454545" }} className="w-full ">Father name:
                                     </p>
@@ -214,44 +204,44 @@ const Test2 = forwardRef(({ data }, ref) => {
                         {/* contact details */}
                         <div className=" h-full flex flex-col text-left mt-5 z-40" >
                             <h2 className=" font-light p-2" style={{ fontSize: " 20px", color: "white", background: "#ff6ea3", fontWeight: "500" }}>Contact Details</h2>
-                            <div className="ml-10">
-                                <div className="flex items-start mt-5">
+                            <div className="ml-10 max-[600px]:ml-5">
+                                <div className="flex items-start mt-5  max-[600px]:mt-2">
                                     <p style={{ color: "#454545" }} className="w-full ">Phone No:
                                     </p>
-                                    <span className="w-full">{formData.contact ? formData.contact : "Contact"}</span>
+                                    <p className="w-full">{formData.contact ? formData.contact : "Contact"}</p>
                                 </div>
                                 <div className="flex items-start mt-2">
                                     <p style={{ color: "#454545" }} className="w-full">Address:
                                     </p>
-                                    <span className="w-full">{formData.address ? formData.address : "Address"}</span>
+                                    <p className="w-full">{formData.address ? formData.address : "Address"}</p>
                                 </div>
                                 <div className="flex items-start mt-2">
                                     <p style={{ color: "#454545" }} className="w-full">Email:
                                     </p>
-                                    <span className="w-full">{formData.email ? formData.email : "Email"}</span>
+                                    <p className="w-full">{formData.email ? formData.email : "Email"}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Right Content */}
-                    <div style={{ paddingRight: "20px", fontSize: "16px", width: "70%", height: "100%", displa: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: "200px" }}>
+                    <div className={classes.rightDetails} >
                         <div className="h-fit p-3 flex flex-col items-center justify-center" style={{ position: "relative", zIndex: "40", background: "rgba(255, 182, 0,0.5)" }}>
-                            {!formData.image && <div className="w-full h-52 flex justify-center items-center f-fit mx-5" style={{ background: "gray" }}>
+                            {!formData.image && <div className="w-full h-52 max-[600px]:h-44 flex justify-center items-center f-fit mx-5" style={{ background: "gray" }}>
                                 <img src={userIcon} className="w-20 h-20" />
                             </div>}
                             {formData.image && <img
                                 src={formData.image}
                                 alt="Profile"
-                                className="w-full h-fit mx-5"
+                                className="w-full h-fit"
                             />}
                         </div>
 
                         <div className="flex flex-col justify-center items-center text-center  w-full mt-5">
-                            <h1 style={{ fontSize: "24px", textTransform: "capitalize" }}><span>{formData.name ? formData.name : "Name"}</span></h1>
-                            <p style={{ fontSize: "14px", marginTop: "5px", textTransform: "capitalize" }}>
-                                <span style={{ color: "gray", fontSize: "18px" }}>{formData.occupation ? formData.occupation : "Occupation"}</span>
-                            </p>
+                            <h>{formData.name ? formData.name : "Name"}</h>
+                            {/* <p style={{ fontSize: "14px", marginTop: "5px", textTransform: "capitalize" }}>
+                                <p style={{ color: "gray", fontSize: "18px" }}>{formData.occupation ? formData.occupation : "Occupation"}</p>
+                            </p> */}
                         </div>
 
                     </div>
@@ -261,8 +251,8 @@ const Test2 = forwardRef(({ data }, ref) => {
                 onClick={shuffleIcons}
                 style={{
                     position: "absolute",
-                    top: "-40px",
-                    left: "0",
+                    top: "-50px",
+                    left: "calc(40%)",
                     // transform: "translateX(-50%)",
                     padding: "10px 20px",
                     background: "#FFD700",
@@ -270,7 +260,8 @@ const Test2 = forwardRef(({ data }, ref) => {
                     borderRadius: "5px",
                     cursor: "pointer",
                     fontSize: "16px",
-                    fontWeight: "bold"
+                    fontWeight: "bold",
+                    boxShadow: "2px 3px 5px gray"
                 }}
             >
                 Shuffle Icons

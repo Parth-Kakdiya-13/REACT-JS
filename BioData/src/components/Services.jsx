@@ -21,19 +21,19 @@ export const Services = () => {
             <h2 className='text-5xl font-black text-center max-md:text-4xl'>Make a <span className='text-yellow-500/50'>Bio</span> That Gets Results</h2>
             <div className='flex justify-evenly items-center mt-20 max-md:flex-col'>
                 <div className='flex flex-col items-center'>
-                    <img src={template} alt="templateIcon" loading='lazy' />
+                    <img className='w-20 md:w-22' src={template} alt="templateIcon" loading='lazy' />
                     <h3 className='py-5 text-xl text-gray-500 text-center font-bold'>Choose  a design</h3>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <img src={form} alt="formIcon" loading='lazy' />
+                    <img className='w-20 md:w-22' src={form} alt="formIcon" loading='lazy' />
                     <h3 className='py-5 text-xl text-gray-500 text-center font-bold'>Add details</h3>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <img src={paper} alt="paperIcon" loading='lazy' />
+                    <img className='w-20 md:w-22' src={paper} alt="paperIcon" loading='lazy' />
                     <h3 className='py-5 text-xl text-gray-500 text-center font-bold'>Finish your Bio Data in minutes</h3>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <img src={filefolder} alt="filefolderIcon" loading='lazy' />
+                    <img className='w-20 md:w-22' src={filefolder} alt="filefolderIcon" loading='lazy' />
                     <h3 className='py-5 text-xl text-gray-500 text-center font-bold'>Download in Photo(jpg) or pdf</h3>
                 </div>
             </div>
