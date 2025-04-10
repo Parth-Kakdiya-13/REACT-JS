@@ -1,0 +1,38 @@
+.container{
+    width:40rem;
+    height:55rem;
+    background-image: url('../assets/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 15px;
+}
+
+@media (max-width: 650px) {
+    .container {
+      width: 35rem;
+      /* height: 50rem; */
+    }
+  }
+
+  
+@media (max-width: 550px) {
+    .container {
+      width: 30rem;
+      height: 50rem;
+    }
+  }
+
+  .container h2{
+    color:#2e6300
+  }
+
+  .container h3{
+    color:black
+  }
+
+ .container p{
+    color:#893900
+  }
+  
+  

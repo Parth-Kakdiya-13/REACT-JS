@@ -73,13 +73,13 @@ export const DataForm = ({ onChangeFormData }) => {
                 <div className=''>
                     <div className='hover:text-white transition-all duration-300 ease-in-out top-0 w-full p-2 rounded-md bg-red-500/50 cursor-pointer hover:bg-red-500' onClick={() => { setIsOpen(!isOpen); setIsOpenImage(false); setIsOpenFamily(false); setIsOpenContact(false) }}
                     >
-                        <h2 className='text-2xl font-semibold'>Personal Details</h2>
+                        <h2 className='text-2xl font-semibold '>Personal Details</h2>
                     </div>
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className='mt-5 overflow-hidden '
+                        className='mt-5 overflow-hidden'
                     >
                         <label className='block mt-2 text-lg text-gray-500'>
                             Name:
@@ -93,10 +93,10 @@ export const DataForm = ({ onChangeFormData }) => {
                             Birth Place:
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='place' onChange={changeHanler} />
                         </label>
-                        <label className='block mt-2 text-lg text-gray-500'>
+                        {/* <label className='block mt-2 text-lg text-gray-500'>
                             Rashi:
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='rashi' onChange={changeHanler} />
-                        </label>
+                        </label> */}
                         <label className='block mt-2 text-lg text-gray-500'>
                             Height:
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='height' onChange={changeHanler} />

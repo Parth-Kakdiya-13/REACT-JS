@@ -1,6 +1,7 @@
 import React from 'react';
-import arti from '../assets/preview02.jpg'
-import parth from '../assets/preview01.jpg'
+import preview01 from '../assets/preview02.jpg'
+import preview02 from '../assets/preview01.jpg'
+import preview03 from '../assets/preview03.png'
 import { Button } from '../components/Button';
 import { useDispatch } from 'react-redux';
 import { tempalteAction } from '../store/template-slice';
@@ -16,12 +17,17 @@ export const Templates = () => {
         {
             id: "t1",
             title: "template1",
-            image: arti
+            image: preview01
         },
         {
             id: "t2",
             title: "template2",
-            image: parth
+            image: preview02
+        },
+        {
+            id: "t3",
+            title: "template2",
+            image: preview03
         },
 
     ];
