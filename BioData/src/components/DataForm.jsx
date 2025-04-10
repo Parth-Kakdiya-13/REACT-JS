@@ -175,7 +175,7 @@ export const DataForm = ({ onChangeFormData }) => {
                         className='mt-5 overflow-hidden '
                     >
                         <label className='block mt-2 text-lg text-gray-500'>
-                            Conatact Number:
+                            Contact Number:
                             <input className='w-full text-black p-1 text-md block bg-gray-300/50 rounded-md' type='text' name='contact' onChange={changeHanler} />
                         </label>
                         <label className='block mt-2 text-lg text-gray-500'>
