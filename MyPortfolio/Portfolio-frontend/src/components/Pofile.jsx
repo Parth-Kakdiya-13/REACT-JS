@@ -42,7 +42,7 @@ const Profile = ({ theme }) => {
         <main className={`w-5/12 max-md:w-full flex items-center rounded-ms ${theme === 'light' ? 'bg-stone-200' : ' bg-stone-800'} transition-all duration-700 ease-in  z-20 profile`}>
             <div className='flex flex-col items-center'>
                 <img src={profilePicture} className='w-1/2 max-md:w-2/5 h-fit object-cover' />
-                <h1 className='py-5 text-3xl font-thin'>Parth Kakdiya</h1>
+                <h1 className={`py-5 text-3xl font-thin  ${theme === 'light' ? 'text-black' : 'text-white'}`}>Parth Kakdiya</h1>
                 <div className='flex gap-2'>
                     <img src={github} className='w-8 h-8 bg-violet-200 p-1 rounded-md cursor-pointer' onClick={githubLink} />
                     <img src={linkedin} className='w-8 h-8 bg-violet-200 p-1 rounded-md cursor-pointer' onClick={linkedInLink} />
