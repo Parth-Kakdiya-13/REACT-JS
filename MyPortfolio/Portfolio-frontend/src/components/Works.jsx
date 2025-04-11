@@ -1,28 +1,26 @@
 import { motion, useAnimation } from "framer-motion";
 
-import project from '../assets/project.png'
-import eAdmin from '../assets/eAdmin.png'
+import post from '../assets/createpost.png'
+import bioData from '../assets/biodata.png'
 import eUser from '../assets/eUser.png'
 
 
 
 const Work = ({ workClasses, theme }) => {
-    const admin = useAnimation();
+    const biodata = useAnimation();
     const user = useAnimation();
-    const projectmanagement = useAnimation();
+    const createpost = useAnimation();
 
 
-    // const ecommerceAdmin = () => {
-    //     // Redirect to the desired link
-    //     window.location.href = "https://ecommerce-v36f.vercel.app/";
-    // };
     const ecommerceUsers = () => {
-        // Redirect to the desired link
         window.location.href = "https://ecommerce-ql8y.vercel.app/";
     };
-    const projectManagement = () => {
-        // Redirect to the desired link
-        window.location.href = "https://react-js-six-rose.vercel.app/";
+    const createPost = () => {
+        window.location.href = "https://my-post-plum.vercel.app/";
+    };
+
+    const bioDataBuilder = () => {
+        window.location.href = "https://bio-data-indol.vercel.app/";
     };
 
 
@@ -41,24 +39,24 @@ const Work = ({ workClasses, theme }) => {
 
     return (
         <div className={classes}>
-            {/* <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
+            <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
                 // Trigger the animation when hovering starts
-                admin.start({ y: 0 });
+                biodata.start({ y: 0 });
             }}
                 onHoverEnd={() => {
                     // Reset the animation when hover ends
-                    admin.start({ y: 380 });
+                    biodata.start({ y: 380 });
                 }}>
-                <motion.div initial={{ y: 0 }} animate={admin} className='w-full h-full bg-black bg-opacity-70 flex justify-center items-center absolute cursor-pointer' onClick={ecommerceAdmin}>
-                    <h1 className="text-white text-xl">Admin Panel</h1>
+                <motion.div initial={{ y: 0 }} animate={biodata} className='w-full h-full bg-black bg-opacity-70 flex justify-center items-center absolute cursor-pointer' onClick={bioDataBuilder}>
+                    <h1 className="text-white text-xl">BioData Builder</h1>
                 </motion.div>
                 <img
-                    src={eAdmin} // Replace with your image URL
+                    src={bioData} // Replace with your image URL
                     alt="Example"
                     className='w-full cursor-pointer'
-                    onClick={ecommerceAdmin} // Handle click
+                    onClick={bioDataBuilder} // Handle click
                 />
-            </motion.div> */}
+            </motion.div>
             <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
                 // Trigger the animation when hovering starts
                 user.start({ y: 0 });
@@ -79,20 +77,20 @@ const Work = ({ workClasses, theme }) => {
             </motion.div>
             <motion.div className='border p-5 shadow-inne shadow-2xl relative overflow-hidden' onHoverStart={() => {
                 // Trigger the animation when hovering starts
-                projectmanagement.start({ y: 0 });
+                createpost.start({ y: 0 });
             }}
                 onHoverEnd={() => {
                     // Reset the animation when hover ends
-                    projectmanagement.start({ y: 380 });
+                    createpost.start({ y: 380 });
                 }}>
-                <motion.div initial={{ y: 0 }} animate={projectmanagement} className='w-full h-full bg-black bg-opacity-70 flex justify-center items-center absolute cursor-pointer' onClick={projectManagement} >
-                    <h1 className="text-white text-xl">Project Management</h1>
+                <motion.div initial={{ y: 0 }} animate={createpost} className='w-full h-full bg-black bg-opacity-70 flex justify-center items-center absolute cursor-pointer' onClick={createPost} >
+                    <h1 className="text-white text-xl">Create Post</h1>
                 </motion.div>
                 <img
-                    src={project} // Replace with your image URL
+                    src={post} // Replace with your image URL
                     alt="Example"
                     className='w-full cursor-pointer'
-                    onClick={projectManagement} // Handle click
+                    onClick={createPost} // Handle click
                 />
             </motion.div>
         </div>

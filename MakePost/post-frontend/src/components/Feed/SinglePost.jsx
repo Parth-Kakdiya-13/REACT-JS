@@ -143,6 +143,13 @@ export const SinglePost = () => {
                     >
                         Submit Post
                     </Button>
+                    <Button
+                        classes="bg-gray-500"
+                        type="button"
+                        onClick={() => navigate('/')}
+                    >
+                        Cancel
+                    </Button>
                 </div>
             </form >
         </>
