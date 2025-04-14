@@ -18,14 +18,14 @@ function App() {
     {
       path: '/', element: <RootLayout />, children: [
         {
-          path: 'admin', element: <AdminPanel />, children: [
+          path: 'admin-dashboard', element: <AdminPanel />, children: [
             { index: true, element: <SelectDeveloper /> },
             { path: 'assigntask', element: <AssignTask /> },
             { path: 'taskslist', element: <TaskLists /> },
           ]
         },
         {
-          path: 'developer', element: <DeveloperPanel />, children: [
+          path: 'developer-dashboard', element: <DeveloperPanel />, children: [
             { index: true, element: <Taks /> },
             { path: "complete", element: <MarkAsCompleted /> },
             { path: "fail", element: <MarkAsFail /> },

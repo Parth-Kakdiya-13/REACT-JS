@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { useSelector, useDispatch } from 'react-redux'
 import { Notification } from './Notification'
@@ -11,7 +11,9 @@ export const RootLayout = () => {
     const notification = useSelector(state => state.notification.status);
     const token = useSelector(state => state.auth.token);
 
-    const [bar, setBar] = useState(false)
+    const [bar, setBar] = useState(false);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (notification) {
@@ -28,10 +30,10 @@ export const RootLayout = () => {
 
     return (
         <div className='w-full flex h-screen'>
+            {!token && <div className='absolute flex justify-center items-center top-0 left-0 w-full h-screen bg-gradient-to-tr from-teal-200 to-teal-500'>
+                <button className='bg-cyan-950 text-white text-xl px-10 py-2 rounded-full cursor-pointer' onClick={() => navigate('/login')}>Login</button>
+            </div>}
             {notification && <Notification />}
-
-
-
             {token && (
                 <div className={`w-[20rem] max-md:w-full h-full bg-teal-500 shadow-2xl pt-10 relative max-md:absolute max-md:-left-full ${bar ? "max-md:left-0" : " "} transition-all duration-300 ease-in-out`}>
                     {!bar && <span className='md:hidden absolute top-0 -right-[3rem] text-white bg-cyan-900 px-3 py-2 rounded-r-md' onClick={() => setBar(true)}>
@@ -43,7 +45,6 @@ export const RootLayout = () => {
                     <Sidebar onchangeBar={showBar} />
                 </div>
             )}
-
             <div className='w-full h-full'>
                 <Outlet />
             </div>

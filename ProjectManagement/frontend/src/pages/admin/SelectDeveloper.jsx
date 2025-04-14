@@ -28,7 +28,7 @@ export const SelectDeveloper = () => {
 
     function navigateToAssignTask(details) {
         taskCtx.selectDeveloper(details)
-        navigate('/admin/assigntask')
+        navigate('/admin-dashboard/assigntask')
     }
 
     return (

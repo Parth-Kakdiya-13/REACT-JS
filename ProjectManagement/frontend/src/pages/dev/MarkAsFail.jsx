@@ -48,7 +48,7 @@ export const MarkAsFail = () => {
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.1 }}
                     className='flex flex-col gap-2 w-fit p-5 bg-gradient-to-br from-teal-200 to-teal-500 rounded-md shadow-2xl'>
-                    <div className='flex justify-between bg-cyan-700 p-2 rounded-md text-white'>
+                    <div className='flex justify-between p-2 rounded-md text-white'>
                         <li className='text-xl capitalize'>{items.createdBy.name}</li>
                     </div>
                     <div className='capitalize text-white bg-cyan-700 p-2 rounded-md'>

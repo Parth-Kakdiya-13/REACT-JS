@@ -53,7 +53,7 @@ export const MarkAsCompleted = () => {
                     <div className='flex justify-between bg-cyan-700 p-2 rounded-md text-white'>
                         <li className='text-xl capitalize'>{items.createdBy.name}</li>
                     </div>
-                    <div className='capitalize text-white bg-cyan-700 p-2 rounded-md'>
+                    <div className='capitalize text-white p-2 rounded-md'>
                         <li className='capitalize'><span className='text-lg block text-black'>title:</span> {items.title}</li>
                         <li className='capitalize'><span className='text-lg block text-black'>description:</span> {items.description}</li>
                         <li className='capitalize'><span className='text-lg block text-black'>date:</span> {formattedDate}</li>

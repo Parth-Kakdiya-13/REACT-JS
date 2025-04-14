@@ -32,8 +32,8 @@ export const Sidebar = ({ onchangeBar }) => {
                         <motion.li
                             initial={{ y: 0 }}
                             whileHover={{ y: -5 }}
-                            onClick={() => { navigate('/admin'); onchangeBar() }}
-                            className={`bg-cyan-700  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/admin') ? 'bg-cyan-950' : ' '}`}>
+                            onClick={() => { navigate('/admin-dashboard'); onchangeBar() }}
+                            className={`bg-cyan-700  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/admin-dashboard') ? 'bg-cyan-950' : ' '}`}>
                             select developer
                             <span>{" >"}</span>
                         </motion.li>
@@ -41,8 +41,8 @@ export const Sidebar = ({ onchangeBar }) => {
                         <motion.li
                             initial={{ y: 0 }}
                             whileHover={{ y: -5 }}
-                            onClick={() => { navigate('/admin/assigntask'); onchangeBar() }}
-                            className={`bg-cyan-700  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/admin/assigntask') ? 'bg-cyan-950' : ' '}`}>
+                            onClick={() => { navigate('/admin-dashboard/assigntask'); onchangeBar() }}
+                            className={`bg-cyan-700  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/admin-dashboard/assigntask') ? 'bg-cyan-950' : ' '}`}>
                             assign task
                             <span>{" >"}</span>
 
@@ -50,8 +50,8 @@ export const Sidebar = ({ onchangeBar }) => {
                         <motion.li
                             initial={{ y: 0 }}
                             whileHover={{ y: -5 }}
-                            onClick={() => { navigate('/admin/taskslist'); onchangeBar() }}
-                            className={`bg-cyan-700  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/admin/taskslist') ? 'bg-cyan-950' : ' '}`}>
+                            onClick={() => { navigate('/admin-dashboard/taskslist'); onchangeBar() }}
+                            className={`bg-cyan-700  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/admin-dashboard/taskslist') ? 'bg-cyan-950' : ' '}`}>
                             tasks list
                             <span>{" >"}</span>
                         </motion.li>
@@ -64,20 +64,20 @@ export const Sidebar = ({ onchangeBar }) => {
                         <motion.li
                             initial={{ y: 0 }}
                             whileHover={{ y: -5 }}
-                            onClick={() => { navigate('/developer'); onchangeBar() }}
-                            className={`bg-cyan-800  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/developer') ? 'bg-cyan-950' : ' '}`}>pending task <span>{" >"}</span>
+                            onClick={() => { navigate('/developer-dashboard'); onchangeBar() }}
+                            className={`bg-cyan-800  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/developer-dashboard') ? 'bg-cyan-950' : ' '}`}>pending task <span>{" >"}</span>
                         </motion.li>
                         <motion.li
                             initial={{ y: 0 }}
                             whileHover={{ y: -5 }}
-                            onClick={() => { navigate('/developer/complete'); onchangeBar() }}
-                            className={`bg-cyan-800  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/developer/complete') ? 'bg-cyan-950' : ' '}`}>completed task <span>{" >"}</span>
+                            onClick={() => { navigate('/developer-dashboard/complete'); onchangeBar() }}
+                            className={`bg-cyan-800  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/developer-dashboard/complete') ? 'bg-cyan-950' : ' '}`}>completed task <span>{" >"}</span>
                         </motion.li>
                         <motion.li
                             initial={{ y: 0 }}
                             whileHover={{ y: -5 }}
-                            onClick={() => { navigate('/developer/fail'); onchangeBar() }}
-                            className={`bg-cyan-800  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/developer/fail') ? 'bg-cyan-950' : ' '}`}>failed task <span>{" >"}</span>
+                            onClick={() => { navigate('/developer-dashboard/fail'); onchangeBar() }}
+                            className={`bg-cyan-800  hover:bg-cyan-950 p-3 flex justify-between cursor-pointer text-xl text-white rounded-md capitalize font-semibold w-full ${isActive('/developer-dashboard/fail') ? 'bg-cyan-950' : ' '}`}>failed task <span>{" >"}</span>
 
                         </motion.li>
                     </>

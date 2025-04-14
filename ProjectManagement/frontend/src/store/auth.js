@@ -1,14 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import API from '../API/API';
 import { notificationAction } from './notification';
 
 
-export const loginUser = (input) => {
+export const loginUser = (response) => {
     return async (dispatch) => {
         try {
-            const response = await API.post('/login', input);
-            console.log(response)
-
             const { token, userId, role } = response.data;
             dispatch(authAction.login({ token, userId, role }));
             localStorage.setItem("token", token)

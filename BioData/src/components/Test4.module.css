@@ -1,0 +1,38 @@
+.container{
+    width:40rem;
+    height:55rem;
+    background-image: url('../assets/design01.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    padding: 60px;
+}
+
+@media (max-width: 650px) {
+    .container {
+      width: 38rem;
+      /* height: 50rem; */
+    }
+  }
+
+  
+@media (max-width: 600px) {
+    .container {
+      width: 35rem;
+      height: 55rem;
+    }
+  }
+
+  .container h2{
+    color:#7b8200
+  }
+
+  .container h3{
+    color:black
+  }
+
+ .container p{
+    color:#7b2f00
+  }
+  
+  

@@ -53,7 +53,7 @@ export const AssignTask = () => {
                 date: ""
             })
             dispatch(notificationAction.displayNotification(response.data.message))
-            navigate('/admin/taskslist')
+            navigate('/admin-dashboard/taskslist')
         } catch (error) {
             dispatch(notificationAction.displayNotification(error.response.data.message))
             setTask({
@@ -91,7 +91,7 @@ export const AssignTask = () => {
                 </label>
                 <div className='flex gap-5 flex-wrap max-sm:gap-0'>
                     <button className='w-fit px-10 py-1 bg-cyan-950 hover:bg-blue-900 mt-5 text-white text-2xl rounded-md cursor-pointer'>Submit</button>
-                    <button type='button' className='w-fit px-10 py-1 bg-gray-500 mt-5 text-white text-2xl rounded-md cursor-pointer' onClick={() => navigate('/admin')}>Cancel</button>
+                    <button type='button' className='w-fit px-10 py-1 bg-gray-500 mt-5 text-white text-2xl rounded-md cursor-pointer' onClick={() => navigate('/admin-dashboard')}>Cancel</button>
                 </div>
             </form>
         </div>

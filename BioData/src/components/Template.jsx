@@ -7,6 +7,7 @@ import Test from "./Test";
 import Test2 from "./Test2";
 import { Button } from "./Button";
 import Test3 from "./Test3";
+import Test4 from "./Test4";
 
 export const Template = ({ tId }) => {
     const resumeRef = useRef(null);
@@ -119,6 +120,10 @@ export const Template = ({ tId }) => {
         },
         {
             id: "t3",
+            template: <Test4 ref={resumeRef} data={formData} />
+        },
+        {
+            id: "t4",
             template: <Test3 ref={resumeRef} data={formData} />
         }
 
