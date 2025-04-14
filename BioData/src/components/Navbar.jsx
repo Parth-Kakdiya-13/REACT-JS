@@ -3,7 +3,7 @@ import logo from '../assets/icon.png'
 import { Button } from './Button'
 import menu from '../assets/menu.png'
 import close from '../assets/close.png'
-import { Outlet, useLocation, Link, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, Link, useNavigate, NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
 
@@ -40,18 +40,34 @@ export const Navbar = () => {
                             <img src={logo} className='w-20 h-20 ' />
                             <h2 className='flex flex-col text-sm'>Create<span className='text-yellow-500/50 font-semibold text-2xl uppercase'>Bio</span></h2>
                         </div>
-                        <ul className={`flex items-center max-md:w-full max-md:h-full max-md:items-start max-md:flex-col max-md:fixed max-md:left-0 transition-all duration-300 ease-in-out ${!bar ? 'max-md:-top-full' : 'max-md:top-0'}   max-md:bg-white max-md:pt-24 max-md:pl-10`}>
-                            <li className={`hover:bg-yellow-500/50 px-5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${isActive('/') ? 'bg-yellow-500/50' : ' '}`} onClick={() => setBar(false)}>
-                                <Link to="/">
+                        <ul className={`flex gap-3 items-center max-md:w-full max-md:h-full max-md:items-start max-md:flex-col max-md:fixed max-md:left-0 transition-all duration-300 ease-in-out ${!bar ? 'max-md:-top-full' : 'max-md:top-0'}   max-md:bg-white max-md:pt-24 max-md:pl-10`}>
+                            <li onClick={() => setBar(false)}>
+                                <NavLink
+                                    to="/"
+                                    end={false}
+                                    className={({ isActive }) =>
+                                        `px-5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${isActive ? 'bg-yellow-500/50  font-semibold' : 'hover:bg-yellow-500/50 text-gray-600'
+                                        }`
+                                    }
+                                >
                                     Home
-                                </Link>
+                                </NavLink>
                             </li>
-                            <li className={`hover:bg-yellow-500/50 px-5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${isActive('/templates') ? 'bg-yellow-500/50' : ' '}`} onClick={() => setBar(false)}>
-                                <Link to="/templates">
+
+                            <li onClick={() => setBar(false)}>
+                                <NavLink
+                                    to="/templates"
+                                    end={false}
+                                    className={({ isActive }) =>
+                                        `px-5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${isActive ? 'bg-yellow-500/50 font-semibold' : 'hover:bg-yellow-500/50 text-gray-600'
+                                        }`
+                                    }
+                                >
                                     Templates
-                                </Link>
+                                </NavLink>
                             </li>
-                            <li className={`hover:bg-yellow-500/50 px-5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${isActive('/about') ? 'bg-yellow-500/50' : ' '}`} onClick={() => setBar(false)}>
+
+                            {/* <li className={`hover:bg-yellow-500/50 px-5 py-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${isActive('/about') ? 'bg-yellow-500/50' : ' '}`} onClick={() => setBar(false)}>
                                 <Link to="/about">
                                     About Us
                                 </Link>
@@ -65,7 +81,7 @@ export const Navbar = () => {
                                 <Link to="/login">
                                     Login
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </nav>
