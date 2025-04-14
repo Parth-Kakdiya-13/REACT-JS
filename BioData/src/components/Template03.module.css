@@ -1,11 +1,14 @@
 .container{
     width:40rem;
     height:55rem;
-    background-image: url('../assets/background.jpg');
+    background-image: url('../assets/Template03.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-    padding: 15px;
+    background-size: 100% 100%;
+    /* padding: 15px; */
+    border: 1px solid #814f00;
+    background-color: #ffe4b9;
+    object-fit: cover;
 }
 
 @media (max-width: 650px) {
@@ -18,8 +21,9 @@
   
 @media (max-width: 550px) {
     .container {
+      padding-top: 30px;
       width: 30rem;
-      height: 50rem;
+      height: 53rem;
     }
   }
 

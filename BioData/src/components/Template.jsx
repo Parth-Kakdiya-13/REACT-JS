@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-
 import { DataForm } from "./DataForm";
-import Test from "./Test";
-import Test2 from "./Test2";
 import { Button } from "./Button";
-import Test3 from "./Test3";
-import Test4 from "./Test4";
+import Template01 from "./Template01";
+import Template02 from "./Template02";
+import Template03 from "./Template03";
+import Template04 from "./Template04";
+import Template05 from "./Template05";
 
 export const Template = ({ tId }) => {
     const resumeRef = useRef(null);
@@ -112,19 +112,23 @@ export const Template = ({ tId }) => {
     const templatesArray = [
         {
             id: "t1",
-            template: <Test2 ref={resumeRef} data={formData} />
+            template: <Template01 ref={resumeRef} data={formData} />
         },
         {
             id: "t2",
-            template: <Test ref={resumeRef} data={formData} />
+            template: <Template02 ref={resumeRef} data={formData} />
         },
         {
             id: "t3",
-            template: <Test4 ref={resumeRef} data={formData} />
+            template: <Template03 ref={resumeRef} data={formData} />
         },
         {
             id: "t4",
-            template: <Test3 ref={resumeRef} data={formData} />
+            template: <Template04 ref={resumeRef} data={formData} />
+        },
+        {
+            id: "t5",
+            template: <Template05 ref={resumeRef} data={formData} />
         }
 
     ]
@@ -163,6 +167,6 @@ export const Template = ({ tId }) => {
                     Download as JPG
                 </Button>
             </div>
-        </div >
+        </div>
     );
 };

@@ -13,13 +13,13 @@ import lines from '../assets/lines.png';
 import group from '../assets/group.png';
 import ring from '../assets/ring.png';
 
-import classes from './Test2.module.css'
+import classes from './Template02.module.css'
 
 const marriageIcons = [
     diamond, diamondLine, flower, bird, rabbit, butterfly, set, stars, pandel, lines, group, ring
 ];
 
-const Test2 = forwardRef(({ data }, ref) => {
+const Template02 = forwardRef(({ data }, ref) => {
 
     const [icons, setIcons] = useState(generateRandomIcons);
 
@@ -270,4 +270,4 @@ const Test2 = forwardRef(({ data }, ref) => {
     );
 });
 
-export default Test2;
+export default Template02;

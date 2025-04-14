@@ -1,10 +1,10 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import block from '../assets/block.png';
 import userIcon from '../assets/userIcon.png'
-import classes from './Test.module.css'
+import classes from './Template01.module.css'
 
 
-const Test = forwardRef(({ data }, ref) => {
+const Template01 = forwardRef(({ data }, ref) => {
 
 
     const [formData, setFormData] = useState({
@@ -228,4 +228,4 @@ const Test = forwardRef(({ data }, ref) => {
     );
 });
 
-export default Test;
+export default Template01;

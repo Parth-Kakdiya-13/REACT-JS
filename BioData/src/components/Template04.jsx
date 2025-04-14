@@ -1,11 +1,8 @@
 import React, { forwardRef, useEffect, useState, ref } from "react";
-import classes from './Test3.module.css'
-import profile from '../assets/pk_01.jpg'
+import classes from './Template04.module.css'
 import userIcon from '../assets/userIcon.png'
 
-
-
-const Test3 = forwardRef(({ data }, ref) => {
+const Template04 = forwardRef(({ data }, ref) => {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -64,24 +61,26 @@ const Test3 = forwardRef(({ data }, ref) => {
 
     return (
         <div className={classes.container} ref={ref}>
-            <div style={{ border: "3px solid #a36300" }} className='p-10 max-[650px]:p-8 max-[550px]:p-3 w-full h-full'>
+            <div className='p-10 max-[650px]:p-8 max-[550px]:p-3 w-full h-full mt-10'>
                 {/* top  */}
                 <div className="flex items-center justify-center gap-10 max-[550px]:gap-3">
                     <div className="w-96 h-fit flex flex-col justify-center gap-2">
-                        {!formData.image && <div className="w-full h-52  flex justify-center items-center" style={{ background: "gray" }}>
-                            <img src={userIcon} className="w-20 h-20" />
-                        </div>}
-                        {formData.image && <img
-                            src={formData.image}
-                            alt="Profile"
-                            className="w-full h-fit"
-                        />}
+                        <div style={{ border: "3px solid #814f00", padding: "5px" }}>
+                            {!formData.image && <div className="w-full h-52  flex justify-center items-center" style={{ background: "gray" }}>
+                                <img src={userIcon} className="w-20 h-20" />
+                            </div>}
+                            {formData.image && <img
+                                src={formData.image}
+                                alt="Profile"
+                                className="w-full h-fit"
+                            />}
+                        </div>
                         <p className="capitalize text-center text-md sm:text-xl md:text-2xl font-semibold">{formData.name ? formData.name : "Name"}</p>
                     </div>
                     {/* personal details */}
                     <div className="w-full max-[550px]:w-52 max-[550px]:mx-5">
                         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">Personal Details</h2>
-                        <div className="mt-3">
+                        <div className="mt-3 ml-5">
                             <div className="flex gap-2 mt-3 max-[550px]:mt-2">
                                 <h3 className="text-md font-semibold w-40">Birth data:
                                 </h3>
@@ -185,4 +184,4 @@ const Test3 = forwardRef(({ data }, ref) => {
     )
 });
 
-export default Test3;
+export default Template04;
