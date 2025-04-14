@@ -66,7 +66,7 @@ const Test4 = forwardRef(({ data }, ref) => {
             <div className='px-10 py-5 max-[650px]:p-8 max-[550px]:p-3 w-full h-full'>
                 {/* top  */}
                 <div className="flex justify-center mt-5 gap-1">
-                    <div className="w-44 md:w-fit h-fit items-center flex flex-col justify-center gap-2 bg-red-100">
+                    <div className="w-44 md:w-fit h-fit items-center flex flex-col justify-center gap-2 ">
                         {!formData.image && <div className="w-40 h-52  flex justify-center items-center" style={{ background: "gray" }}>
                             <img src={userIcon} className="w-20 h-20" />
                         </div>}
