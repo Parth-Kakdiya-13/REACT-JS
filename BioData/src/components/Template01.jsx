@@ -2,6 +2,8 @@ import React, { forwardRef, useEffect, useState } from "react";
 import block from '../assets/block.png';
 import userIcon from '../assets/userIcon.png'
 import classes from './Template01.module.css'
+import { Customize } from "./customize";
+import { useSelector } from "react-redux";
 
 
 const Template01 = forwardRef(({ data }, ref) => {
@@ -54,6 +56,11 @@ const Template01 = forwardRef(({ data }, ref) => {
 
     }, [data]);
 
+    const customeBackground = useSelector(state => state.custome.background)
+    const customeHeading = useSelector(state => state.custome.heading)
+    const customeText = useSelector(state => state.custome.text)
+    const customeValue = useSelector(state => state.custome.value)
+
     const date = new Date(formData.dateofbirth);
     const formattedDate = date.toLocaleDateString("en-GB", {
         day: "2-digit",
@@ -62,11 +69,19 @@ const Template01 = forwardRef(({ data }, ref) => {
     });
 
 
-
     return (
-        <div className="shadow-2xl w-fit h-fit">
+        <div className="shadow-2xl w-fit h-fit relative">
+            <div className="">
+                <Customize
+                    background={["#ffe4b9", "#ffffff", "#d5f5e3", "#f2d7d5", "#d6eaf8", "#d6dbdf", "#e8daef"]}
+                    heading={["#000000", "#7c7c7c"]}
+                    text={["#000000", "#7c7c7c"]}
+                    value={["#000000", "#7c7c7c"]}
+                />
+            </div>
             <div
                 ref={ref}
+                style={{ background: customeBackground }}
                 className={classes.container}
             // style={{
             //     width: "40rem",
@@ -101,99 +116,99 @@ const Template01 = forwardRef(({ data }, ref) => {
                             >
                                 {/* personal details */}
                                 <div className="w-full">
-                                    <h2>Personal Details</h2>
+                                    <h2 style={{ color: customeHeading }}>Personal Details</h2>
                                     <div className="mt-2">
                                         <div className="flex mt-5 max-[650px]:mt-0 items-center">
-                                            <p style={{ color: "#454545", }} className="w-full max-[650px]:w-22">Birth data:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Birth data:
                                             </p>
-                                            <span className="w-full max-[650px]:w-22">{formData.dateofbirth ? formattedDate : "xx/xx/xxxx"} </span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-22">{formData.dateofbirth ? formattedDate : "xx/xx/xxxx"} </span>
                                         </div>
                                         <div className="flex mt-2 items-start">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Birth Place:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Birth Place:
                                             </p>
-                                            <span className="w-full max-[650px]:w-fit">{formData.place ? formData.place : "Place"}</span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.place ? formData.place : "Place"}</span>
                                         </div>
                                         <div className="flex mt-2 items-start">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22 ">Religion:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22 ">Religion:
                                             </p>
-                                            <span className="w-full max-[650px]:w-fit">{formData.cast ? formData.cast : "Cast"} </span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.cast ? formData.cast : "Cast"} </span>
                                         </div>
                                         <div className="flex mt-2 items-start">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22 ">Height:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22 ">Height:
                                             </p>
-                                            <span className="w-full max-[650px]:w-fit">{formData.height ? formData.height : "Height"}</span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.height ? formData.height : "Height"}</span>
                                         </div>
                                         <div className="flex mt-2 items-start">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22 ">Blood Group:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22 ">Blood Group:
                                             </p>
-                                            <span className="w-full max-[650px]:w-fit">{formData.blood ? formData.blood : "blood"}</span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.blood ? formData.blood : "blood"}</span>
                                         </div>
                                         <div className="flex mt-2 items-start">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22 ">Education:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22 ">Education:
                                             </p>
-                                            <p className=" w-full max-[650px]:w-fit">{formData.education ? formData.education : "Education"}</p>
+                                            <span style={{ color: customeValue }} className=" w-full max-[650px]:w-fit">{formData.education ? formData.education : "Education"}</span>
                                         </div>
                                         <div className="flex mt-2 items-start">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Occupation:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Occupation:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.occupation ? formData.occupation : "Occupation"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.occupation ? formData.occupation : "Occupation"}</span>
                                         </div>
                                     </div>
                                 </div>
                                 {/* family details */}
                                 <div className="w-full">
-                                    <h2>Family Details</h2>
+                                    <h2 style={{ color: customeHeading }}>Family Details</h2>
                                     <div className="mt-5 max-[650px]:mt-0">
                                         <div className=" flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Father name:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Father name:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.father ? formData.father : "Father name"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.father ? formData.father : "Father name"}</span>
                                         </div>
                                         <div className=" flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Mother name:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Mother name:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.mother ? formData.mother : "Mother name"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.mother ? formData.mother : "Mother name"}</span>
                                         </div>
                                         <div className=" flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Siblings:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Siblings:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.siblings ? formData.siblings : "Siblings"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.siblings ? formData.siblings : "Siblings"}</span>
                                         </div>
                                         <div className=" flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Maternal:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Maternal:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.maternal ? formData.maternal : "Maternal uncle"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.maternal ? formData.maternal : "Maternal uncle"}</span>
                                         </div>
                                         <div className=" flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Status:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Status:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.status ? formData.status : "Satus"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.status ? formData.status : "Satus"}</span>
                                         </div>
                                         <div className=" flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-22">Property:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-22">Property:
                                             </p>
-                                            <p className="w-full max-[650px]:w-fit">{formData.property ? formData.property : "Property"}</p>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.property ? formData.property : "Property"}</span>
                                         </div>
                                     </div>
                                 </div>
                                 {/* contact details */}
                                 <div className="w-full h-full flex flex-col text-left mt-5 max-[650px]:mt-0 z-40" >
-                                    <h2>Contact Details</h2>
+                                    <h2 style={{ color: customeHeading }}>Contact Details</h2>
                                     <div className="">
                                         <div className="flex items-start mt-5 max-[650px]:mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-24">Phone No:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-24">Phone No:
                                             </p>
-                                            <span className="w-full max-[650px]:w-fit">{formData.contact ? formData.contact : "Contact"}</span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.contact ? formData.contact : "Contact"}</span>
                                         </div>
                                         <div className="flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-24">Address:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-24">Address:
                                             </p>
-                                            <span className="w-full max-[650px]:w-fit">{formData.address ? formData.address : "Address"}</span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-fit">{formData.address ? formData.address : "Address"}</span>
                                         </div>
                                         <div className="flex items-start mt-2">
-                                            <p style={{ color: "#454545" }} className="w-full max-[650px]:w-24">Email:
+                                            <p style={{ color: customeText }} className="w-full max-[650px]:w-24">Email:
                                             </p>
-                                            <span className="w-full max-[650px]:w-22">{formData.email ? formData.email : "Email"}</span>
+                                            <span style={{ color: customeValue }} className="w-full max-[650px]:w-22">{formData.email ? formData.email : "Email"}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -213,9 +228,9 @@ const Template01 = forwardRef(({ data }, ref) => {
                                 </div>
 
                                 <div className="flex flex-col justify-center items-center text-center w-full mt-5">
-                                    <h1 ><span>{formData.name ? formData.name : "Name"}</span></h1>
+                                    <h1 ><span style={{ color: customeValue }}>{formData.name ? formData.name : "Name"}</span></h1>
                                     {/* <p style={{ fontSize: "14px", marginTop: "5px", textTransform: "capitalize" }}>
-                                        <span style={{ color: "gray", fontSize: "18px" }}>{formData.occupation ? formData.occupation : "Occupation"}</span>
+                                        <span style={{color:customeValue}} style={{ color: "gray", fontSize: "18px" }}>{formData.occupation ? formData.occupation : "Occupation"}</span>
                                     </p> */}
                                 </div>
 
