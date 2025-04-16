@@ -2,13 +2,10 @@ import React, { forwardRef, useEffect, useState } from "react";
 import block from '../assets/block.png';
 import userIcon from '../assets/userIcon.png'
 import classes from './Template01.module.css'
-import { Customize } from "./customize";
 import { useSelector } from "react-redux";
-
+import { CustomOptions } from "./CustomOptions";
 
 const Template01 = forwardRef(({ data }, ref) => {
-
-
     const [formData, setFormData] = useState({
         name: "",
         dateofbirth: "",
@@ -72,7 +69,7 @@ const Template01 = forwardRef(({ data }, ref) => {
     return (
         <div className="shadow-2xl w-fit h-fit relative">
             <div className="">
-                <Customize
+                <CustomOptions
                     background={["#ffe4b9", "#ffffff", "#d5f5e3", "#f2d7d5", "#d6eaf8", "#d6dbdf", "#e8daef"]}
                     heading={["#000000", "#7c7c7c"]}
                     text={["#000000", "#7c7c7c"]}
@@ -83,18 +80,6 @@ const Template01 = forwardRef(({ data }, ref) => {
                 ref={ref}
                 style={{ background: customeBackground }}
                 className={classes.container}
-            // style={{
-            //     width: "40rem",
-            //     height: "55rem",
-            //     display: "flex",
-            //     alignItems: "center",
-            //     justifyContent: "center",
-            //     gap: "20px",
-            //     position: "relative",
-            //     overflow: "hidden",
-            //     background: "#ffe9c0",
-            //     padding: "10px"
-            // }}
             >
                 <div style={{ width: "100%", height: "100%", position: "relative", padding: "15px" }}>
                     <img className={classes.leftBlock} src={block} />
@@ -102,13 +87,6 @@ const Template01 = forwardRef(({ data }, ref) => {
                     <div style={{ width: "100%", height: "100%", border: "3px solid #15261c", padding: "10px" }}>
                         <div
                             className={classes.main}
-                        // style={{
-                        //     width: "100%", height: "100%", border: "1px solid #15261c", display: "flex",
-                        //     alignItems: "center",
-                        //     justifyContent: "center",
-                        //     gap: "20px",
-                        //     padding: "20px"
-                        // }}
                         >
                             {/* Left Sidebar */}
                             <div className={classes.leftDetails}
