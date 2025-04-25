@@ -18,22 +18,47 @@ export const SignUp = () => {
         navigate('/')
     }
 
+
+
     async function submitHandler(event) {
         event.preventDefault();
+
+        const graphiqlQuery = {
+            query: `
+              mutation {
+                createUser(userInput: {
+                  email: "${user.email}",
+                  name: "${user.name}",
+                  password: "${user.password}"
+                }) {
+                  _id
+                  name
+                }
+              }
+            `
+        };
+
         try {
-            const response = await API.post("/auth/signup", user);
+            const response = await API.post("/graphql", graphiqlQuery, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
             if (response.status === 200) {
                 setMessage("Signup successful!");
-                setTimeout(() => {
-                    navigate("/login");
-                    onClose();
-                }, 1500);
-            } else {
-                setMessage("Signup failed!");
+                navigate("/login");
+                onClose();
             }
+
         } catch (error) {
-            console.error(error);
-            setMessage(error.response?.data?.message || "An error occurred during signup.");
+            console.error("errors", error);
+            if (error.response.data.errors[0].message) {
+                return setMessage(error.response.data.errors[0].message || "Validation error")
+            } else if (error.response.data.errors[0].data[0].message) {
+                return setMessage(error.response.data.errors[0].data[0].message)
+            }
+            // return setMessage(error.response.data.errors[0].message || "An error occurred during signup.");
         }
         setUser({
             email: "",

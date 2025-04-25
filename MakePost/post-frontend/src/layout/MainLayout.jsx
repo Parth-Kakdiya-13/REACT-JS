@@ -2,21 +2,23 @@ import { Navigate, Outlet, replace, useNavigate } from "react-router-dom";
 import RightSidebar from "../components/RightSidebar";
 import { Navbar } from "../components/Navbar";
 import { LeftSidebar } from "../components/UI/LeftSidebar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const MainLayout = () => {
 
-    const navigate = useNavigate()
-    const token = localStorage.getItem("token")
+    const navigate = useNavigate();
 
+    const [token, setToken] = useState("")
+    // console.log(token)
 
     useEffect(() => {
-        if (!token) {
-            return navigate('/login')
-        }
-    }, [token])
+        setToken(localStorage.getItem("token"))
+    }, [])
 
+    // if (!token) {
+    //     return navigate('/login')
+    // }
     return (
         <div className="relative flex h-screen bg-blue-900">
             {/* Left Sidebar - Full Height */}

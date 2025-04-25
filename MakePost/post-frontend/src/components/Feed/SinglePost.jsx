@@ -1,8 +1,7 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef } from 'react';
 import API from '../../API/api';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../UI/Button';
-import { AuthContext } from '../../store/AuthContext';
 
 export const SinglePost = () => {
     const [post, setPost] = useState({
@@ -11,8 +10,8 @@ export const SinglePost = () => {
         content: ""
     });
     const [preview, setPreview] = useState(null);
+    const [base64Image, setBase64Image] = useState("")
 
-    const authCtx = useContext(AuthContext)
 
     const navigate = useNavigate();
     const fileGet = useRef();
@@ -29,36 +28,46 @@ export const SinglePost = () => {
         }));
     }
 
-    function handleFileChange(event) {
-        const file = event.target.files[0];
-        if (file) {
-            setPost((prevState) => ({
-                ...prevState,
-                image: file
-            }));
-            setPreview(URL.createObjectURL(file));
-        }
+    function handleFileChange(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setBase64Image(reader.result);
+            setPreview(reader.result); // show preview
+        };
+        reader.readAsDataURL(file);
     }
+
 
     async function submitHandler(event) {
         event.preventDefault();
 
-        if (!post.image || !(post.image instanceof File)) {
-            alert("Please select a valid image file.");
-            return;
-        }
+        const query = `
+          mutation CreatePost($title: String!, $content: String!, $image: String!) {
+            createPost(postInput: { title: $title, content: $content, image: $image }) {
+              _id
+              title
+              content
+              image
+              createdAt
+            }
+          }
+        `;
 
-        const formData = new FormData();
-        formData.append("title", post.title);
-        formData.append("image", post.image);
-        formData.append("content", post.content);
+        const variables = {
+            title: post.title,
+            content: post.content,
+            image: base64Image,
+        };
 
         try {
             const token = localStorage.getItem("token");
 
-            const response = await API.post('/feed/post', formData, {
+            const response = await API.post('/graphql', { query, variables }, {
                 headers: {
-                    "Content-Type": "multipart/form-data",
+                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
                 }
             });
@@ -75,7 +84,12 @@ export const SinglePost = () => {
             console.error("Error submitting data:", error);
             alert(error.response?.data?.message || "An error occurred while submitting.");
         }
+        setPost({ title: "", image: null, content: "" });
+        setPreview(null);
+        setBase64Image("");
+
     }
+
 
     return (
         <>

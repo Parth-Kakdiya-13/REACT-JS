@@ -1,20 +1,21 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import DarkModeToggle from "../components/UI/DarkModeToggle";
 import { motion } from "framer-motion";
-import { AuthContext } from "../store/AuthContext";
 import { Profile } from "./Profile";
 
 export const Navbar = () => {
-    const authCtx = useContext(AuthContext);
 
     const [token, setToken] = useState(localStorage.getItem("token"));
-    const [showBar, setShowBar] = useState(false)
+    const [showBar, setShowBar] = useState(false);
+    const navigate = useNavigate()
 
 
     const handleLogout = () => {
-        authCtx.logout();
         setToken(null);
+        localStorage.removeItem("token")
+        localStorage.removeItem("userId")
+        navigate('/login')
     };
 
     return (

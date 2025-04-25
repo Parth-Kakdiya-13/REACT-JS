@@ -2,8 +2,9 @@ const Comment = require("../model/comment");
 const Post = require('../model/post')
 
 exports.createComment = async (req, res) => {
+    console.log(req.user)
     try {
-        if (!req.user) {
+        if (!req.userId) {
             return res.status(401).json({ message: "Unauthorized: Invalid user" });
         }
         const { postId, text } = req.body;
@@ -12,7 +13,7 @@ exports.createComment = async (req, res) => {
         }
         const comment = new Comment({
             postId,
-            userId: req.user,
+            userId: req.userId,
             text
         });
         await comment.save();

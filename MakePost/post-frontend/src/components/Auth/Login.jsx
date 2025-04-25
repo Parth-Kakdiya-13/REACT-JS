@@ -1,31 +1,51 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../store/AuthContext";
 import { Button } from "../UI/Button";
+import API from "../../API/api";
 
 export const Login = () => {
     const [user, setUser] = useState({
         email: "",
         password: "",
     });
-    const [text, setText] = useState("");
+    const [message, setMessage] = useState("");
 
-    const authCtx = useContext(AuthContext);
     const navigate = useNavigate();
 
     async function submitHandler(event) {
         event.preventDefault();
+        const graphqlQuery = {
+            query: `
+               mutation{
+                    loginUser(userInput:{email:"${user.email}",password:"${user.password}"}){
+                        token
+                        userId
+                    }
+                }
+            `
+        }
+
         try {
-            await authCtx.login(user);
-            navigate('/')
-            alert("login successgull")
-            setText("Login Successful");
-        } catch (error) {
-            if (error.response) {
-                navigate('/login')
-                setText("Login Failed");
+            const response = await API.post('/graphql', graphqlQuery, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            console.log(response);
+
+            if (response.status === 200) {
+                localStorage.setItem("token", response?.data?.data?.loginUser?.token);
+                localStorage.setItem("userId", response?.data?.data?.loginUser?.userId);
+                navigate('/')
+            } else {
                 alert("login failed")
-                console.error(error);
+            }
+        } catch (error) {
+            console.error("errors", error);
+            if (error.response.data.errors[0].data[0].message) {
+                return setMessage(error.response.data.errors[0].data[0].message || "Validation error")
+            } else if (error.response.data.errors[0].data[0].message) {
+                return setMessage(error.response.data.errors[0].data[0].message)
             }
         }
         setUser({
@@ -34,9 +54,9 @@ export const Login = () => {
         })
     }
 
-    function onClose() {
-        navigate('/')
-    }
+    // function onClose() {
+    //     navigate('/')
+    // }
 
 
     function changeHandler(event) {
@@ -56,7 +76,11 @@ export const Login = () => {
         <>
             {/* Login Form Container */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md bg-white p-8 rounded-lg shadow-2xl max-sm:scale-90">
-
+                {message && (
+                    <div className="w-full mb-4 text-center text-white bg-green-500 py-2 rounded-lg">
+                        {message}
+                    </div>
+                )}
                 <form className="w-full" onSubmit={submitHandler}>
                     {/* Email Input */}
                     <label className="block text-lg font-semibold text-gray-700">

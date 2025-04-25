@@ -3,13 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const mongoose = require('mongoose');
-// const session = require('express-session');
-// const MongoDbStore = require('connect-mongodb-session')(session);
+const { graphqlHTTP } = require('express-graphql');
 
-const User = require('./model/user');
 const authRoutes = require('./routes/auth/user');
 const feedRoutes = require('./routes/feed');
-const commentRoutes = require('./routes/comment')
+const commentRoutes = require('./routes/comment');
+const graphqlSchema = require('./graphql/schema');
+const graphqlResolver = require('./graphql/resolver');
+const isAuth = require('./middleware/is-auth')
 
 const app = express();
 
@@ -21,53 +22,44 @@ app.use(
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
         credentials: true
-
     })
 );
+app.use((req, res, next) => {
+    if (req.method === "OPTION") {
+        res.status(200)
+    }
+    next();
+})
+app.use((req, res, next) => {
+    if (req.method === "GET" && req.url === "/graphql") {
+        return next();
+    }
+    isAuth(req, res, next)
+})
+
+
+app.use('/graphql', graphqlHTTP({
+    schema: graphqlSchema,
+    rootValue: graphqlResolver,
+    graphiql: true,
+    customFormatErrorFn(err) {
+        if (!err.originalError) {
+            return err
+        }
+        const data = err.originalError.data;
+        const message = err.message || "An error occured"
+        const code = err.originalError.code || 500
+        return { message: message, status: code, data: data }
+    }
+}));
+
 mongoose.connect(process.env.MONGO_URI).then(result => {
     console.log("mongoDB connected")
 }).catch(err => {
     console.log(err)
-})
+});
 
-// const store = new MongoDbStore({
-//     uri: process.env.MONGO_URI,
-//     collection: "sessions"
-// })
 
-// store.on('error', function (error) {
-//     console.error("SESSION STORE ERROR:", error);
-// });
-
-// app.use(session({
-//     secret: "your secret key",
-//     resave: false,
-//     saveUninitialized: false,
-//     store: store,
-//     cookie: {
-//         secure: true,
-//         httpOnly: true,
-//         sameSite: "None",
-//         maxAge: 1000 * 60 * 60 * 24
-//     }
-// }))
-
-// app.use(async (req, res, next) => {
-//     if (!req.session.user || !mongoose.Types.ObjectId.isValid(req.session.user._id)) {
-//         return next();
-//     }
-//     try {
-//         const user = await User.findById(req.session.user._id);
-//         if (!user) {
-//             return next();
-//         }
-//         req.user = user;
-//         next();
-//     } catch (err) {
-//         console.error("Error Retrieving User:", err);
-//         next();
-//     }
-// });
 
 app.use('/feed', feedRoutes);
 app.use('/comment', commentRoutes);

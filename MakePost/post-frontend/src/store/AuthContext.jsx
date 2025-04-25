@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
 
+
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -12,8 +13,24 @@ export const AuthContextProvider = ({ children }) => {
 
 
     async function loginHandler(credentials) {
+
+        const graphqlQuery = {
+            query: `
+               mutation{
+                    loginUser(userInput:{email:"${credentials.email}",password:"${credentials.password}"}){
+                        token
+                        userId
+                    }
+                }
+            `
+        }
+
         try {
-            const response = await API.post('/auth/login', credentials);
+            const response = await API.post('/graphql', graphqlQuery, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
             console.log(response);
 
             if (response.status === 200) {

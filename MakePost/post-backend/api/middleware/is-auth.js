@@ -1,16 +1,27 @@
-const jwt = require("jsonwebtoken");
+// middleware/is-auth.js
+const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        return res.status(401).json({ message: "Unauthorized: No token provided" });
+    const authHeader = req.get('Authorization');
+    if (!authHeader) {
+        req.isAuth = false;
+        return next();
     }
-    const token = authHeader.split(" ")[1];
+
+    const token = authHeader.split(' ')[1];
+    if (!token) {
+        req.isAuth = false;
+        return next();
+    }
+    console.log(token)
     try {
-        const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decodeToken.userId;
-        next();
-    } catch (error) {
-        return res.status(403).json({ message: "Invalid or expired token" });
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.userId = decoded.userId;
+        req.isAuth = true;
+    } catch (err) {
+        req.isAuth = false;
     }
+    req.isAuth = true
+
+    next();
 };

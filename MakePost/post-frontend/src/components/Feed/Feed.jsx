@@ -89,7 +89,7 @@ export const Feeds = () => {
             {posts.length === 0 ? (
                 <h2 className='text-center p-5'>No posts yet. Create the first post📭</h2>
             ) : (
-                <div className='w-full flex flex-col  gap-5 mt-5 justify-center '>
+                <div className='w-full flex flex-col gap-5 mt-5 justify-center '>
                     {posts.map((data) => {
                         const formattedDate = new Date(data.createdAt).toLocaleString("en-IN", {
                             day: "2-digit",
@@ -98,7 +98,7 @@ export const Feeds = () => {
                         });
 
                         return (
-                            <div key={data._id} className='w-full max-md:p-10 p-5 flex flex-col items-start rounded-md shadow-2xl bg-blue-900/50'>
+                            <div key={data._id} className='w-fit max-md:p-10 p-5 flex flex-col items-start rounded-md shadow-2xl bg-blue-900/50'>
                                 <div className='flex w-full justify-between items-center px-5'>
                                     <h2 className='text-2xl capitalize font-semibold text-white'>
                                         {data.creator ? data.creator.name : "Unknown"}
@@ -106,7 +106,7 @@ export const Feeds = () => {
                                     <p className='text-gray-500'>{formattedDate}</p>
                                 </div>
                                 <div className='flex items-start flex-col mt-5'>
-                                    <img className='w-60 h-full object-contain  rounded-md shadow-2xl' src={`data:image/jpeg;base64,${data.image}`} />
+                                    <img className='w-60 h-full object-contain  rounded-md shadow-2xl' src={`${data.image}`} />
                                     <div className='w-full flex flex-col p-5'>
                                         <h2 className='text-2xl text-white capitalize font-sans'>{data.title}</h2>
                                         <p className='text-gray-500'>{data.content}</p>

@@ -29,6 +29,8 @@ function App() {
             <Route path="singlepost" element={<SinglePost />} />
             <Route path="myposts/:id" element={<EditPost />} />
             <Route path="settings" element={<Settings />} />
+          </Route>
+          <Route>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
           </Route>
